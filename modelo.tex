@@ -1,0 +1,542 @@
+\documentclass[
+        oneside, %% Coloque  % no início desta linha para imprimir frente e verso
+        english,
+        % french,
+        % spanish,
+        brazil
+        ]{abntbibufjf}
+
+
+\usepackage[T1]{fontenc}		
+\usepackage[utf8]{inputenc} %% Para converter automaticamente acentos como digitados normalmente no teclado. Mude utf8 para latin1 se precisar. 
+
+\usepackage{lmodern} % No caso do modelo Latex, pode-se usar a família de fontes lmodern como aqui indicado, no lugar de Arial e Times New Roman.
+
+
+\usepackage{lastpage}			
+\usepackage{indentfirst}		
+\usepackage{color}			
+\usepackage{graphicx}			
+\usepackage{microtype} 
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{amssymb}
+
+%% -----------------------------------------------------------------------------
+
+%% Obs.: Alguns acentos foram omitidos.
+
+\titulo{Título} %% Colocar, dentro de chaves {}, o título do trabalho.
+\subtitulo{subtítulo} %% Colocar % no início desta linha se nao tiver subtítulo.
+\autor{Autor} %% Colocar, dentro de chaves {}, o nome completo do autor.
+\autorVirg{Sobrenome, Nome do autor} %% Colocar o sobrenome do autor, separado por vírgula, antes do restante do nome do autor. Ex.: Santos, Maria dos
+\local{Juiz de Fora} %% Governador Valadares % Não usar MG.
+\data{Ano} %% Colocar o ano da entrega. Por exemplo, 2019. Não usar mês.
+\orientador[Orientador:]{Nome e sobrenome} %% Se precisar, troque [Orientador:] por [Orientadora:].
+\coorientador[Coorientador:]{Nome e sobrenome} %% Colocar ``%'' no início desta linha se não tiver coorientador. Se precisar, troque por [Coorientadora:].
+\orientadorTitulo{Titulação} %% Colocar, dentro de chaves {}, a titulação do(a) orientador(a). Por exemplo, Prof. Dr.
+\coorientadorTitulo{Titulação} %% Colocar, dentro de chaves {}, a titulação do(a) coorientador(a). 
+\instituicao{Universidade Federal de Juiz de Fora}
+\faculdade{Faculdade X} %% Colocar, dentro de chaves {}, o nome da faculdade ou do instituto.
+\programa{Nome do Curso ou Programa} %% Colocar, dentro de chaves {}, o nome do curso. Por exemplo: Programa de Pós\mbox{-Gra}duação em Matemática
+\objeto{
+% Dissertação (Mestrado)
+% Tese (Doutorado)
+% Trabalho de Conclusão de Curso (graduação)
+}
+\natureza{
+%Dissertação apresentada
+%Tese apresentada
+Trabalho de conclusão de curso apresentado
+ao
+à
+\insereprograma ~da
+Universidade Federal de Juiz de Fora como requisito parcial à obtenção do 
+título de 
+Mestre  
+Doutor
+%%%grau de bacharel em 
+Matemática. %%Trocar Matemática por outro, se precisar.
+área de concentração: %%PREENCHER   %%%Não usar esta linha se for trabalho de conclusão de curso da graduação
+}
+
+%% Abaixo, prencher com os dados da parte final da ficha catalografica
+\finalcatalog{1. Palavra-chave. 2. Palavra-chave. 3. Palavra-chave. I. Sobrenome, Nome do orientador, orient. II. Título.} %% Aqui fica 
+% escrito a palavra ``Título'' mesmo, nao o do trabalho. Se tiver coorientador, os dados ficam depois dos dados 
+%% do orientador (II. Sobrenome, Nome do coorientador, coorient.) e antes de ``II. Título'', o qual passa a ``III. Título''.
+
+
+\usepackage[round, numbers]{natbib} %para referências bibliográficas no sistema num\'erico com () na chamada da citacao. 
+
+%Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
+
+%\usepackage{natbib} %para o sistema autor-data
+
+\begin{document}
+
+%% ELEMENTOS PR\'E-TEXTUAIS
+
+
+%% Capa. Não entra na contagem da paginação.
+\inserecapa
+
+%% Folha de rosto
+\inserefolhaderosto
+
+%% Ficha catalográfica. AO IMPRIMIR, DEIXAR NO VERSO DA FOLHA DE ROSTO.
+\inserecatalog
+
+
+%% Folha de aprovacao. Incluir mesmo que sem assinaturas. Assinaturas eletr\^onicas via SEI.
+\begin{folhadeaprovacao}
+    \inicfolhaaprov
+
+    Aprovada em (dia) de (mês) de (ano) %%Preencher com a data 
+
+    \vfill
+    \begin{center} BANCA EXAMINADORA \end{center}
+    \assinatura{\insereorientadorTitulo~\insereorientador \ - Orientador \\ Universidade Federal de Juiz de Fora}  %%Orientadora
+    %\assinatura{Professor Dr. \inserecoorientador \ - Coorientador \\ Universidade Federal de Juiz de Fora}
+    \assinatura{Titulação Nome e sobrenome \\ Universidade ???}
+    \assinatura{Titulação Nome e sobrenome  \\ Universidade ??}
+    %\assinatura{...} %%RETIRE O % E PREENCHA SE PRECISAR
+    %  \assinatura{...}
+    %  \assinatura{...}
+\end{folhadeaprovacao}
+\cleardoublepage
+
+
+%% Dedicatoria. OPCIONAL. Não deve haver título. Colocar ``%'' no início de cada das 3 linhas abaixo, caso não queira. 
+\begin{dedicatoria}
+    Dedico este trabalho ...
+\end{dedicatoria}
+
+
+%% Agradecimentos. OPCIONAL. Caso seja bolsista, inserir os devidos agradecimentos.
+\begin{agradecimentos}
+    Agradeço aos ...
+\end{agradecimentos}
+
+
+%% Epígrafe. OPCIONAL. Com os dados do autor. A obra usada na epígrafe deve constar nas referências. 
+
+% Quando at\'e 3 linhas: \'e obrigatório o uso de aspas duplas.
+
+%\begin{epigrafemenos} %%Epígrafe com 3 ou menos linhas
+%``Mas para que o produto de uma pesquisa científica possa ser publicado não basta que ele apresente um conteúdo de qualidade, também é exigida qualidade de forma.'' (MARçAL JUNIOR, 2013, p. 19-20).
+%\end{epigrafemenos}
+
+%%Quando com mais de 3 linhas. 
+
+\begin{epigrafemais} %%Epígrafe com mais de 3 linhas 
+    Elemento opcional, em que o autor apresenta uma citação, seguida de indicação de autoria, relacionada com a
+    mat\'eria tratada no corpo do trabalho. (Associação Brasileira de Normas T\'ecnicas, 2011, p. 2).
+\end{epigrafemais}
+
+
+%% RESUMOS
+
+%% Resumo em Português. OBRIGATóRIO. \'E obrigatório o uso de parágrafo \'unico.
+\begin{resumo}
+
+    De acordo com a Associação Brasileira de Normas T\'ecnicas NBR 6028 (2003, p.2), ``o resumo deve ressaltar
+    o objetivo, o m\'etodo, os resultados e as conclus\~oes do documento. [...] Deve ser composto de uma sequência de frases
+    concisas, afirmativas e não de enumeração de tópicos. Recomenda-se o uso de parágrafo \'unico.''
+    O resumo deve ter de 150 a 500 palavras. \\[18pt]
+    Palavras-chave: palavra-chave; palavra-chave; palavra-chave. %Separadas por ``;'' e iniciadas por letras min\'usculas.
+\end{resumo}
+
+
+%% Resumo em Inglês. \'E obrigatório o uso de parágrafo \'unico.
+\begin{resumo}[ABSTRACT]
+    \begin{otherlanguage*}{english}
+
+        Trata-se da versão do resumo em língua estrangeira para divulgação internacional. Segue as mesmas características do resumo em
+        língua vernácula. O título \'e atribuído de acordo com o idioma escolhido (ABSTRACT, em inglês; RESUMEN, em espanhol; etc.), bem como
+        as palavras-chave (Keywords, em ingês; Palabras-clave, em espanhol; etc.). \\[18pt]
+        Keywords: keyword; keyword; keyword. %Separadas por ``;'' e iniciadas por letras min\'usculas.
+    \end{otherlanguage*}
+\end{resumo}
+
+%% Seguindo o mesmo modelo acima, pode-se inserir resumos em outras línguas. 
+
+
+
+%% Lista de ilustraç\~oes. OPCIONAL. Sao consideradas ilustraç\~oes: desenhos, esquemas, fluxogramas, figuras, fotografias, gráficos, mapas, organogramas, plantas, quadros, entre outros. Tabelas não são consideradas ilustraç\~oes. A ordem da lista deve obrigatoriamente ser a mesma ordem em que as ilustraç\~oes aparecem no texto. Quando o título ocupar mais de uma linha, a segunda linha deve estar exatamente abaixo da primeira.  
+
+\pdfbookmark[0]{\listfigurename}{lof}
+
+%Caso as ilustraç~oes do trabalho sejam todas do mesmo tipo (por exemplo, todas do tipo organograma), coloque % no início das duas linhas abaixo. 
+\ilustvaria   %Use este comando somente caso as ilustraç\~oes não sejam todas do mesmo tipo. 
+\listilustvaria  %Use este comando somente caso as ilustraç\~oes não sejam todas do mesmo tipo e caso queira inserir a lista delas. 
+
+%\listoffigures*  %Use este comando quando todas as ilustraç\~oes são do mesmo tipo e caso queira inserir a lista delas. Veja dicas no final deste arquivo.
+
+\cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+
+%% Lista de tabelas. OPCIONAL. A ordem da lista de tabelas deve obrigatoriamente ser a mesma ordem em que as tabelas aparecem no texto. 
+
+
+\listoftables*    %Coloque ``%'' no início desta linha, caso não queira lista de tabelas. 
+
+\cleardoublepage
+
+
+%% Lista de abreviaturas e siglas. OPCIONAL. Nao deve haver sinal grafico entre as siglas e abreviaturas e o significado. 
+
+\begin{siglas} %%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
+    \item[ABNT] Associação Brasileira de Normas T\'ecnicas
+    \item[Fil.] Filosofia
+    \item[IBGE] Instituto Brasileiro de Geografia e Estatística
+    \item[INMETRO] Instituto Nacional de Metrologia, Normalização e Qualidade Industrial
+\end{siglas}
+
+%% Lista de símbolos. OPCIONAL. Nao deve haver sinal grafico entre o simbolo e o seu significado.
+
+\begin{simbolos} %%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
+    \item[$ \forall $] Para todo
+    \item[$ \in $] Pertence
+\end{simbolos}
+
+
+%% Sumário
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+%% ----------------------------------------------------------
+
+%% ELEMENTOS TEXTUAIS
+\textual
+
+
+\chapter{INTRODUçãO}  %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui
+
+Este elemento \'e obrigatório. Na introdução são descritos os objetivos da pesquisa, a razão de sua elaboração e limitação acerca da
+temática. Neste momento, o pesquisador situa o leitor acerca do tema. Este \'e o primeiro elemento textual e a partir dele a numeração de página
+estará visível na parte superior da página, por\'em a contagem iniciou na folha de rosto.
+
+Elaborada conforme a ABNT 10520.
+
+\begin{citacao}
+    As citaç\~oes diretas, no texto, com mais de três linhas, devem ser destacadas
+    com recuo padronizado em relação á margem esquerda, com letra menor que a do texto utilizado
+    e sem as aspas. Recomenda-se o recuo de 4 cm. [...] Para enfatizar trechos da citação, deve-se destacá-los indicando esta
+    alteração com expressão grifo nosso entre parênteses, após a chamada da citação, ou grifo
+    do autor, caso o destaque já faça parte da obra consultada. (Associação Brasileira de Normas
+    T\'ecnicas, 2023, p. 12-13)
+\end{citacao}
+
+%As instruç\~oes aqui contidas buscam ajudar a direcionar e orientar quanto à padronização das monografias, dissertac\~oes e teses na UFJF. 
+%Serão apresentados alguns exemplos de referências apenas como modelo de documento. Detalhes completos sobre como apresentar as referências se 
+%encontram na norma ABNT NBR 6023:2018. Mais informaç\~oes sobre as normas de padronização são encontradas diretamente nas bibliotecas da UFJF e em 
+%http://www.ufjf.br/biblioteca/servicos/normalizacao-2
+
+
+\chapter{NOME DA SEç\~{A}O} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui
+
+Após a introdução, segue-se o elemento desenvolvimento. Este elemento obrigatório \'e que irá desenvolver a ideia principal do trabalho.
+\'E o elemento mais longo, podendo ser dividido em várias seç\~oes %(primárias, secundárias, etc.) 
+e subseç\~oes que devem conter texto.
+
+Apresentamos nesta página um exemplo de nota \footnote{As notas devem ser digitadas ou datilografadas dentro das margens, ficando separadas do texto
+    por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto. (Associação
+    Brasileira de Normas T\'ecnicas, 2011, p. 10).}.
+
+
+%No sistema num\'erico para citaç\~oes de referências, as referências devem ser numeradas de acordo com a ordem sequencial em que aparecem no texto 
+%pela primeira vez e colocadas em lista nesta mesma ordem. (ABNT, 2018).
+
+%O sistema num\'erico não deve ser utilizado quando há notas de rodap\'e. (ABNT, 2002).  
+
+\section{SEçãO SECUNDáRIA} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+
+Um exemplo de citação de referência no sistema num\'erico \'e \cite{disp2019}. Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e
+\cite{Aguiar2009}.
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%Exemplos para citar referência no sistema autor-data (não o sistema num\'erico). Caso queira usar, selecionar \usepackage{natbib}  antes de \begin{document} e colocar % antes de \usepackage[round, numbers]{natbib}.
+
+%Conforme \citep[p. 4]{t1}, isto ... 
+%% (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] \'e opcional.)
+
+%Conforme \citet*[p. 4]{t1}, isto ... 
+%% (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] \'e opcional.)
+
+%Conforme \citep{Bauman99}, ...
+
+%De acordo com \citet*{disp2019}, ...
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EXEMPLOS DE ILUSTRAç\~OES DE TIPOS DIFERENTES. PARA EXEMPLOS DO MESMO TIPO, VEJA A DICA NO FINAL DESTE ARQUIVO.
+
+
+
+Abaixo, são apresentados exemplos de ilustraç\~oes.
+
+% Qualquer que seja o tipo de ilustração, sua identificação aparece na parte superior, 
+% precedida da palavra designativa (desenho, esquema, fluxograma, fotografia, gráfico, mapa, organograma, planta, 
+% quadro, retrato, figura, imagem, entre outros) ... A ilustração deve ser citada no texto ...(ABNT, 2011)
+
+%%Exemplo de figura
+%\begin{figure}[h]
+%\captiondelim{} %%Caso as ilustraç\~oes do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%\larguratexto{11cm}  %%mesma largura da ilustração, dada em ``[width=11cm]'' abaixo
+%\begin{center}
+%\caption[Figura 1 \hspace*{4pt} -- Logotipo da UFJF] %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustraç\~oes. 
+%%O texto entre [ ] fica na lista de ilustraç\~oes e o texto entre { } fica acima da figura.
+%{Figura 1 - Logotipo da UFJF} %%Informação acima da figura
+%\includegraphics[width=11cm]{logo.jpg}
+%\fonte{Universidade Federal de Juiz de Fora (2012).} 
+%\nota{Ilustração incompleta.} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%\end{center}
+%\end{figure}
+
+
+%%Caso a ilustracao seja elaborada pelo autor, usar ``\fonte{Elaborado pelo autor. (ano).}'' substituindo, se necessario, autor por autora ou Elaborado por Elaborada.
+
+%%Exemplo de quadro
+%\begin{figure}[h]
+%\captiondelim{} %%Caso as ilustraç\~oes do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%\larguratexto{14cm}  %%Mesma largura da ilustração, dada em ``[width=14cm]'' abaixo
+%\begin{center}
+%\caption[Quadro 1 \hspace*{0.1pt} -- Bibliotecas da UFJF %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustraç\~{o}es 
+%em Juiz de Fora]      %%O texto entre [ ] fica na lista de ilustraç\~oes e o texto entre { } fica acima da ilustraç\~{a}o.
+%{Quadro 1 - Bibliotecas da UFJF em Juiz de Fora} %%Informação acima da ilustraç\~{a}o..
+%\includegraphics[width=14cm]{bibliotecas.png}
+%\fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%\end{center}
+%\end{figure}
+
+%Quadro possui dados diversos, tabela possui obrigatoriamente dados numericos.
+
+%%exemplos de gráficos
+%\begin{figure}[h]
+%\captiondelim{} %%Caso as ilustraç\~oes do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%\larguratexto{10cm} %%Mesma largura da ilustração, dada em ``[width=11cm]'' abaixo
+%\begin{center}
+%\caption[Gráfico 1 \hspace*{2.5pt} -- índice de qualificaç\~{a}o do corpo docente da UFJF %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustraç\~oes
+%Título %\hspace*{...} para alinhar, na lista de ilustraç\~oes, segunda linha de título longo com primeira linha, após ``-''
+%Título Título Título \hspace*{3pt} Título] %%O texto entre [ ] fica na lista de ilustraç\~oes e o texto entre { } fica acima da ilustraç\~{a}o.
+%{Gráfico 1 - índice de qualificaç\~{a}o do corpo docente da UFJF Título Título Título Título Título} %%Informação acima da ilustraç\~{a}o.
+%\includegraphics[width=10cm]{qualific.png} 
+%\fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%\end{center}
+%\end{figure}           
+
+%\begin{figure}[h!]
+%\captiondelim{} %%Caso as ilustraç\~oes do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%\larguratexto{13cm} %%Mesma largura da ilustração, dada em ``[width=13cm]'' abaixo
+%\begin{center}
+%\caption[Gráfico 2 \hspace*{2pt} -- UFJF: Evolução %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustraç\~oes
+%dos cursos de mestrado e doutorado 
+%(2005/2011) Título \hspace*{5pt} %\hspace*{...} para alinhar, na lista de ilustraç\~oes, segunda linha de título longo com primeira linha, após ``-''
+%Título Título Título Título] %%O texto entre [ ] fica na lista de ilustraç\~oes e o texto entre { } fica acima da ilustraç\~{a}o.
+%{Gráfico 2 - UFJF: Evolução dos cursos de mestrado e doutorado (2005/2011) Título Título Título Título} %Informação acima da ilustraç\~{a}o.
+%\includegraphics[width=13cm]{mest_dout.png} 
+%\fonte{Universidade Federal de Juiz de Fora (2012).} %Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%\end{center}
+%\end{figure}
+
+
+\subsection{\textbf{Seção terciária}} %% O título da subseção vem em negrito e caixa baixa
+
+Abaixo, são apresentados exemplos de tabela.
+
+%%Exemplo de tabela. Tabelas nao possuem margem lateral. Tabelas apresentam obrigatoriamente dados numericos.
+
+%\begin{table}[h]
+% \larguratexto{12cm} %%Mesma largura da ilustração, dada em ``[width=12cm]'' abaixo
+% \begin{center}
+%\caption{Quantidade de bibliotecários da UFJF}
+% \includegraphics[width=12cm]{tab1.png}
+% \fonte{Elaborada pelo autor (2019).} 
+%\end{center}
+%\end{table}
+
+%\begin{table}[h]
+%\larguratexto{10cm}  %Mesma largura da ilustração, dada em ``[width=10cm]'' abaixo
+%\begin{center}
+%\caption{Composição dos Recursos Humanos do HU/UFJF Título Título Título Título Título Título Título Título Título Título}
+%\includegraphics[width=10cm]{rec.png}
+%\fonte{Universidade Federal de Juiz de Fora (2012).} 
+%\end{center}
+%\end{table}
+
+%%Caso a tabela seja elaborada pelo autor, usar \fonte{Elaborada pelo autor. (ano).} substituindo, se necessario, autor por autora.
+
+\subsubsection{\textit{Seção quaternária}} %% O título da subsubseção vem em itálico e caixa baixa 
+
+Se houver seção quaternária, incluir texto ...
+
+\subsubsubsection{Seção quinária}  %% O título desta vem em caixa baixa
+
+Se houver seção quinária, incluir texto ...
+
+
+\chapter{CITAç\~{O}ES} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+
+As citações são informaç\~{o}es extraídas de fonte consultada pelo autor da obra em desenvolvimento. Podem ser diretas, indiretas ou citação de citação. Para exemplos, consultar o apêncice D no Manual de Normalização de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+\url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
+
+\section{SISTEMA AUTOR-DATA} %%Nesta linha, dentro de { }, digita-se o nome da seção secundária em CAIXA ALTA, como apresentado aqui.
+
+Para o sistema autor-data, considere:
+\begin{itemize}
+    \item[a)] \textbf{citação direta} \'e caracterizada pela transcriç\~{a}o textual da parte consultada. Se com at\'e três linhas, deve estar entre aspas duplas, exatamente como na obra consultada. Se com mais de três linhas, recomenda-se o recuo de 4 cm da margem esquerda, com letra menor (um ponto), espaçamento simples, sem aspas. Sendo a chamada: (Autor, data e página) ou na sentença Autor (data, página).
+    \item[b)] \textbf{citaç\~{a}o indireta} \'e aquela em que o texto foi baseado na(s) obra(s) consultada(s). Em caso de mais de três fontes consultadas, a citaç\~{a}o deve seguir a ordem alfab\'etica.
+    \item[c)] \textbf{A citaç\~{a}o de citaç\~{a}o} \'e baseada em um texto em que não houve acesso ao original.
+\end{itemize}
+
+
+
+\section{SISTEMA NUM\'ERICO} %%Nesta linha, dentro de { }, digita-se o nome da seção secundária em CAIXA ALTA, como apresentado aqui.
+
+\textbf{Para o sistema num\'erico:}
+
+A indicaç\~{a}o da fonte \'e feita por uma numeraç\~{a}o \'unica e consecutiva respeitando a ordem que aparece no texto. Deve-se usar algarismos arábicos remetendo à lista de referências. A indicaç\~{a}o da numeraç\~{a}o \'e apresentada entre parênteses no corpo do texto ou como expoente. Não usar colchetes. O autor pode aparecer ou não no texto. Para separar diversos autores, utiliza-se vírgula. N\~{a}o utilizar nota de rodap\'{e} quando utilizar o sistema num\'{e}rico.
+Observe os exemplos no Manual de Normalizaç\~{a}o de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+\url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
+
+Em citação direta, o número da página (precedido por ``p.'') ou localizador, se houver, deve ser indicado após o número da fonte no texto, separado por vírgula e um espaço. O número do localizador, em publicações eletrônicas, deve ser precedido por sua respectiva abreviatura (local.). Exemplos: (1, p. 30), (7, local. 72), (4, Mt 6, 3-6, p. 1730), (6, v.3, p.583), (5, cap. V, art. 49, inc.I), (2, 9 min 41 s).
+
+\section{NOTAS} %%Nesta linha, dentro de { }, digita-se o nome da seção secundária em CAIXA ALTA, como apresentado aqui.
+
+Notas de rodap\'e são observaç\~{o}es e/ou aditamentos que o autor precisa incluir no texto \footnote[2]{As notas devem ser alinhadas sendo que na segunda linha da mesma nota, a primeira letra deve estar abaixo da primeira letra da primeira palavra da linha superior, destacando assim o expoente.}. Para a numeraç\~{a}o das notas deve-se utilizar algarismos arábicos. As notas devem ser digitadas dentro das margens, ficando separadas do texto por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto. As notas de rodap\'e só podem ser usadas no sistema autor-data. Observe os exemplos no Manual de Normalizaç\~{a}o de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+\url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%EXEMPLO DE ALíNEAS
+
+%\begin{alineas}
+% \item texto;    
+% \item texto; 
+% \item texto.
+%\end{alineas}
+
+%%Existe tamb\'em ``\begin{subalineas} \item ... \end{subalineas}'' que em cada linha fica sem recuo e coloca - no lugar das letras do alfabeto.  
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+\chapter{CONCLUSãO} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+
+Este elemento \'e obrigatório e \'e a parte final do texto.  Nele, são apresentadas as conclus\~oes identificadas a partir do desenvolvimento da pesquisa.
+
+%Todo trabalho deve conter apenas um elemento conclusivo.
+
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%% ELEMENTOS POS-TEXTUAIS
+
+\postextual
+
+
+%% Fizemos a opção por colocar as referências diretamente no arquivo ``.tex'' por ser mais simples para quem se inicia na escrita de trabalhos acadêmicos.
+%% Referencias. LISTAR EXATAMENTE AS CITADAS NO TRABALHO.
+
+%No elemento REFERêNCIAS, todas ``as referências devem ser ... alinhadas à margem esquerda do texto ... (ABNT, 2018). 
+
+
+\begin{thebibliography}{99}
+
+
+    %%O elemento título de cada referência será destacado pelo uso do recurso tipográfico negrito (\textbf) ou do itálico (\textit), sendo que o 
+    %recurso tipográfico utilizado deve ser uniforme em todas as referências do trabalho. Recomendamos o uso do negrito.
+
+    %%%1) Exemplos de referências no sistema num\'erico
+
+    %%exemplo de parte de obra em meio eletr\^onico
+    \bibitem{disp2019} SãO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizaç\~oes ambientais em mat\'eria de meio ambiente. \textit{In}: SãO
+    PAULO (Estado). Secretaria do Meio Ambiente. \textbf{Entendendo o meio ambiente}. São Paulo: Secretaria do Meio Ambiente, 1999. v. 1. Disponível em:
+    http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
+
+
+    %%exemplo de livro
+    \bibitem{Bauman99} BAUMAN, Zygmunt. \textbf{Globalização}: as consequências humanas. Rio de Janeiro: Jorge Zahar, 1999.
+
+
+    %%exemplo de artigo de publicação periódica
+    \bibitem{vet18} DOREA, R. D.; COSTA, J. N.; BATITA, J. M.; FERREIRA, M. M.; MENEZES, R. V.; SOUZA, T. S. Reticuloperitonite traumática associada à esplenite
+    e hepatite em bovino: relato de caso. \textbf{Veterinária e Zootecnia}, São Paulo, v. 18, n. 4, p. 199-202, 2011. Supl. 3.
+
+    %%exemplo de trabalho acadêmico (tese, dissertac\{c}ão, etc.)
+
+    \bibitem{Aguiar2009} AGUIAR, Andr\'e Andrade de. \textbf{Avaliação da microbiota bucal em pacientes sob uso cr\^onico de penicilina e benzatina}. 2009.
+    Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
+
+    %%%2) Exemplos de referência no sistema autor-data. Para usar esse sistema (não o num\'erico), deve-se 
+    %retirar % da linha %\usepackage{natbib} e colocar % antes de \usepackage[round, numbers]{natbib}, que estão antes de \begin{document}
+
+    %% \bibitem[AGUIAR(2009)Aguiar]{t1} AGUIAR, Andr\'e Andrade de. \textbf{Avaliação da microbiota bucal em pacientes sob uso cr\^onico de penicilina e benzatina}. 
+    %2009. Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
+
+    %% \bibitem[BAUMAN(1999)Bauman]{Bauman99} BAUMAN, Zygmunt. \textbf{Globalização}: as consequências humanas. Rio de Janeiro: Jorge Zahar, 1999.
+
+    %% \bibitem[SãO PAULO(2019)São Paulo]{disp2019} SãO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizaç\~oes ambientais em mat\'eria de meio ambiente. \textit{In}: SãO
+    %% PAULO (Estado). Secretaria do Meio Ambiente. \textbf{Entendendo o meio ambiente}. São Paulo: Secretaria do Meio Ambiente, 1999. v. 1. Disponível em: 
+    %% http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
+
+\end{thebibliography}
+
+%% Apendices e Anexos nao devem ser subdivididos: A1, A2, etc.
+
+%% Apendices
+
+\begin{apendices}
+
+    \chapter{\apendseq Título}
+    %%Digita-se o titulo do apendice mantendo-se, antes, o comando \apendseq, como indicado.
+
+    Este elemento \'e opcional. Apresenta um texto ou documento elaborado pelo autor com o objetivo de complementar sua argumentação,
+    sem prejuízo da unidade nuclear do trabalho.
+
+\end{apendices}
+
+%% Anexos
+
+\begin{anexos}
+
+    \chapter{\anexoseq Título}
+    %%Digita-se o titulo do anexo mantendo-se, antes, o comando \anexoseq, como indicado.
+
+    Este elemento \'e opcional. Apresenta um texto ou documento \textbf{não} elaborado pelo autor com o objetivo de complementar ou comprovar sua
+    argumentação.
+
+
+\end{anexos}
+
+
+%%% ---
+\end{document}
+
+%%%%EXEMPLO QUANDO SE TEM TODAS AS ILUSTRAç\~OES DO MESMO TIPO. POR EXEMPLO, ORGANOGRAMA.
+
+%No meio do texto acima:
+%1) coloque % antes de cada dos comandos \ilustvaria e \listilustvaria ;
+%2) acrescente os dois comandos abaixo 
+
+\tipoilust{Organograma} %Preencha com o tipo de sua ilustração (somente caso todas sejam do mesmo tipo). Por exemplo, Organograma.
+\renewcommand{\listfigurename}{\textbf{LISTA DE ORGANOGRAMAS}} %Troque ORGANOGRAMAS por outra palavra conforme o tipo de sua ilustração, se for \'unico.
+
+%3) retire % do início do comando 
+\listoffigures* %Use este comando quando todas as ilustraç\~oes são do mesmo tipo e caso queira inserir a lista delas.
+
+%Exemplo para se colocar a ilustrac\{c}ão neste caso, de tipo \'unico (por exemplo, Organograma) em todo o trabalho.
+
+\begin{figure}[h]
+    \larguratexto{6cm}  %Mesma largura da ilustração, dada em ``[width=6cm]'' abaixo
+    \begin{center}
+        \caption{Texto} %Substituir ``Texto'' pela informação acima da ilustraç\~{a}o.
+        \includegraphics[width=6cm]{arquivo.jpg}
+        \fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+    \end{center}
+\end{figure}
+
