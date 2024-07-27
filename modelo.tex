@@ -239,81 +239,91 @@
 %% Seguindo o mesmo modelo acima, pode-se inserir resumos em outras línguas.
 
 
-
-%% Lista de ilustrações. OPCIONAL. Sao consideradas ilustrações: desenhos, esquemas, fluxogramas, figuras, fotografias, gráficos, mapas, organogramas, plantas, quadros, entre outros. Tabelas não são consideradas ilustrações. A ordem da lista deve obrigatoriamente ser a mesma ordem em que as ilustrações aparecem no texto. Quando o título ocupar mais de uma linha, a segunda linha deve estar exatamente abaixo da primeira.
+%% LISTA DE ILUSTRAÇÕES. OPCIONAL.
+%% São consideradas ilustrações: desenhos, esquemas, fluxogramas, figuras, fotografias, gráficos, mapas, organogramas, plantas, quadros, entre outros. Tabelas não são consideradas ilustrações.
+%% A ordem da lista deve obrigatoriamente ser a mesma ordem em que as ilustrações aparecem no texto. Quando o título ocupar mais de uma linha, a segunda linha deve estar exatamente abaixo da primeira.
 
 \pdfbookmark[0]{\listfigurename}{lof}
 
-%Caso as ilustraç~oes do trabalho sejam todas do mesmo tipo (por exemplo, todas do tipo organograma), coloque % no início das duas linhas abaixo.
-\ilustvaria   %Use este comando somente caso as ilustrações não sejam todas do mesmo tipo.
-\listilustvaria  %Use este comando somente caso as ilustrações não sejam todas do mesmo tipo e caso queira inserir a lista delas.
+%% Caso as ilustrações do trabalho sejam todas do mesmo tipo (por exemplo, todas do tipo organograma), coloque % no início das duas linhas abaixo.
 
-%\listoffigures*  %Use este comando quando todas as ilustrações são do mesmo tipo e caso queira inserir a lista delas. Veja dicas no final deste arquivo.
+\ilustvaria{} % Use este comando somente caso as ilustrações não sejam todas do mesmo tipo.
+\listilustvaria{} % Use este comando somente caso as ilustrações não sejam todas do mesmo tipo e caso queira inserir a lista delas.
 
-\cleardoublepage
+% \listoffigures*  %Use este comando quando todas as ilustrações são do mesmo tipo e caso queira inserir a lista delas. Veja dicas no final deste arquivo.
+
+\cleardoublepage{}
+
+
+%% LISTA DE TABELAS. OPCIONAL.
+% A ordem da lista de tabelas deve obrigatoriamente ser a mesma ordem em que as tabelas aparecem no texto.
+
 \pdfbookmark[0]{\listtablename}{lot}
 
-%% Lista de tabelas. OPCIONAL. A ordem da lista de tabelas deve obrigatoriamente ser a mesma ordem em que as tabelas aparecem no texto.
+\listoftables* %Coloque ``%'' no início desta linha, caso não queira lista de tabelas.
+
+\cleardoublepage{}
 
 
-\listoftables*    %Coloque ``%'' no início desta linha, caso não queira lista de tabelas.
+%% LISTA DE ABREVIATURAS E SIGLAS. OPCIONAL.
+%% Não deve haver sinal gráfico entre as siglas e abreviaturas e o significado.
 
-\cleardoublepage
-
-
-%% Lista de abreviaturas e siglas. OPCIONAL. Nao deve haver sinal grafico entre as siglas e abreviaturas e o significado.
-
-\begin{siglas} %%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
+%%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
+\begin{siglas}
   \item[ABNT] Associação Brasileira de Normas Técnicas
   \item[Fil.] Filosofia
   \item[IBGE] Instituto Brasileiro de Geografia e Estatística
   \item[INMETRO] Instituto Nacional de Metrologia, Normalização e Qualidade Industrial
 \end{siglas}
 
-%% Lista de símbolos. OPCIONAL. Nao deve haver sinal grafico entre o simbolo e o seu significado.
 
-\begin{simbolos} %%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
-  \item[$ \forall $] Para todo
-  \item[$ \in $] Pertence
+%% LISTA DE SÍMBOLOS. OPCIONAL.
+%% Não deve haver sinal gráfico entre o símbolo e o seu significado.
+
+%% ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
+\begin{simbolos}
+  \item[\( \forall \)] Para todo
+  \item[\( \in \)] Pertence
 \end{simbolos}
 
 
-%% Sumário
+%% SUMÁRIO
 
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
+\cleardoublepage{}
+
 
 %% ----------------------------------------------------------
 
 %% ELEMENTOS TEXTUAIS
-\textual
+\textual{}
 
+%% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+\chapter{INTRODUÇÃO}
 
-\chapter{INTRODUçãO}  %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui
-
-Este elemento é obrigatório. Na introdução são descritos os objetivos da pesquisa, a razão de sua elaboração e limitação acerca da
-temática. Neste momento, o pesquisador situa o leitor acerca do tema. Este é o primeiro elemento textual e a partir dele a numeração de página
-estará visível na parte superior da página, porém a contagem iniciou na folha de rosto.
+Este elemento é obrigatório.
+Na introdução são descritos os objetivos da pesquisa, a razão de sua elaboração e limitação acerca da temática.
+Neste momento, o pesquisador situa o leitor acerca do tema.
+Este é o primeiro elemento textual e a partir dele a numeração de página estará visível na parte superior da página, porém a contagem iniciou na folha de rosto.
 
 Elaborada conforme a ABNT 10520.
 
 \begin{citacao}
-  As citações diretas, no texto, com mais de três linhas, devem ser destacadas
-  com recuo padronizado em relação á margem esquerda, com letra menor que a do texto utilizado
-  e sem as aspas. Recomenda-se o recuo de 4 cm. [...] Para enfatizar trechos da citação, deve-se destacá-los indicando esta
-  alteração com expressão grifo nosso entre parênteses, após a chamada da citação, ou grifo
-  do autor, caso o destaque já faça parte da obra consultada. (Associação Brasileira de Normas
-  Técnicas, 2023, p. 12-13)
+  As citações diretas, no texto, com mais de três linhas, devem ser destacadas com recuo padronizado em relação à margem esquerda, com letra menor que a do texto utilizado
+  e sem as aspas.
+  Recomenda-se o recuo de 4 cm. [...]
+  Para enfatizar trechos da citação, deve-se destacá-los indicando esta alteração com expressão grifo nosso entre parênteses, após a chamada da citação, ou grifo do autor, caso o destaque já faça parte da obra consultada. (Associação Brasileira de Normas Técnicas, 2023, p. 12-13)
 \end{citacao}
 
-%As instruções aqui contidas buscam ajudar a direcionar e orientar quanto à padronização das monografias, dissertacões e teses na UFJF.
-%Serão apresentados alguns exemplos de referências apenas como modelo de documento. Detalhes completos sobre como apresentar as referências se
-%encontram na norma ABNT NBR 6023:2018. Mais informações sobre as normas de padronização são encontradas diretamente nas bibliotecas da UFJF e em
-%http://www.ufjf.br/biblioteca/servicos/normalizacao-2
+As instruções aqui contidas buscam ajudar a direcionar e orientar quanto à padronização das monografias, dissertações e teses na UFJF\@.
+Serão apresentados alguns exemplos de referências apenas como modelo de documento.
+Detalhes completos sobre como apresentar as referências se encontram na norma ABNT NBR 6023:2018.
+Mais informações sobre as normas de padronização são encontradas diretamente nas bibliotecas da UFJF e em http://www.ufjf.br/biblioteca/servicos/normalizacao-2
 
 
-\chapter{NOME DA SEç\~{A}O} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui
+%% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+\chapter{NOME DA SEÇÃO}
 
 Após a introdução, segue-se o elemento desenvolvimento. Este elemento obrigatório é que irá desenvolver a ideia principal do trabalho.
 É o elemento mais longo, podendo ser dividido em várias seções %(primárias, secundárias, etc.)
