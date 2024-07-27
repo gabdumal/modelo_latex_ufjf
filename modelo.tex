@@ -116,9 +116,9 @@
 
 
 %% SISTEMA DE CITAÇÃO
-% Para usar referências bibliográficas no sistema numérico com () na chamada da citação, utilize essa forma.
+%% Para usar referências bibliográficas no sistema numérico com () na chamada da citação, utilize essa forma.
 \usepackage[round, numbers]{natbib} 
-% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
+%% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
 % \usepackage{natbib}
 
 
@@ -325,162 +325,222 @@ Mais informações sobre as normas de padronização são encontradas diretament
 %% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
 \chapter{NOME DA SEÇÃO}
 
-Após a introdução, segue-se o elemento desenvolvimento. Este elemento obrigatório é que irá desenvolver a ideia principal do trabalho.
-É o elemento mais longo, podendo ser dividido em várias seções %(primárias, secundárias, etc.)
-e subseções que devem conter texto.
+Após a introdução, segue-se o elemento desenvolvimento.
+Este elemento obrigatório é que irá desenvolver a ideia principal do trabalho.
+É o elemento mais longo, podendo ser dividido em várias seções (primárias, secundárias, etc.) e subseções que devem conter texto.
 
-Apresentamos nesta página um exemplo de nota \footnote{As notas devem ser digitadas ou datilografadas dentro das margens, ficando separadas do texto
-  por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto. (Associação
-  Brasileira de Normas Técnicas, 2011, p. 10).}.
+Apresentamos nesta página um exemplo de nota\footnote{\noindent
+  As notas devem ser digitadas ou datilografadas dentro das margens, ficando separadas do texto por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto.
+  (Associação Brasileira de Normas Técnicas, 2011, p. 10).
+}.
 
+No sistema numérico para citações de referências, as referências devem ser numeradas de acordo com a ordem sequencial em que aparecem no texto pela primeira vez e colocadas em lista nesta mesma ordem. (ABNT, 2018).
 
-%No sistema numérico para citações de referências, as referências devem ser numeradas de acordo com a ordem sequencial em que aparecem no texto
-%pela primeira vez e colocadas em lista nesta mesma ordem. (ABNT, 2018).
+O sistema numérico não deve ser utilizado quando há notas de rodapé. (ABNT, 2002).
 
-%O sistema numérico não deve ser utilizado quando há notas de rodapé. (ABNT, 2002).
-
-\section{SEçãO SECUNDáRIA} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
-
-Um exemplo de citação de referência no sistema numérico é \cite{disp2019}. Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e
-\cite{Aguiar2009}.
-
+%% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+\section{SEÇÃO SECUNDÁRIA}
 
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
-%Exemplos para citar referência no sistema autor-data (não o sistema numérico). Caso queira usar, selecionar \usepackage{natbib}  antes de \begin{document} e colocar % antes de \usepackage[round, numbers]{natbib}.
 
-%Conforme \citep[p. 4]{t1}, isto ...
-%% (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] é opcional.)
+%% Exemplos de citação no sistema numérico
+Um exemplo de citação de referência no sistema numérico é \cite{disp2019}.
+Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e \cite{Aguiar2009}.
 
-%Conforme \citet*[p. 4]{t1}, isto ...
-%% (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] é opcional.)
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
 
-%Conforme \citep{Bauman99}, ...
+% %%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%
+% %% Exemplos para citar referência no sistema autor-data (não o sistema numérico).
+% %% Caso queira usar, selecionar \usepackage{natbib} antes de \begin{document} e colocar ``%'' antes de \usepackage[round, numbers]{natbib}.
 
-%De acordo com \citet*{disp2019}, ...
-%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%
+% Conforme \citep[p. 4]{t1}, isto ...
+% % (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] é opcional.)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%EXEMPLOS DE ILUSTRAç\~OES DE TIPOS DIFERENTES. PARA EXEMPLOS DO MESMO TIPO, VEJA A DICA NO FINAL DESTE ARQUIVO.
+% Conforme \citet*[p. 4]{t1}, isto ...
+% % (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] é opcional.)
+
+% Conforme \citep{Bauman99}, ...
+
+% De acordo com \citet*{disp2019}, ...
+% %%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%
 
 
+%% EXEMPLOS DE ILUSTRAÇÕES DE TIPOS DIFERENTES.
+%% PARA EXEMPLOS DO MESMO TIPO, VEJA A DICA NO FINAL DESTE ARQUIVO.
 
 Abaixo, são apresentados exemplos de ilustrações.
 
-% Qualquer que seja o tipo de ilustração, sua identificação aparece na parte superior,
-% precedida da palavra designativa (desenho, esquema, fluxograma, fotografia, gráfico, mapa, organograma, planta,
-% quadro, retrato, figura, imagem, entre outros) ... A ilustração deve ser citada no texto ...(ABNT, 2011)
-
-%%Exemplo de figura
-%\begin{figure}[h]
-%\captiondelim{} %%Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
-%\larguratexto{11cm}  %%mesma largura da ilustração, dada em ``[width=11cm]'' abaixo
-%\begin{center}
-%\caption[Figura 1 \hspace*{4pt} -- Logotipo da UFJF] %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações.
-%%O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da figura.
-%{Figura 1 - Logotipo da UFJF} %%Informação acima da figura
-%\includegraphics[width=11cm]{logo.jpg}
-%\fonte{Universidade Federal de Juiz de Fora (2012).}
-%\nota{Ilustração incompleta.} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
-%\end{center}
-%\end{figure}
+Qualquer que seja o tipo de ilustração, sua identificação aparece na parte superior, precedida da palavra designativa (desenho, esquema, fluxograma, fotografia, gráfico, mapa, organograma, planta, quadro, retrato, figura, imagem, entre outros) [...].
+A ilustração deve ser citada no texto [...](ABNT, 2011).
 
 
-%%Caso a ilustracao seja elaborada pelo autor, usar ``\fonte{Elaborado pelo autor. (ano).}'' substituindo, se necessario, autor por autora ou Elaborado por Elaborada.
+%% Exemplo de figura
+% \begin{figure}[h]
+%   %% Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%   \captiondelim{}
 
-%%Exemplo de quadro
-%\begin{figure}[h]
-%\captiondelim{} %%Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
-%\larguratexto{14cm}  %%Mesma largura da ilustração, dada em ``[width=14cm]'' abaixo
-%\begin{center}
-%\caption[Quadro 1 \hspace*{0.1pt} -- Bibliotecas da UFJF %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustraç\~{o}es
-%em Juiz de Fora]      %%O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustraç\~{a}o.
-%{Quadro 1 - Bibliotecas da UFJF em Juiz de Fora} %%Informação acima da ilustraç\~{a}o..
-%\includegraphics[width=14cm]{bibliotecas.png}
-%\fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
-%\end{center}
-%\end{figure}
+%   %% Mesma largura da ilustração, dada em ``[width=11cm]'' abaixo
+%   \larguratexto{11cm}
 
-%Quadro possui dados diversos, tabela possui obrigatoriamente dados numericos.
+%   \begin{center}
+%     % O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da figura.
+%     %% \hspace*{...} é usado para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações.
+%     \caption[Figura 1 \hspace*{4pt} -- Logotipo da UFJF]
+%     {Figura 1 - Logotipo da UFJF}
 
-%%exemplos de gráficos
-%\begin{figure}[h]
-%\captiondelim{} %%Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
-%\larguratexto{10cm} %%Mesma largura da ilustração, dada em ``[width=11cm]'' abaixo
-%\begin{center}
-%\caption[Gráfico 1 \hspace*{2.5pt} -- índice de qualificaç\~{a}o do corpo docente da UFJF %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações
-%Título %\hspace*{...} para alinhar, na lista de ilustrações, segunda linha de título longo com primeira linha, após ``-''
-%Título Título Título \hspace*{3pt} Título] %%O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustraç\~{a}o.
-%{Gráfico 1 - índice de qualificaç\~{a}o do corpo docente da UFJF Título Título Título Título Título} %%Informação acima da ilustraç\~{a}o.
-%\includegraphics[width=10cm]{qualific.png}
-%\fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
-%\end{center}
-%\end{figure}
+%     \includegraphics[width=11cm]{logo.jpg}
 
-%\begin{figure}[h!]
-%\captiondelim{} %%Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
-%\larguratexto{13cm} %%Mesma largura da ilustração, dada em ``[width=13cm]'' abaixo
-%\begin{center}
-%\caption[Gráfico 2 \hspace*{2pt} -- UFJF: Evolução %%\hspace*{...} para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações
-%dos cursos de mestrado e doutorado
-%(2005/2011) Título \hspace*{5pt} %\hspace*{...} para alinhar, na lista de ilustrações, segunda linha de título longo com primeira linha, após ``-''
-%Título Título Título Título] %%O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustraç\~{a}o.
-%{Gráfico 2 - UFJF: Evolução dos cursos de mestrado e doutorado (2005/2011) Título Título Título Título} %Informação acima da ilustraç\~{a}o.
-%\includegraphics[width=13cm]{mest_dout.png}
-%\fonte{Universidade Federal de Juiz de Fora (2012).} %Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
-%\end{center}
-%\end{figure}
+%     \fonte{Universidade Federal de Juiz de Fora (2012).}
+%     %% Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+
+%     \nota{Ilustração incompleta.}
+%   \end{center}
+% \end{figure}
+
+%% Caso a ilustração seja elaborada pelo autor, usar ``\fonte{Elaborado pelo autor. (ano).}'' substituindo, se necessário, autor por autora ou Elaborado por Elaborada.
 
 
-\subsection{\textbf{Seção terciária}} %% O título da subseção vem em negrito e caixa baixa
+%% Exemplo de quadro
+% \begin{figure}[h]
+%   %% Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%   \captiondelim{}
+
+%   %% Mesma largura da ilustração, dada em ``[width=14cm]'' abaixo
+%   \larguratexto{14cm}
+
+%   \begin{center}
+%     %% O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustração.
+%     %% \hspace*{...} é usado para para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações.
+%     \caption[Quadro 1 \hspace*{0.1pt} -- Bibliotecas da UFJF
+%       em Juiz de Fora]
+%     {Quadro 1 - Bibliotecas da UFJF em Juiz de Fora}
+
+%     \includegraphics[width=14cm]{bibliotecas.png}
+
+%     %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%     \fonte{Universidade Federal de Juiz de Fora (2012).}
+%   \end{center}
+% \end{figure}
+
+%% Quadro possui dados diversos, tabela possui obrigatoriamente dados numéricos.
+
+
+%% Exemplos de gráficos
+% \begin{figure}[h]
+%   %% Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%   \captiondelim{}
+
+%   %% Mesma largura da ilustração, dada em ``[width=1ocm]'' abaixo
+%   \larguratexto{10cm}
+
+%   \begin{center}
+%     %% O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustração.
+%     %% O primeiro \hspace*{...} é usado para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações.
+%     % O segundo \hspace*{...} é usado para alinhar, na lista de ilustrações, segunda linha de título longo com primeira linha, após ``-''.
+%     \caption[Gráfico 1 \hspace*{2.5pt} -- índice de qualificação do corpo docente da UFJF
+%       Título
+%       Título Título Título \hspace*{3pt} Título]
+%     {Gráfico 1 - índice de qualificação do corpo docente da UFJF Título Título Título Título Título}
+
+%     \includegraphics[width=10cm]{qualific.png}
+
+%     %% Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%     \fonte{Universidade Federal de Juiz de Fora (2012).}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}[h!]
+%   %% Caso as ilustrações do trabalho sejam todas do mesmo tipo, não utilize este modelo (com \captiondelim{}). Utilize o do final deste arquivo.
+%   \captiondelim{}
+
+%   %% Mesma largura da ilustração, dada em ``[width=13cm]'' abaixo
+%   \larguratexto{13cm}
+
+%   \begin{center}
+%     %% O texto entre [ ] fica na lista de ilustrações e o texto entre { } fica acima da ilustração.
+%     %% O primeiro \hspace*{...} é usado para controle de espaço para alinhar verticalmente os ``-'' da lista de ilustrações.
+%     % O segundo \hspace*{...} é usado para alinhar, na lista de ilustrações, segunda linha de título longo com primeira linha, após ``-''.
+%     \caption[Gráfico 2 \hspace*{2pt} -- UFJF: Evolução
+%       dos cursos de mestrado e doutorado
+%       (2005/2011) Título \hspace*{5pt}
+%       Título Título Título Título]
+%     {Gráfico 2 - UFJF: Evolução dos cursos de mestrado e doutorado (2005/2011) Título Título Título Título}
+
+%     \includegraphics[width=13cm]{mest_dout.png}
+
+%     %Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+%     \fonte{Universidade Federal de Juiz de Fora (2012).}
+%   \end{center}
+% \end{figure}
+
+
+%% O título da subseção vem em negrito e caixa baixa
+\subsection{\textbf{Seção terciária}}
 
 Abaixo, são apresentados exemplos de tabela.
 
-%%Exemplo de tabela. Tabelas nao possuem margem lateral. Tabelas apresentam obrigatoriamente dados numericos.
+%% Exemplo de tabela.
+%% Tabelas não possuem margem lateral. Tabelas apresentam obrigatoriamente dados numéricos.
 
-%\begin{table}[h]
-% \larguratexto{12cm} %%Mesma largura da ilustração, dada em ``[width=12cm]'' abaixo
-% \begin{center}
-%\caption{Quantidade de bibliotecários da UFJF}
-% \includegraphics[width=12cm]{tab1.png}
-% \fonte{Elaborada pelo autor (2019).}
-%\end{center}
-%\end{table}
+% \begin{table}[h]
+%   %%Mesma largura da ilustração, dada em ``[width=12cm]'' abaixo
+%   \larguratexto{12cm}
 
-%\begin{table}[h]
-%\larguratexto{10cm}  %Mesma largura da ilustração, dada em ``[width=10cm]'' abaixo
-%\begin{center}
-%\caption{Composição dos Recursos Humanos do HU/UFJF Título Título Título Título Título Título Título Título Título Título}
-%\includegraphics[width=10cm]{rec.png}
-%\fonte{Universidade Federal de Juiz de Fora (2012).}
-%\end{center}
-%\end{table}
+%   \begin{center}
+%     \caption{Quantidade de bibliotecários da UFJF}
 
-%%Caso a tabela seja elaborada pelo autor, usar \fonte{Elaborada pelo autor. (ano).} substituindo, se necessario, autor por autora.
+%     \includegraphics[width=12cm]{tab1.png}
 
-\subsubsection{\textit{Seção quaternária}} %% O título da subsubseção vem em itálico e caixa baixa
+%     \fonte{Elaborada pelo autor (2019).}
+%   \end{center}
+% \end{table}
+
+% \begin{table}[h]
+%   %Mesma largura da ilustração, dada em ``[width=10cm]'' abaixo
+%   \larguratexto{10cm}
+
+%   \begin{center}
+%     \caption{Composição dos Recursos Humanos do HU/UFJF Título Título Título Título Título Título Título Título Título Título}
+
+%     \includegraphics[width=10cm]{rec.png}
+
+%     \fonte{Universidade Federal de Juiz de Fora (2012).}
+%   \end{center}
+% \end{table}
+
+%% Caso a tabela seja elaborada pelo autor, usar \fonte{Elaborada pelo autor. (ano).} substituindo, se necessário, autor por autora.
+
+
+%% O título da sub-subseção vem em itálico e caixa baixa
+\subsubsection{\textit{Seção quaternária}}
 
 Se houver seção quaternária, incluir texto ...
 
-\subsubsubsection{Seção quinária}  %% O título desta vem em caixa baixa
+
+%% O título desta vem em caixa baixa
+\subsubsubsection{Seção quinária}
 
 Se houver seção quinária, incluir texto ...
 
 
-\chapter{CITAç\~{O}ES} %%Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
 
-As citações são informaç\~{o}es extraídas de fonte consultada pelo autor da obra em desenvolvimento. Podem ser diretas, indiretas ou citação de citação. Para exemplos, consultar o apêncice D no Manual de Normalização de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+%% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
+\chapter{CITAÇÕES}
+
+As citações são informações extraídas de fonte consultada pelo autor da obra em desenvolvimento. Podem ser diretas, indiretas ou citação de citação. Para exemplos, consultar o apêncice D no Manual de Normalização de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
 \url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
 
 \section{SISTEMA AUTOR-DATA} %%Nesta linha, dentro de { }, digita-se o nome da seção secundária em CAIXA ALTA, como apresentado aqui.
 
 Para o sistema autor-data, considere:
 \begin{itemize}
-  \item[a)] \textbf{citação direta} é caracterizada pela transcriç\~{a}o textual da parte consultada. Se com até três linhas, deve estar entre aspas duplas, exatamente como na obra consultada. Se com mais de três linhas, recomenda-se o recuo de 4 cm da margem esquerda, com letra menor (um ponto), espaçamento simples, sem aspas. Sendo a chamada: (Autor, data e página) ou na sentença Autor (data, página).
-  \item[b)] \textbf{citaç\~{a}o indireta} é aquela em que o texto foi baseado na(s) obra(s) consultada(s). Em caso de mais de três fontes consultadas, a citaç\~{a}o deve seguir a ordem alfabética.
-  \item[c)] \textbf{A citaç\~{a}o de citaç\~{a}o} é baseada em um texto em que não houve acesso ao original.
+  \item[a)] \textbf{citação direta} é caracterizada pela transcrição textual da parte consultada. Se com até três linhas, deve estar entre aspas duplas, exatamente como na obra consultada. Se com mais de três linhas, recomenda-se o recuo de 4 cm da margem esquerda, com letra menor (um ponto), espaçamento simples, sem aspas. Sendo a chamada: (Autor, data e página) ou na sentença Autor (data, página).
+  \item[b)] \textbf{citação indireta} é aquela em que o texto foi baseado na(s) obra(s) consultada(s). Em caso de mais de três fontes consultadas, a citação deve seguir a ordem alfabética.
+  \item[c)] \textbf{A citação de citação} é baseada em um texto em que não houve acesso ao original.
 \end{itemize}
 
 
@@ -489,15 +549,15 @@ Para o sistema autor-data, considere:
 
 \textbf{Para o sistema numérico:}
 
-A indicaç\~{a}o da fonte é feita por uma numeraç\~{a}o única e consecutiva respeitando a ordem que aparece no texto. Deve-se usar algarismos arábicos remetendo à lista de referências. A indicaç\~{a}o da numeraç\~{a}o é apresentada entre parênteses no corpo do texto ou como expoente. Não usar colchetes. O autor pode aparecer ou não no texto. Para separar diversos autores, utiliza-se vírgula. N\~{a}o utilizar nota de rodap\'{e} quando utilizar o sistema num\'{e}rico.
-Observe os exemplos no Manual de Normalizaç\~{a}o de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+A indicação da fonte é feita por uma numeração única e consecutiva respeitando a ordem que aparece no texto. Deve-se usar algarismos arábicos remetendo à lista de referências. A indicação da numeração é apresentada entre parênteses no corpo do texto ou como expoente. Não usar colchetes. O autor pode aparecer ou não no texto. Para separar diversos autores, utiliza-se vírgula. Não utilizar nota de rodap\'{e} quando utilizar o sistema num\'{e}rico.
+Observe os exemplos no Manual de Normalização de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
 \url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
 
 Em citação direta, o número da página (precedido por ``p.'') ou localizador, se houver, deve ser indicado após o número da fonte no texto, separado por vírgula e um espaço. O número do localizador, em publicações eletrônicas, deve ser precedido por sua respectiva abreviatura (local.). Exemplos: (1, p. 30), (7, local. 72), (4, Mt 6, 3-6, p. 1730), (6, v.3, p.583), (5, cap. V, art. 49, inc.I), (2, 9 min 41 s).
 
 \section{NOTAS} %%Nesta linha, dentro de { }, digita-se o nome da seção secundária em CAIXA ALTA, como apresentado aqui.
 
-Notas de rodapé são observaç\~{o}es e/ou aditamentos que o autor precisa incluir no texto \footnote[2]{As notas devem ser alinhadas sendo que na segunda linha da mesma nota, a primeira letra deve estar abaixo da primeira letra da primeira palavra da linha superior, destacando assim o expoente.}. Para a numeraç\~{a}o das notas deve-se utilizar algarismos arábicos. As notas devem ser digitadas dentro das margens, ficando separadas do texto por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto. As notas de rodapé só podem ser usadas no sistema autor-data. Observe os exemplos no Manual de Normalizaç\~{a}o de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
+Notas de rodapé são observaç\~{o}es e/ou aditamentos que o autor precisa incluir no texto \footnote[2]{As notas devem ser alinhadas sendo que na segunda linha da mesma nota, a primeira letra deve estar abaixo da primeira letra da primeira palavra da linha superior, destacando assim o expoente.}. Para a numeração das notas deve-se utilizar algarismos arábicos. As notas devem ser digitadas dentro das margens, ficando separadas do texto por um espaço simples entre as linhas e por filete de 5 cm a partir da margem esquerda e em fonte menor (um ponto) do corpo do texto. As notas de rodapé só podem ser usadas no sistema autor-data. Observe os exemplos no Manual de Normalização de Trabalhos Acadêmicos disponível no \textit{link} abaixo: \\
 \url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
 
 %%%%%%%%%%%%%%%
@@ -622,7 +682,7 @@ Este elemento é obrigatório e é a parte final do texto.  Nele, são apresenta
 \begin{figure}[h]
   \larguratexto{6cm}  %Mesma largura da ilustração, dada em ``[width=6cm]'' abaixo
   \begin{center}
-    \caption{Texto} %Substituir ``Texto'' pela informação acima da ilustraç\~{a}o.
+    \caption{Texto} %Substituir ``Texto'' pela informação acima da ilustração.
     \includegraphics[width=6cm]{arquivo.jpg}
     \fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
   \end{center}
