@@ -1,3 +1,14 @@
 {
   "editor.tabSize": 2,
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  "latex-workshop.bibtex-format.sortby": [
+    "author",
+    "year-desc"
+  ],
+  "latex-workshop.latex.outDir": ".build",
+  "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.lacheck.enabled": true,
+  "latex-workshop.view.outline.sync.viewer": true,
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"
 }
