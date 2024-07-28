@@ -8,8 +8,9 @@
   brazil
 ]{abntbibufjf}
 
+%%%% PACOTES
 
-%% Codificação
+%%% Codificação
 \usepackage[T1]{fontenc}
 %% Para converter automaticamente acentos como digitados normalmente no teclado.
 \usepackage[utf8]{inputenc} % Mude utf8 para latin1 se precisar.
@@ -18,13 +19,17 @@
 \usepackage{lastpage}
 \usepackage{indentfirst}
 \usepackage{color}
-\usepackage{graphicx}
+\usepackage{graphicx} % Figuras
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{amssymb}
 
-%% SISTEMA DE CITAÇÃO
+%%% Notas
+\usepackage[portuguese]{todonotes}
+\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
+
+%%% Sistema de citação
 %% Para usar referências bibliográficas no sistema numérico na chamada da citação, utilize essa forma.
 % \usepackage[num, abnt-etal-list=0, abnt-url-package=url, bibjustif]{abntex2cite}
 %% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
@@ -507,13 +512,15 @@ Abaixo, são apresentados exemplos de tabela.
 %% O título da sub-subseção vem em itálico e caixa baixa
 \subsubsection{\textit{Seção quaternária}}
 
-Se houver seção quaternária, incluir texto ...
+%% Este é um exemplo de nota de afazeres nas margens do texto
+\todo[author=Gabriel, noinline]{Se houver seção quaternária, incluir texto ...}
 
 
 %% O título desta vem em caixa baixa
 \subsubsubsection{Seção quinária}
 
-Se houver seção quinária, incluir texto ...
+%% Este é um exemplo de nota de afazeres no corpo do texto
+\todo[author=Gabriel]{Se houver seção quinária, incluir texto ...}
 
 
 
