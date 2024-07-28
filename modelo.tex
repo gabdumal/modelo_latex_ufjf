@@ -117,9 +117,9 @@
 
 %% SISTEMA DE CITAÇÃO
 %% Para usar referências bibliográficas no sistema numérico com () na chamada da citação, utilize essa forma.
-\usepackage[round, numbers]{natbib} 
+% \usepackage[round, numbers]{natbib} 
 %% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
-% \usepackage{natbib}
+\usepackage{natbib}
 
 
 \begin{document}
@@ -179,21 +179,21 @@
 \cleardoublepage{}
 
 
-%% DEDICATÓRIA. OPCIONAL.
+%% Dedicatória. OPCIONAL.
 %% Não deve haver título. Colocar ``%'' no início de cada das 3 linhas abaixo, caso não queira.
 \begin{dedicatoria}
   Dedico este trabalho ...
 \end{dedicatoria}
 
 
-%% AGRADECIMENTOS. OPCIONAL.
+%% Agradecimentos. OPCIONAL.
 % Caso seja bolsista, inserir os devidos agradecimentos.
 \begin{agradecimentos}
   Agradeço aos ...
 \end{agradecimentos}
 
 
-%% EPÍGRAFE. OPCIONAL. 
+%% Epígrafe. OPCIONAL. 
 %% Com os dados do autor. A obra usada na epígrafe deve constar nas referências.
 
 %% Epígrafe com 3 ou menos linhas
@@ -210,7 +210,7 @@
 \end{epigrafemais}
 
 
-%% RESUMOS
+%% Resumos
 
 %% Resumo em Português. OBRIGATÓRIO.
 %% É obrigatório o uso de parágrafo único.
@@ -239,7 +239,7 @@
 %% Seguindo o mesmo modelo acima, pode-se inserir resumos em outras línguas.
 
 
-%% LISTA DE ILUSTRAÇÕES. OPCIONAL.
+%% Lista de ilustrações. OPCIONAL.
 %% São consideradas ilustrações: desenhos, esquemas, fluxogramas, figuras, fotografias, gráficos, mapas, organogramas, plantas, quadros, entre outros. Tabelas não são consideradas ilustrações.
 %% A ordem da lista deve obrigatoriamente ser a mesma ordem em que as ilustrações aparecem no texto. Quando o título ocupar mais de uma linha, a segunda linha deve estar exatamente abaixo da primeira.
 
@@ -255,7 +255,7 @@
 \cleardoublepage{}
 
 
-%% LISTA DE TABELAS. OPCIONAL.
+%% Lista de tabelas. OPCIONAL.
 % A ordem da lista de tabelas deve obrigatoriamente ser a mesma ordem em que as tabelas aparecem no texto.
 
 \pdfbookmark[0]{\listtablename}{lot}
@@ -265,7 +265,7 @@
 \cleardoublepage{}
 
 
-%% LISTA DE ABREVIATURAS E SIGLAS. OPCIONAL.
+%% Lista de abreviaturas e siglas. OPCIONAL.
 %% Não deve haver sinal gráfico entre as siglas e abreviaturas e o significado.
 
 %%ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
@@ -277,7 +277,7 @@
 \end{siglas}
 
 
-%% LISTA DE SÍMBOLOS. OPCIONAL.
+%% Lista de símbolos. OPCIONAL.
 %% Não deve haver sinal gráfico entre o símbolo e o seu significado.
 
 %% ALTERAR OS EXEMPLOS ABAIXO, CONFORME A NECESSIDADE
@@ -287,8 +287,7 @@
 \end{simbolos}
 
 
-%% SUMÁRIO
-
+%% Sumário
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage{}
@@ -322,6 +321,7 @@ Detalhes completos sobre como apresentar as referências se encontram na norma A
 Mais informações sobre as normas de padronização são encontradas diretamente nas bibliotecas da UFJF e em http://www.ufjf.br/biblioteca/servicos/normalizacao-2
 
 
+
 %% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
 \chapter{NOME DA SEÇÃO}
 
@@ -338,39 +338,30 @@ No sistema numérico para citações de referências, as referências devem ser 
 
 O sistema numérico não deve ser utilizado quando há notas de rodapé. (ABNT, 2002).
 
+
 %% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
 \section{SEÇÃO SECUNDÁRIA}
 
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-
 %% Exemplos de citação no sistema numérico
-Um exemplo de citação de referência no sistema numérico é \cite{disp2019}.
-Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e \cite{Aguiar2009}.
+% Um exemplo de citação de referência no sistema numérico é \cite{disp2019}.
+% Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e \cite{Aguiar2009}.
 
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
+%% Exemplos para citar referência no sistema autor-data (não o sistema numérico).
+%% Caso queira usar, selecionar \usepackage{natbib} antes de \begin{document} e colocar ``%'' antes de \usepackage[round, numbers]{natbib}.
 
-% %%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%
-% %% Exemplos para citar referência no sistema autor-data (não o sistema numérico).
-% %% Caso queira usar, selecionar \usepackage{natbib} antes de \begin{document} e colocar ``%'' antes de \usepackage[round, numbers]{natbib}.
+% (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] é opcional.)
+Conforme \citep[p. 4]{t1}, isto ...
 
-% Conforme \citep[p. 4]{t1}, isto ...
-% % (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] é opcional.)
+% (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] é opcional.)
+Conforme \citet*[p. 4]{t1}, isto ...
 
-% Conforme \citet*[p. 4]{t1}, isto ...
-% % (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] é opcional.)
+Conforme \citep{Bauman99}, ...
 
-% Conforme \citep{Bauman99}, ...
-
-% De acordo com \citet*{disp2019}, ...
-% %%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%
+De acordo com \citet*{disp2019}, ...
 
 
-%% EXEMPLOS DE ILUSTRAÇÕES DE TIPOS DIFERENTES.
-%% PARA EXEMPLOS DO MESMO TIPO, VEJA A DICA NO FINAL DESTE ARQUIVO.
+%% Exemplos de ilustrações de tipos diferentes.
+%% Para exemplos do mesmo tipo, veja a dica no final deste arquivo.
 
 Abaixo, são apresentados exemplos de ilustrações.
 
@@ -588,10 +579,7 @@ Observe os exemplos no Manual de Normalização de Trabalhos Acadêmicos dispon�
 \url{https://www2.ufjf.br/biblioteca/servicos/#normalizacao-bibliografica}
 
 
-%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%
-%%EXEMPLO DE ALÍNEAS
-
+%% Exemplo de alíneas
 \begin{alineas}
   \item texto;
   \item texto;
@@ -603,122 +591,150 @@ Observe os exemplos no Manual de Normalização de Trabalhos Acadêmicos dispon�
   \item texto.
 \end{alineas}
 
-%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%
 
 
 %% Nesta linha, dentro de { }, digita-se em CAIXA ALTA, como apresentado aqui.
-\chapter{CONCLUSãO}
+\chapter{CONCLUSÃO}
 
-Este elemento é obrigatório e é a parte final do texto.  Nele, são apresentadas as conclusões identificadas a partir do desenvolvimento da pesquisa.
+Este elemento é obrigatório e é a parte final do texto.
+Nele, são apresentadas as conclusões identificadas a partir do desenvolvimento da pesquisa.
 
-%Todo trabalho deve conter apenas um elemento conclusivo.
+Todo trabalho deve conter apenas um elemento conclusivo.
 
-%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%
+
+
 %% ELEMENTOS POS-TEXTUAIS
 
-\postextual
-
+\postextual{}
 
 %% Fizemos a opção por colocar as referências diretamente no arquivo ``.tex'' por ser mais simples para quem se inicia na escrita de trabalhos acadêmicos.
-%% Referencias. LISTAR EXATAMENTE AS CITADAS NO TRABALHO.
 
-%No elemento REFERêNCIAS, todas ``as referências devem ser ... alinhadas à margem esquerda do texto ... (ABNT, 2018).
+%% Referências.
+%% LISTAR EXATAMENTE AS CITADAS NO TRABALHO.
 
+No elemento REFERÊNCIAS, todas ``as referências devem ser [...] alinhadas à margem esquerda do texto [...] (ABNT, 2018).
+
+O elemento título de cada referência será destacado pelo uso do recurso tipográfico negrito (\textbackslash{}textbf) ou do itálico (\textbackslash{}textit), sendo que o recurso tipográfico utilizado deve ser uniforme em todas as referências do trabalho.
+Recomendamos o uso do negrito.
 
 \begin{thebibliography}{99}
 
+  %% 1) Exemplos de referências no sistema numérico
 
-  %%O elemento título de cada referência será destacado pelo uso do recurso tipográfico negrito (\textbf) ou do itálico (\textit), sendo que o
-  %recurso tipográfico utilizado deve ser uniforme em todas as referências do trabalho. Recomendamos o uso do negrito.
+  % %% Exemplo de parte de obra em meio eletrônico
+  % \bibitem{disp2019}
+  % SÃO PAULO (Estado).
+  % Secretaria do Meio Ambiente.
+  % Tratados e organizações ambientais em matéria de meio ambiente.
+  % \textit{In}: SÃO PAULO (Estado).
+  % Secretaria do Meio Ambiente.
+  % \textbf{Entendendo o meio ambiente}.
+  % São Paulo: Secretaria do Meio Ambiente, 1999. v. 1.
+  % Disponível em:
+  % http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
 
-  %%%1) Exemplos de referências no sistema numérico
+  % %% Exemplo de livro
+  % \bibitem{Bauman99}
+  % BAUMAN, Zygmunt.
+  % \textbf{Globalização}: as consequências humanas.
+  % Rio de Janeiro: Jorge Zahar, 1999.
 
-  %%exemplo de parte de obra em meio eletrônico
-  \bibitem{disp2019} SãO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizações ambientais em matéria de meio ambiente. \textit{In}: SãO
-  PAULO (Estado). Secretaria do Meio Ambiente. \textbf{Entendendo o meio ambiente}. São Paulo: Secretaria do Meio Ambiente, 1999. v. 1. Disponível em:
-  http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
+  % %% Exemplo de artigo de publicação periódica
+  % \bibitem{vet18}
+  % DOREA, R. D.; COSTA, J. N.; BATITA, J. M.; FERREIRA, M. M.; MENEZES, R. V.; SOUZA, T. S.
+  % Reticuloperitonite traumática associada à esplenite e hepatite em bovino: relato de caso.
+  % \textbf{Veterinária e Zootecnia}, São Paulo, v. 18, n. 4, p. 199-202, 2011. Supl. 3.
+
+  % %% Exemplo de trabalho acadêmico (tese, dissertação, etc.)
+  % \bibitem{Aguiar2009}
+  % AGUIAR, André Andrade de.
+  % \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}.
+  % 2009.
+  % Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
 
 
-  %%exemplo de livro
-  \bibitem{Bauman99} BAUMAN, Zygmunt. \textbf{Globalização}: as consequências humanas. Rio de Janeiro: Jorge Zahar, 1999.
+  %% 2) Exemplos de referência no sistema autor-data.
+  %% Para usar esse sistema (não o numérico), deve-se %retirar % da linha %\usepackage{natbib} e colocar % antes de \usepackage[round, numbers]{natbib}, que estão antes de \begin{document}
 
-
-  %%exemplo de artigo de publicação periódica
-  \bibitem{vet18} DOREA, R. D.; COSTA, J. N.; BATITA, J. M.; FERREIRA, M. M.; MENEZES, R. V.; SOUZA, T. S. Reticuloperitonite traumática associada à esplenite
-  e hepatite em bovino: relato de caso. \textbf{Veterinária e Zootecnia}, São Paulo, v. 18, n. 4, p. 199-202, 2011. Supl. 3.
-
-  %%exemplo de trabalho acadêmico (tese, dissertac\{c}ão, etc.)
-
-  \bibitem{Aguiar2009} AGUIAR, André Andrade de. \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}. 2009.
+  \bibitem[AGUIAR(2009)Aguiar]{t1}
+  AGUIAR, André Andrade de.
+  \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}.
+  2009.
   Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
 
-  %%%2) Exemplos de referência no sistema autor-data. Para usar esse sistema (não o numérico), deve-se
-  %retirar % da linha %\usepackage{natbib} e colocar % antes de \usepackage[round, numbers]{natbib}, que estão antes de \begin{document}
+  \bibitem[BAUMAN(1999)Bauman]{Bauman99}
+  BAUMAN, Zygmunt.
+  \textbf{Globalização}: as consequências humanas.
+  Rio de Janeiro: Jorge Zahar, 1999.
 
-  %% \bibitem[AGUIAR(2009)Aguiar]{t1} AGUIAR, André Andrade de. \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}.
-  %2009. Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
-
-  %% \bibitem[BAUMAN(1999)Bauman]{Bauman99} BAUMAN, Zygmunt. \textbf{Globalização}: as consequências humanas. Rio de Janeiro: Jorge Zahar, 1999.
-
-  %% \bibitem[SãO PAULO(2019)São Paulo]{disp2019} SãO PAULO (Estado). Secretaria do Meio Ambiente. Tratados e organizações ambientais em matéria de meio ambiente. \textit{In}: SãO
-  %% PAULO (Estado). Secretaria do Meio Ambiente. \textbf{Entendendo o meio ambiente}. São Paulo: Secretaria do Meio Ambiente, 1999. v. 1. Disponível em:
-  %% http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
+  \bibitem[SãO PAULO(2019)São Paulo]{disp2019}
+  SÃO PAULO (Estado).
+  Secretaria do Meio Ambiente.
+  Tratados e organizações ambientais em matéria de meio ambiente.
+  \textit{In}: SÃO PAULO (Estado).
+  Secretaria do Meio Ambiente.
+  \textbf{Entendendo o meio ambiente}.
+  São Paulo: Secretaria do Meio Ambiente, 1999. v. 1.
+  Disponível em:
+  http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
 
 \end{thebibliography}
 
-%% Apendices e Anexos nao devem ser subdivididos: A1, A2, etc.
 
-%% Apendices
+%% Apêndices e Anexos nao devem ser subdivididos: A1, A2, etc.
 
+%% Apêndices
 \begin{apendices}
-
-  \chapter{\apendseq Título}
-  %%Digita-se o titulo do apendice mantendo-se, antes, o comando \apendseq, como indicado.
-
-  Este elemento é opcional. Apresenta um texto ou documento elaborado pelo autor com o objetivo de complementar sua argumentação,
-  sem prejuízo da unidade nuclear do trabalho.
-
+  %% Digita-se o título do apêndice mantendo-se, antes, o comando \apendseq, como indicado.
+  \chapter{\apendseq{} Título}
+  Este elemento é opcional.
+  Apresenta um texto ou documento elaborado pelo autor com o objetivo de complementar sua argumentação, sem prejuízo da unidade nuclear do trabalho.
 \end{apendices}
 
+
 %% Anexos
-
 \begin{anexos}
-
-  \chapter{\anexoseq Título}
-  %%Digita-se o titulo do anexo mantendo-se, antes, o comando \anexoseq, como indicado.
-
-  Este elemento é opcional. Apresenta um texto ou documento \textbf{não} elaborado pelo autor com o objetivo de complementar ou comprovar sua
-  argumentação.
-
-
+  %% Digita-se o título do anexo mantendo-se, antes, o comando \anexoseq, como indicado.
+  \chapter{\anexoseq{} Título}
+  Este elemento é opcional.
+  Apresenta um texto ou documento \textbf{não} elaborado pelo autor com o objetivo de complementar ou comprovar sua argumentação.
 \end{anexos}
+
 
 
 %%% ---
 \end{document}
 
-%%%%EXEMPLO QUANDO SE TEM TODAS AS ILUSTRAç\~OES DO MESMO TIPO. POR EXEMPLO, ORGANOGRAMA.
+%% EXEMPLO QUANDO SE TEM TODAS AS ILUSTRAÇÕES DO MESMO TIPO.
+%% POR EXEMPLO, ORGANOGRAMA.
 
-%No meio do texto acima:
-%1) coloque % antes de cada dos comandos \ilustvaria e \listilustvaria ;
-%2) acrescente os dois comandos abaixo
+%% No meio do texto acima:
+%% 1) coloque % antes de cada dos comandos \ilustvaria e \listilustvaria ;
+%% 2) acrescente os dois comandos \tipoilust e \listfigurename abaixo
 
-\tipoilust{Organograma} %Preencha com o tipo de sua ilustração (somente caso todas sejam do mesmo tipo). Por exemplo, Organograma.
-\renewcommand{\listfigurename}{\textbf{LISTA DE ORGANOGRAMAS}} %Troque ORGANOGRAMAS por outra palavra conforme o tipo de sua ilustração, se for único.
+%% Preencha com o tipo de sua ilustração (somente caso todas sejam do mesmo tipo).
+%% Por exemplo, Organograma.
+\tipoilust{Organograma}
 
-%3) retire % do início do comando
-\listoffigures* %Use este comando quando todas as ilustrações são do mesmo tipo e caso queira inserir a lista delas.
+%% Troque ORGANOGRAMAS por outra palavra conforme o tipo de sua ilustração, se for único.
+\renewcommand{\listfigurename}{\textbf{LISTA DE ORGANOGRAMAS}}
 
-%Exemplo para se colocar a ilustrac\{c}ão neste caso, de tipo único (por exemplo, Organograma) em todo o trabalho.
+%% 3) Retire % do início do comando \listoffigures*
+%% Use este comando quando todas as ilustrações são do mesmo tipo e caso queira inserir a lista delas.
+
+%% Exemplo para se colocar a ilustração neste caso, de tipo único (por exemplo, Organograma) em todo o trabalho.
 
 \begin{figure}[h]
-  \larguratexto{6cm}  %Mesma largura da ilustração, dada em ``[width=6cm]'' abaixo
+  %% Mesma largura da ilustração, dada em ``[width=6cm]'' abaixo
+  \larguratexto{6cm}
+
   \begin{center}
-    \caption{Texto} %Substituir ``Texto'' pela informação acima da ilustração.
+    %% Substituir ``Texto'' pela informação acima da ilustração.
+    \caption{Texto}
+
     \includegraphics[width=6cm]{arquivo.jpg}
-    \fonte{Universidade Federal de Juiz de Fora (2012).} %%Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+
+    %% Indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor).
+    \fonte{Universidade Federal de Juiz de Fora (2012).}
   \end{center}
 \end{figure}
-
