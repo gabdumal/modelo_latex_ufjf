@@ -1,6 +1,6 @@
 # Modelo em LaTeX para trabalhos acadêmicos da UFJF
 
-Este projeto apresenta um modelo na estrutura **LaTeX** para elaboração de trabalhos acadêmicos, sobretudo Trabalhos de Conclusão de Curso (TCCs), Dissertações de Mestrado e Teses de Doutorado vinculados à Universidade Federal de Juiz de Fora (UFJF).
+Este projeto apresenta um modelo no ecossistema **LaTeX** para elaboração de trabalhos acadêmicos, sobretudo Trabalhos de Conclusão de Curso (TCCs), Dissertações de Mestrado e Teses de Doutorado vinculados à Universidade Federal de Juiz de Fora (UFJF).
 
 ## Licença
 
@@ -19,6 +19,25 @@ A presente versão do projeto se trata de uma modificação do trabalho de autor
 Esse pode ser encontrado em: <https://www2.ufjf.br/biblioteca/servicos/#templates>.
 
 Este projeto utiliza regras de formatação definidas no arquivo `abntbibufjf.cls`, o qual é de autoria dos três autores supracitados, e foi alterado em relação às referências.
+
+## Requisitos
+
+### Compilador
+
+A fim de processar os arquivos do ecossistema LaTeX, é necessário instar uma distribuição desse.
+
+Recomendamos a instalação do **TeX Live**, cuja documentação está disponível em <https://tug.org/texlive/>.
+
+Algumas distribuições Linux mantém pacotes de instalação do TeX Live. Você pode encontrar instruções para obtê-los em:
+
+- **Fedora**: <https://docs.fedoraproject.org/en-US/neurofedora/latex/>, para o qual recomendamos `texlive-scheme-full`.
+- **Debian**: <https://wiki.debian.org/TeXLive>, para o qual recomendamos `texlive-latex-full`.
+
+### Editor
+
+A fim de editar os arquivos, é preciso instalar um editor de texto e demais componentes LaTeX.
+
+Recomendamos utilizar o editor de código **VsCode**, juntamente à extensão [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) de James Yu.
 
 ## Instruções
 
