@@ -9,12 +9,11 @@
 ]{abntbibufjf}
 
 
-%% CODIFICAÇÃO
+%% Codificação
 \usepackage[T1]{fontenc}
 %% Para converter automaticamente acentos como digitados normalmente no teclado.
 \usepackage[utf8]{inputenc} % Mude utf8 para latin1 se precisar.
 \usepackage{lmodern} % No caso do modelo Latex, pode-se usar a família de fontes lmodern como aqui indicado, no lugar de Arial e Times New Roman.
-
 
 \usepackage{lastpage}
 \usepackage{indentfirst}
@@ -24,6 +23,12 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{amssymb}
+
+%% SISTEMA DE CITAÇÃO
+%% Para usar referências bibliográficas no sistema numérico na chamada da citação, utilize essa forma.
+% \usepackage[num, abnt-etal-list=0, abnt-url-package=url, bibjustif]{abntex2cite}
+%% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
+\usepackage[alf, abnt-etal-list=0, abnt-url-package=url, bibjustif]{abntex2cite}
 
 
 %% -----------------------------------------------------------------------------
@@ -103,7 +108,7 @@
 }
 
 
-%% Abaixo, prencher com os dados da parte final da ficha catalográfica.
+%% Abaixo, preencher com os dados da parte final da ficha catalográfica.
 %% Aqui fica escrita a palavra 'Título' mesmo, não o do trabalho.
 %% Se tiver coorientador, os dados ficam depois dos dados do orientador (II. Sobrenome, Nome do coorientador, coorient.) e antes de 'II. Título', o qual passa a 'III. Título'.
 \finalcatalog{\noindent
@@ -113,14 +118,6 @@
   I.~Sobrenome, Nome do orientador, orient.
   II.~Título.
 }
-
-
-%% SISTEMA DE CITAÇÃO
-%% Para usar referências bibliográficas no sistema numérico com () na chamada da citação, utilize essa forma.
-% \usepackage[round, numbers]{natbib} 
-%% Se for usar o sistema autor-data, colocar % antes de \usepackage acima e retirar % antes de \usepackage abaixo.
-\usepackage{natbib}
-
 
 \begin{document}
 
@@ -343,21 +340,22 @@ O sistema numérico não deve ser utilizado quando há notas de rodapé. (ABNT, 
 \section{SEÇÃO SECUNDÁRIA}
 
 %% Exemplos de citação no sistema numérico
-% Um exemplo de citação de referência no sistema numérico é \cite{disp2019}.
-% Outros três exemplos são: \cite{Bauman99}, \cite{vet18} e \cite{Aguiar2009}.
+
+% Um exemplo de citação de referência no sistema numérico é \cite{disp2019_nm}.
+
+% Outros três exemplos são: \citeonline{bauman1999_nm}, \citeyear{vet2011_nm} e \citeauthor{aguiar2019_nm}.
 
 %% Exemplos para citar referência no sistema autor-data (não o sistema numérico).
-%% Caso queira usar, selecionar \usepackage{natbib} antes de \begin{document} e colocar ``%'' antes de \usepackage[round, numbers]{natbib}.
 
-% (Para chamada de referência quando usar o sistema autor-data e parênteses em toda a citação. %[p. 4] é opcional.)
-Conforme \citep[p. 4]{t1}, isto ...
+% Chamada com a citação dentro de parênteses
+Conforme \cite[p. 4]{aguiar2019_ad}, isto ...
 
-% (Para chamada de referência quando usar o sistema autor-data e o nome do autor fora de parênteses. %[p. 4] é opcional.)
-Conforme \citet*[p. 4]{t1}, isto ...
+% Chamada com o nome do autor da citação fora dos parênteses, mas o restante das informações dentro
+Conforme \citeonline[p. 4]{aguiar2019_ad}, isto ...
 
-Conforme \citep{Bauman99}, ...
+Conforme \cite{bauman1999_ad}, ...
 
-De acordo com \citet*{disp2019}, ...
+De acordo com \citeonline{disp2019_ad}, ...
 
 
 %% Exemplos de ilustrações de tipos diferentes.
@@ -603,7 +601,7 @@ Todo trabalho deve conter apenas um elemento conclusivo.
 
 
 
-%% ELEMENTOS POS-TEXTUAIS
+%% ELEMENTOS PÓS-TEXTUAIS
 
 \postextual{}
 
@@ -617,68 +615,10 @@ No elemento REFERÊNCIAS, todas ``as referências devem ser [...] alinhadas à m
 O elemento título de cada referência será destacado pelo uso do recurso tipográfico negrito (\textbackslash{}textbf) ou do itálico (\textbackslash{}textit), sendo que o recurso tipográfico utilizado deve ser uniforme em todas as referências do trabalho.
 Recomendamos o uso do negrito.
 
-\begin{thebibliography}{99}
-
-  %% 1) Exemplos de referências no sistema numérico
-
-  % %% Exemplo de parte de obra em meio eletrônico
-  % \bibitem{disp2019}
-  % SÃO PAULO (Estado).
-  % Secretaria do Meio Ambiente.
-  % Tratados e organizações ambientais em matéria de meio ambiente.
-  % \textit{In}: SÃO PAULO (Estado).
-  % Secretaria do Meio Ambiente.
-  % \textbf{Entendendo o meio ambiente}.
-  % São Paulo: Secretaria do Meio Ambiente, 1999. v. 1.
-  % Disponível em:
-  % http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
-
-  % %% Exemplo de livro
-  % \bibitem{Bauman99}
-  % BAUMAN, Zygmunt.
-  % \textbf{Globalização}: as consequências humanas.
-  % Rio de Janeiro: Jorge Zahar, 1999.
-
-  % %% Exemplo de artigo de publicação periódica
-  % \bibitem{vet18}
-  % DOREA, R. D.; COSTA, J. N.; BATITA, J. M.; FERREIRA, M. M.; MENEZES, R. V.; SOUZA, T. S.
-  % Reticuloperitonite traumática associada à esplenite e hepatite em bovino: relato de caso.
-  % \textbf{Veterinária e Zootecnia}, São Paulo, v. 18, n. 4, p. 199-202, 2011. Supl. 3.
-
-  % %% Exemplo de trabalho acadêmico (tese, dissertação, etc.)
-  % \bibitem{Aguiar2009}
-  % AGUIAR, André Andrade de.
-  % \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}.
-  % 2009.
-  % Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
 
 
-  %% 2) Exemplos de referência no sistema autor-data.
-  %% Para usar esse sistema (não o numérico), deve-se %retirar % da linha %\usepackage{natbib} e colocar % antes de \usepackage[round, numbers]{natbib}, que estão antes de \begin{document}
+\bibliography{referencias}
 
-  \bibitem[AGUIAR(2009)Aguiar]{t1}
-  AGUIAR, André Andrade de.
-  \textbf{Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina}.
-  2009.
-  Tese (Doutorado em Cardiologia) - Faculdade de Medicina, Universidade de São Paulo, São Paulo, 2009.
-
-  \bibitem[BAUMAN(1999)Bauman]{Bauman99}
-  BAUMAN, Zygmunt.
-  \textbf{Globalização}: as consequências humanas.
-  Rio de Janeiro: Jorge Zahar, 1999.
-
-  \bibitem[SãO PAULO(2019)São Paulo]{disp2019}
-  SÃO PAULO (Estado).
-  Secretaria do Meio Ambiente.
-  Tratados e organizações ambientais em matéria de meio ambiente.
-  \textit{In}: SÃO PAULO (Estado).
-  Secretaria do Meio Ambiente.
-  \textbf{Entendendo o meio ambiente}.
-  São Paulo: Secretaria do Meio Ambiente, 1999. v. 1.
-  Disponível em:
-  http://www.bdt.org.br/sma/entendendo/atual.htm. Acesso em: 8 mar. 1999.
-
-\end{thebibliography}
 
 
 %% Apêndices e Anexos nao devem ser subdivididos: A1, A2, etc.
