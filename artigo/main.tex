@@ -1,0 +1,83 @@
+\documentclass[
+    % -- opções da classe memoir --
+    article,			% indica que é um artigo acadêmico
+    11pt,				% tamanho da fonte
+    oneside,			% para impressão apenas no recto. Oposto a twoside
+    a4paper,			% tamanho do papel. 
+    % -- opções da classe abntex2 --
+    %chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+    %section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+    %subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+    %subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+    % -- opções do pacote babel --
+    english,			% idioma adicional para hifenização
+    brazil,				% o último idioma é o principal do documento
+    sumario=tradicional
+]{abntex2}
+
+% Pacotes
+\input{packages.tex}
+
+% Definições do trabalho
+\input{definitions.tex}
+
+% Configurações do documento
+\input{configuration.tex}
+
+% Início do documento
+\begin{document}
+
+% -----
+% Configurações do texto
+% -----
+% Seleciona o idioma do documento
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases
+\frenchspacing{}
+% -----
+
+% =====
+% ELEMENTOS PRÉ-TEXTUAIS
+% =====
+\pretextual{}
+
+% Página de titulo principal (obrigatório)
+\maketitle{}
+
+% Resumos
+\input{abstract}
+
+\begin{center}\smaller{}
+    \textbf{Data de submissão e aprovação}: [INSIRA A DATA AQUI].
+\end{center}
+% =====
+
+% =====
+% ELEMENTOS TEXTUAIS
+% =====
+\textual{}
+
+\input{introduction}
+
+\input{methodology}
+
+\input{results}
+
+\input{conclusion}
+% =====
+
+% =====
+% ELEMENTOS PÓS-TEXTUAIS
+% =====
+\postextual{}
+
+% --- Referências ---
+\bibliography{bibliography}
+
+% --- Glossário ---
+\printglossary[type=main,style=altlist,title=Glossário]
+\printglossary[type=acronym,style=altlist,title=Lista de Abreviaturas e Siglas]
+% =====
+
+\end{document}

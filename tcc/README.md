@@ -1,6 +1,6 @@
 # Modelo em LaTeX para trabalhos acadêmicos da UFJF
 
-Este projeto apresenta um modelo no ecossistema **LaTeX** para elaboração de trabalhos acadêmicos, sobretudo Artigos, Trabalhos de Conclusão de Curso (TCCs), Dissertações de Mestrado e Teses de Doutorado vinculados à Universidade Federal de Juiz de Fora (UFJF).
+Este projeto apresenta um modelo no ecossistema **LaTeX** para elaboração de trabalhos acadêmicos, sobretudo Trabalhos de Conclusão de Curso (TCCs), Dissertações de Mestrado e Teses de Doutorado vinculados à Universidade Federal de Juiz de Fora (UFJF).
 
 ## Licença
 
