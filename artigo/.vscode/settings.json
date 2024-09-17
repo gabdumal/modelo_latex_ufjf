@@ -1,0 +1,59 @@
+{
+  "cSpell.words": [
+    "abnt",
+    "abntex",
+    "abnteX2",
+    "Ackley",
+    "bookmarksdepth",
+    "citecolor",
+    "filecolor",
+    "hyperpageref",
+    "Identa",
+    "LGPD",
+    "linkcolor",
+    "mealpy",
+    "midrule",
+    "Minipage",
+    "nonumberlist",
+    "pdfauthor",
+    "pdfcreator",
+    "pdfkeywords",
+    "pdfsubject",
+    "seeautonumberlist",
+    "subentrycounter",
+    "todonotes",
+    "urlcolor",
+    "xindy"
+  ],
+
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  "latex-workshop.bibtex-format.sortby": ["author", "year-desc"],
+  "latex-workshop.latex.outDir": ".build",
+  "latex-workshop.latex.recipe.default": "latexmk",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": ["latexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "-f",
+        "-pdf",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.lacheck.enabled": true,
+  "latex-workshop.view.outline.sync.viewer": true,
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"
+}
