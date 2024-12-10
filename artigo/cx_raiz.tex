@@ -16,13 +16,13 @@
 ]{abntex2}
 
 % Pacotes
-\input{packages.tex}
+\input{cx_pacotes.tex}
 
-% Definições do trabalho
-\input{definitions.tex}
+% Definições da Capa
+\input{c0_capa.tex}
 
 % Configurações do documento
-\input{configuration.tex}
+\input{cx_configuracoes.tex}
 
 % Início do documento
 \begin{document}
@@ -46,7 +46,7 @@
 \maketitle{}
 
 % Resumos
-\input{abstract}
+\input{c0_resumo.tex}
 
 \begin{center}\smaller{}
     \textbf{Data de submissão e aprovação}: [INSIRA A DATA AQUI].
@@ -58,13 +58,13 @@
 % =====
 \textual{}
 
-\input{introduction}
+\input{c1_introducao.tex}
 
-\input{methodology}
+\input{c2_fundamentacao.tex}
 
-\input{results}
+\input{c3_resultados.tex}
 
-\input{conclusion}
+\input{c4_conclusao.tex}
 % =====
 
 % =====
@@ -73,7 +73,7 @@
 \postextual{}
 
 % --- Referências ---
-\bibliography{bibliography}
+\bibliography{cx_bibliografia}
 
 % --- Glossário ---
 \printglossary[type=main,style=altlist,title=Glossário]
