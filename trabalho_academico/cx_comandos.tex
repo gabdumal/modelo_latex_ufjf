@@ -18,17 +18,31 @@
 % -----
 % Variáveis de texto
 % -----
+
+% --- Título ---
 \gdef\ValorDoTitulo{\imprimirtitulo}
 
 \def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
+
+% --- Trabalho ---
+
+\def\curso#1{\gdef\ValorDoCurso{#1}}
+
+\def\dia#1{\gdef\ValorDoDia{#1}}
+\def\mes#1{\gdef\ValorDoMes{#1}}
+\def\ano#1{\gdef\ValorDoAno{#1}}
+\gdef\ValorDaData{\ValorDoMes{}, \ValorDoAno{}}
+\data{\ValorDaData}
+
+\gdef\ValorDoLocal{\imprimirlocal}
+
+% -- Tipo do trabalho --
 
 \def\grau#1{\gdef\ValorDoGrau{#1}}
 
 \def\diploma#1{\gdef\ValorDoDiploma{#1}}
 
 \def\departamento#1{\gdef\ValorDoDepartamento{#1}}
-
-% --- Tipo do trabalho ---
 
 \def\tipoInterno#1{\gdef\ValorDoTipo{#1}}
 
@@ -67,4 +81,5 @@
 \def\tipo#1{%
     \checkTipo{#1}%
 }
+
 % -----
