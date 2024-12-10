@@ -1,7 +1,40 @@
 % --- Flags ---
-\newif\ifdefinidoSubtitulo{} \definidoSubtitulofalse{}
+\newif\ifDefinidoSubtitulo{} \DefinidoSubtitulofalse{}
+
+\newif\ifDefinidoEspecializacao{} \DefinidoEspecializacaofalse{}
+\newif\ifDefinidoMestrado{} \DefinidoMestradofalse{}
+\newif\ifDefinidoDoutorado{} \DefinidoDoutoradofalse{}
 
 % --- Variáveis ---
-\def\subtitulo#1{\gdef\valorDoSubtitulo{#1}\definidoSubtitulotrue}
+\gdef\ValorDoTitulo{\imprimirtitulo}
 
-\def\tipoDeTrabalho#1{\gdef\valorDoTipoDeTrabalho{#1}}
+\def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
+
+% \def\grau#1{\gdef\ValorDoGrau{#1}}
+% \def\tipoDoTrabalho#1{\gdef\ValorDoTipoDeTrabalho{#1}}
+% \def\diploma#1{\gdef\ValorDoDiploma{#1}}
+% \def\departamento#1{\gdef\ValorDoDepartamento{#1}}
+
+% \def\bacharelado{\grau{BACHAREL} \tipoDoTrabalho{Monografia} \diploma{Bacharelado} }
+% \def\licenciatura{\grau{LICENCIADO} \tipoDoTrabalho{Monografia} \diploma{Licenciatura} }
+% \def\especializacao{\grau{ESPECIALISTA} \tipoDoTrabalho{Monografia} \DefinidoEspecializacaotrue \diploma{Especializa\c{c}\~ao} }
+% \def\mestrado{\grau{MESTRE} \tipoDoTrabalho{Disserta\c{c}\~{a}o} \diploma{Mestrado} \ps@dtrue}
+% \def\doutorado{\grau{DOUTOR} \tipoDoTrabalho{Tese} \ph@dtrue \diploma{Doutorado} \ps@dtrue}
+
+% % Define a macro to check if the provided value is valid
+% \def\checkTipoDeTrabalho#1{%
+%     \def\temp{#1}%
+%     \ifx\temp\doutorado\else
+%         \ifx\temp\mestrado\else
+%             \ifx\temp\especializacao\else
+%                 \ifx\temp\licenciatura\else
+%                     \ifx\temp\bacharelado\else
+%                         \errmessage{Tipo de trabalho inválido: #1}%
+%                     \fi\fi\fi\fi\fi
+% }
+
+% Modify the \tipoDeTrabalho command to use the check
+\def\tipoDeTrabalho#1{%
+    % \checkTipoDeTrabalho{#1}%
+    \gdef\ValorDoTipoDeTrabalho{#1}%
+}
