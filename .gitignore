@@ -1,2 +1,6 @@
+# Environment
 .envrc
 .direnv/
+
+# Build
+**/.build/

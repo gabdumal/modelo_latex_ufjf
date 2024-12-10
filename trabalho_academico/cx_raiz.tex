@@ -1,41 +1,46 @@
 \documentclass[
-    % -- Opções da classe memoir --
+    % --- Opções da classe memoir ---
 	openright,			% Define que capítulos começam em página ímpar (insere página vazia caso preciso).
     12pt,				% Tamanho da fonte.
     %oneside,			% Para impressão apenas no anverso. Oposto a twoside.
-    twoside             % Para impressão em verso e anverso. Caso necessário, páginas do verso ficarão em branco. Oposto a oneside.
-    a4paper,			% tamanho do papel. 
-    % -- Opções da classe abntex2 --
+    twoside,             % Para impressão em verso e anverso. Caso necessário, páginas do verso ficarão em branco. Oposto a oneside.
+    a4paper,			% tamanho do papel.
+    % -----
+    % --- Opções da classe abntex2 ---
     %chapter=TITLE,		% Títulos de capítulos são convertidos para letras maiúsculas.
     %section=TITLE,		% Títulos de seções são convertidos para letras maiúsculas.
     %subsection=TITLE,	% Títulos de subseções são convertidos para letras maiúsculas.
-    %subsubsection=TITLE % Títulos de subsubseções são convertidos para letras maiúsculas.
-    % -- Opções do pacote babel --
+    %subsubsection=TITLE, % Títulos de subsubseções são convertidos para letras maiúsculas.
+    % -----
+    % --- Opções do pacote babel ---
     english,			% Define idioma adicional para hifenização
     french,			    % Define idioma adicional para hifenização
     spanish,			% Define idioma adicional para hifenização
     brazil,				% O último idioma é definido como o principal do documento.
 ]{abntex2}
 
-% Pacotes
+% --- Pacotes ---
 \input{cx_pacotes.tex}
 
-% Definições da Capa e folha de rosto
-\input{cx_pretexto.tex}
+% --- Comandos ---
+\input{cx_comandos.tex}
 
-% Configurações do documento
+% --- Definições pre-textuais ---
+\input{c0_pretexto.tex}
+
+% --- Configurações do documento ---
 \input{cx_configuracoes.tex}
 
-% Início do documento
+% Inicia o documento.
 \begin{document}
 
 % -----
 % Configurações do texto
 % -----
-% Seleciona o idioma do documento
+% Seleciona o idioma do documento.
 \selectlanguage{brazil}
 
-% Retira espaço extra obsoleto entre as frases
+% Retira espaço extra obsoleto entre as frases.
 \frenchspacing{}
 % -----
 
@@ -44,10 +49,10 @@
 % =====
 \pretextual{}
 
-% Página de titulo principal (obrigatório)
+% Insere página de titulo principal (obrigatório).
 \maketitle{}
 
-% Resumos
+% --- Resumos ---
 \input{c0_resumo.tex}
 % =====
 
