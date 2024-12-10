@@ -7,12 +7,22 @@
 % -----
 % Flags e outras variáveis de decisão
 % -----
+
+% --- Título ---
 \newif\ifDefinidoSubtitulo{} \DefinidoSubtitulofalse{}
 
+% --- Trabalho ---
 \newif\ifDefinidoEspecializacao{} \DefinidoEspecializacaofalse{}
-
 \newif\ifDefinidoMestrado{} \DefinidoMestradofalse{}
 \newif\ifDefinidoDoutorado{} \DefinidoDoutoradofalse{}
+
+% --- Pessoas ---
+\newif\ifDefinidoCoorientador{} \DefinidoCoorientadorfalse{}
+\newif\ifDefinidoExaminadorUm{} \DefinidoExaminadorUmfalse{}
+\newif\ifDefinidoExaminadorDois{} \DefinidoExaminadorDoisfalse{}
+\newif\ifDefinidoExaminadorTres{} \DefinidoExaminadorTresfalse{}
+\newif\ifDefinidoExaminadorQuatro{} \DefinidoExaminadorQuatrofalse{}
+
 % -----
 
 % -----
@@ -90,4 +100,140 @@
 
 \def\departamento#1#2{\gdef\ValorDoDepartamento{#1} \gdef\ValorDaSiglaDoDepartamento{#2}}
 
+% --- Pessoas ---
+
+\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1}}
+
+\def\orientador#1#2#3{\gdef\ValorDoTituloDoOrientador{#1} \gdef\ValorDoUltimoSobrenomeDoOrientador{#2} \gdef\ValorDoRestanteDoNomeDoOrientador{#3} \gdef\ValorDoNomeCompletoDoOrientador{#3 #2} \gdef\ValorDoNomeCompletoDoOrientadorComTitulo{#1 #3 #2}}
+
+\def\coorientador#1#2#3{\gdef\ValorDoTituloDoCoorientador{#1} \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2} \gdef\ValorDoRestanteDoNomeDoCoorientador{#3} \gdef\ValorDoNomeCompletoDoCoorientador{#3 #2} \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1 #3 #2} \DefinidoCoorientadortrue}
+
+\def\examinadorUm#1#2#3{\gdef\ValorDoTituloDoExaminadorUm{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3} \gdef\ValorDoNomeCompletoDoExaminadorUm{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1 #3 #2} \DefinidoExaminadorUmtrue}
+
+\def\examinadorDois#1#2#3{\gdef\ValorDoTituloDoExaminadorDois{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3} \gdef\ValorDoNomeCompletoDoExaminadorDois{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorDoisComTitulo{#1 #3 #2} \DefinidoExaminadorDoistrue}
+
+\def\examinadorTres#1#2#3{\gdef\ValorDoTituloDoExaminadorTres{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3} \gdef\ValorDoNomeCompletoDoExaminadorTres{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1 #3 #2} \DefinidoExaminadorTrestrue}
+
+\def\examinadorQuatro#1#2#3{\gdef\ValorDoTituloDoExaminadorQuatro{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3} \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1 #3 #2} \DefinidoExaminadorQuatrotrue}
+
 % -----
+
+\def\testaVariaveis{
+    \ValorDoTitulo{}
+
+    {%
+        \ifDefinidoSubtitulo{%
+            Subtítulo está definido:
+            \ValorDoSubtitulo{}
+        }
+        \else{%
+            Subtítulo não está definido.
+        }
+        \fi
+    }
+
+    \ValorDoCurso{}
+
+    \ValorDaData{}
+
+    \ValorDoLocal{}
+
+    \ValorDoTipo{}
+    \ValorDoGrau{}
+    \ValorDoDiploma{}
+
+    \ValorDaInstituicao{}
+    \ValorDaSiglaDaInstituicao{}
+
+    \ValorDaUnidadeAcademica{}
+    \ValorDaSiglaDaUnidadeAcademica{}
+
+    \ValorDoDepartamento{}
+    \ValorDaSiglaDoDepartamento{}
+
+    \ValorDoUltimoSobrenomeDoAutor{} ---
+    \ValorDoRestanteDoNomeDoAutor{} ---
+    \ValorDoNomeCompletoDoAutor{}
+
+    \ValorDoTituloDoOrientador{} ---
+    \ValorDoUltimoSobrenomeDoOrientador{} ---
+    \ValorDoRestanteDoNomeDoOrientador{} ---
+    \ValorDoNomeCompletoDoOrientador{} ---
+    \ValorDoNomeCompletoDoOrientadorComTitulo{}
+
+    {%
+        \ifDefinidoCoorientador{%
+            Coorientador está definido:\\
+            \ValorDoTituloDoCoorientador{} ---
+            \ValorDoUltimoSobrenomeDoCoorientador{} ---
+            \ValorDoRestanteDoNomeDoCoorientador{} ---
+            \ValorDoNomeCompletoDoCoorientador{} ---
+            \ValorDoNomeCompletoDoCoorientadorComTitulo{}
+        }
+        \else{%
+            Coorientador não está definido.
+        }
+        \fi
+    }
+
+    {%
+        \ifDefinidoExaminadorUm{%
+            Examinador um está definido:\\
+            \ValorDoTituloDoExaminadorUm{} ---
+            \ValorDoUltimoSobrenomeDoExaminadorUm{} ---
+            \ValorDoRestanteDoNomeDoExaminadorUm{} ---
+            \ValorDoNomeCompletoDoExaminadorUm{} ---
+            \ValorDoNomeCompletoDoExaminadorUmComTitulo{}
+        }
+        \else{%
+            Examinador um não está definido.
+        }
+        \fi
+    }
+
+    {%
+        \ifDefinidoExaminadorDois{%
+            Examinador dois está definido:\\
+            \ValorDoTituloDoExaminadorDois{} ---
+            \ValorDoUltimoSobrenomeDoExaminadorDois{} ---
+            \ValorDoRestanteDoNomeDoExaminadorDois{} ---
+            \ValorDoNomeCompletoDoExaminadorDois{} ---
+            \ValorDoNomeCompletoDoExaminadorDoisComTitulo{}
+        }
+        \else{%
+            Examinador dois não está definido.
+        }
+        \fi
+    }
+
+    {%
+        \ifDefinidoExaminadorTres{%
+            Examinador três está definido:\\
+            \ValorDoTituloDoExaminadorTres{} ---
+            \ValorDoUltimoSobrenomeDoExaminadorTres{} ---
+            \ValorDoRestanteDoNomeDoExaminadorTres{} ---
+            \ValorDoNomeCompletoDoExaminadorTres{} ---
+            \ValorDoNomeCompletoDoExaminadorTresComTitulo{}
+        }
+        \else{%
+            Examinador três não está definido.
+        }
+        \fi
+    }
+
+    {%
+        \ifDefinidoExaminadorQuatro{%
+            Examinador quatro está definido:\\
+            \ValorDoTituloDoExaminadorQuatro{} ---
+            \ValorDoUltimoSobrenomeDoExaminadorQuatro{} ---
+            \ValorDoRestanteDoNomeDoExaminadorQuatro{} ---
+            \ValorDoNomeCompletoDoExaminadorQuatro{} ---
+            \ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}
+        }
+        \else{%
+            Examinador quatro não está definido.
+        }
+        \fi
+    }
+
+}
