@@ -23,6 +23,10 @@
 \newif\ifDefinidoExaminadorTres{} \DefinidoExaminadorTresfalse{}
 \newif\ifDefinidoExaminadorQuatro{} \DefinidoExaminadorQuatrofalse{}
 
+% --- Resumo ---
+\newif\ifDefinidoPalavraChaveQuatro{} \DefinidoPalavraChaveQuatrofalse{}
+\newif\ifDefinidoPalavraChaveCinco{} \DefinidoPalavraChaveCincofalse{}
+
 % -----
 
 % -----
@@ -121,6 +125,30 @@
 \def\examinadorTres#1#2#3{\gdef\ValorDoTituloDoExaminadorTres{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3} \gdef\ValorDoNomeCompletoDoExaminadorTres{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1 #3 #2} \DefinidoExaminadorTrestrue}
 
 \def\examinadorQuatro#1#2#3{\gdef\ValorDoTituloDoExaminadorQuatro{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3} \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1 #3 #2} \DefinidoExaminadorQuatrotrue}
+
+% --- Resumo ---
+\ExplSyntaxOn%
+\NewDocumentCommand{\palavrasChave}{m m m o o}
+{%
+    \gdef\ValorDaPalavraChaveUm{#1}
+    \gdef\ValorDaPalavraChaveDois{#2}
+    \gdef\ValorDaPalavraChaveTres{#3}
+    \IfValueTF{#4}
+    {\gdef\ValorDaPalavraChaveQuatro{#4} \DefinidoPalavraChaveQuatrotrue}
+    {\gdef\ValorDaPalavraChaveQuatro{} \DefinidoPalavraChaveQuatrofalse}
+    \IfValueTF{#5}
+    {\gdef\ValorDaPalavraChaveCinco{#5} \DefinidoPalavraChaveCincotrue}
+    {\gdef\ValorDaPalavraChaveCinco{} \DefinidoPalavraChaveCincofalse}
+}
+\ExplSyntaxOff%
+
+\def\ValorDasPalavrasChave{
+    \ValorDaPalavraChaveUm,
+    \ValorDaPalavraChaveDois,
+    \ValorDaPalavraChaveTres{}\ifDefinidoPalavraChaveQuatro,
+    \ValorDaPalavraChaveQuatro\fi\ifDefinidoPalavraChaveCinco{},
+    \ValorDaPalavraChaveCinco{}\fi
+}
 
 % -----
 
@@ -241,5 +269,13 @@
         }
         \fi
     }
+
+    \ValorDaPalavraChaveUm{}
+    \ValorDaPalavraChaveDois{}
+    \ValorDaPalavraChaveTres{}
+    \ValorDaPalavraChaveQuatro{}
+    \ValorDaPalavraChaveCinco{}
+
+    \ValorDasPalavrasChave{}
 
 }
