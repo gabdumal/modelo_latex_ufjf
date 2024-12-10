@@ -1,0 +1,87 @@
+\documentclass[
+    % -- Opções da classe memoir --
+	openright,			% Define que capítulos começam em página ímpar (insere página vazia caso preciso).
+    12pt,				% Tamanho da fonte.
+    %oneside,			% Para impressão apenas no anverso. Oposto a twoside.
+    twoside             % Para impressão em verso e anverso. Caso necessário, páginas do verso ficarão em branco. Oposto a oneside.
+    a4paper,			% tamanho do papel. 
+    % -- Opções da classe abntex2 --
+    %chapter=TITLE,		% Títulos de capítulos são convertidos para letras maiúsculas.
+    %section=TITLE,		% Títulos de seções são convertidos para letras maiúsculas.
+    %subsection=TITLE,	% Títulos de subseções são convertidos para letras maiúsculas.
+    %subsubsection=TITLE % Títulos de subsubseções são convertidos para letras maiúsculas.
+    % -- Opções do pacote babel --
+    english,			% Define idioma adicional para hifenização
+    french,			    % Define idioma adicional para hifenização
+    spanish,			% Define idioma adicional para hifenização
+    brazil,				% O último idioma é definido como o principal do documento.
+]{abntex2}
+
+% Pacotes
+\input{cx_pacotes.tex}
+
+% Definições da Capa e folha de rosto
+\input{c0_capa.tex}
+
+% Configurações do documento
+\input{cx_configuracoes.tex}
+
+% Início do documento
+\begin{document}
+
+% -----
+% Configurações do texto
+% -----
+% Seleciona o idioma do documento
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases
+\frenchspacing{}
+% -----
+
+% =====
+% ELEMENTOS PRÉ-TEXTUAIS
+% =====
+\pretextual{}
+
+% Página de titulo principal (obrigatório)
+\maketitle{}
+
+% Resumos
+\input{c0_resumo.tex}
+
+\begin{center}\smaller{}
+    \textbf{Data de submissão e aprovação}: [INSIRA A DATA AQUI].
+\end{center}
+% =====
+
+% =====
+% ELEMENTOS TEXTUAIS
+% =====
+\textual{}
+
+\input{c1_introducao.tex}
+
+\input{c2_fundamentacao.tex}
+
+\input{c3_relacionados.tex}
+
+\input{c4_resultados.tex}
+
+\input{c5_conclusao.tex}
+% =====
+
+% =====
+% ELEMENTOS PÓS-TEXTUAIS
+% =====
+\postextual{}
+
+% --- Referências ---
+\bibliography{cx_bibliografia}
+
+% --- Glossário ---
+\printglossary[type=main,style=altlist,title=Glossário]
+\printglossary[type=acronym,style=altlist,title=Lista de Abreviaturas e Siglas]
+% =====
+
+\end{document}
