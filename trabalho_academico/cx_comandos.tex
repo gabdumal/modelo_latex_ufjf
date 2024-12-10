@@ -91,10 +91,12 @@
 \def\tipo#1{%
     \checkTipo{#1}%
 }
+\tipotrabalho{\ValorDoTipo}
 
 % --- Instituição ---
 
 \def\instituicao#1#2{\gdef\ValorDaInstituicao{#1} \gdef\ValorDaSiglaDaInstituicao{#2}}
+\renewcommand{\imprimirinstituicao}{\ValorDaInstituicao}
 
 \def\unidadeAcademica#1#2{\gdef\ValorDaUnidadeAcademica{#1} \gdef\ValorDaSiglaDaUnidadeAcademica{#2}}
 
@@ -102,11 +104,15 @@
 
 % --- Pessoas ---
 
-\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1}}
+\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
 
 \def\orientador#1#2#3{\gdef\ValorDoTituloDoOrientador{#1} \gdef\ValorDoUltimoSobrenomeDoOrientador{#2} \gdef\ValorDoRestanteDoNomeDoOrientador{#3} \gdef\ValorDoNomeCompletoDoOrientador{#3 #2} \gdef\ValorDoNomeCompletoDoOrientadorComTitulo{#1 #3 #2}}
+\renewcommand{\imprimirorientador}{\ValorDoNomeCompletoDoOrientador}
+\renewcommand{\imprimirorientadorRotulo}{\ValorDoTituloDoOrientador}
 
 \def\coorientador#1#2#3{\gdef\ValorDoTituloDoCoorientador{#1} \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2} \gdef\ValorDoRestanteDoNomeDoCoorientador{#3} \gdef\ValorDoNomeCompletoDoCoorientador{#3 #2} \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1 #3 #2} \DefinidoCoorientadortrue}
+\renewcommand{\imprimircoorientador}{\ValorDoNomeCompletoDoCoorientador}
+\renewcommand{\imprimircoorientadorRotulo}{\ValorDoTituloDoCoorientador}
 
 \def\examinadorUm#1#2#3{\gdef\ValorDoTituloDoExaminadorUm{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3} \gdef\ValorDoNomeCompletoDoExaminadorUm{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1 #3 #2} \DefinidoExaminadorUmtrue}
 
