@@ -49,8 +49,14 @@
 % =====
 \pretextual{}
 
-% Insere página de titulo principal (obrigatório).
-\maketitle{}
+% --- Capa ---
+\imprimircapa{}
+
+% --- Folha de rosto ---
+% Imprime a folha de rosto com a ficha catalográfica.
+\imprimirfolhaderosto*
+% Imprime a folha de rosto sem a ficha catalográfica.
+% \imprimirfolhaderosto{}
 
 % --- Resumos ---
 \input{c0_resumo.tex}
