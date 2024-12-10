@@ -9,7 +9,6 @@
     "hyperpageref",
     "identa",
     "linkcolor",
-    "mealpy",
     "midrule",
     "minipage",
     "nonumberlist",
@@ -23,6 +22,10 @@
     "urlcolor",
     "xindy"
   ],
+
+  "files.exclude": {
+    "**/.build/": true
+  },
 
   "latex-workshop.bibtex-fields.sort.enabled": true,
   "latex-workshop.bibtex-format.sort.enabled": true,
