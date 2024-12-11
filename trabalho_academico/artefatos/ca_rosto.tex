@@ -1,0 +1,55 @@
+% -----
+% Folha de rosto
+% -----
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{%
+    \ABNTEXchapterfont%
+    \center%
+
+    {%
+        \bfseries
+        \LARGE\ValorDoTitulo{}\\
+        \ifDefinidoSubtitulo%
+            \Large\ValorDoSubtitulo{}\\
+        \fi
+    }
+    \vspace{1.5em}%
+
+    {%
+        \Large\ValorDoNomeCompletoDoAutor{}
+        \par
+    }
+    \vspace{12.0em}
+
+    \begin{flushright}
+        \ValorDaInstituicao{}
+        \par
+        \ValorDaUnidadeAcademica{}
+        \par
+        \ValorDoDepartamento{}
+        \par
+        \ValorDoDiploma{} em \ValorDoCurso{}
+        \par
+    \end{flushright}
+
+    \begin{flushright}
+        Orientador: \ValorDoNomeCompletoDoOrientadorComTitulo{}
+        \par
+        \ifDefinidoCoorientador%
+            Coorientador: \ValorDoNomeCompletoDoCoorientadorComTitulo{}
+            \par
+        \fi
+    \end{flushright}
+    \vfill
+
+    {%
+        \MakeUppercase{\ValorDaCidade{}}
+        \par
+        \MakeUppercase{\ValorDoMes{}},
+        \ValorDoAno{}\\
+    }
+}
+\makeatother
+
+% -----
