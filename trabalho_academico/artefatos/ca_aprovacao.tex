@@ -10,40 +10,63 @@
 % \end{folhadeaprovacao}
 
 \begin{folhadeaprovacao}
+    \ABNTEXchapterfont%
+    \center%
 
-    \begin{center}
-        {\ABNTEXchapterfont\large\ValorDoNomeCompletoDoAutor{}}
+    {%
+        \large
+        \MakeUppercase{\ValorDoNomeCompletoDoAutor{}}
+    }
+    \vspace*{\fill}
 
-        \vspace*{\fill}\vspace*{\fill}
-        \begin{center}
-            \ABNTEXchapterfont\bfseries\Large\ValorDoTitulo{}
-        \end{center}
-        \vspace*{\fill}
-
-        \hspace{.45\textwidth}
-        \begin{minipage}{.5\textwidth}
-            \ValorDoTipo{}\ submetida ao corpo docente do \ValorDaUnidadeAcademica{}\ da \ValorDaInstituicao{}, como
-            parte integrante dos requisitos necess\'arios para a obten\c{c}\~ao do grau de \ValorDoGrau{}\ em \ValorDoCurso{}.
-        \end{minipage}%
-        \vspace*{\fill}
-    \end{center}
-
-    Trabalho aprovado. \ValorDaCidade{}, \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}:
-
-    \assinatura{\textbf{\imprimirorientador} \\ Orientador}
-    \assinatura{\textbf{Professor} \\ Convidado 1}
-    \assinatura{\textbf{Professor} \\ Convidado 2}
-    %\assinatura{\textbf{Professor} \\ Convidado 3}
-    %\assinatura{\textbf{Professor} \\ Convidado 4}
-
-    \begin{center}
-        \vspace*{0.5cm}
-        {\large\imprimirlocal}
+    {%
+        \Large
+        \textbf{\MakeUppercase{\ValorDoTitulo{}}}%
         \par
-        {\large\imprimirdata}
-        \vspace*{1cm}
-    \end{center}
+        \ifDefinidoSubtitulo%
+            \ValorDoSubtitulo{}%
+            \par
+        \fi
+    }
+    \vspace*{\fill}
 
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \ValorDoTipo{}\ submetida ao corpo docente do \ValorDaUnidadeAcademica{}\ da \ValorDaInstituicao{}, como
+        parte integrante dos requisitos necess\'arios para a obten\c{c}\~ao do grau de \ValorDoGrau{}\ em \ValorDoCurso{}.
+    \end{minipage}%
+    \vspace*{\fill}
+
+    {%
+        Trabalho aprovado. \ValorDaCidade{}, \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}:
+    }
+
+    \begin{multicols}{2}
+        \setlength{\ABNTEXsignwidth}{7cm}%
+        \assinatura*{%
+            \textbf\ValorDoNomeCompletoDoOrientadorComTitulo{}\\
+            \ValorDaInstituicaoDoOrientador{}\\
+            Orientador\\
+        }
+        % \ifDefinidoCoorientador%
+        %     \assinatura*{%
+        %         \textbf\ValorDoNomeCompletoDoCoorientadorComTitulo{}\\
+        %         \ValorDaInstituicaoDoCoorientador{}\\
+        %         Coorientador
+        %     }
+        % \fi
+        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorUmComTitulo{}} \\ Examinador}
+        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorDoisComTitulo{}} \\ Examinador}
+        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorTresComTitulo{}} \\ Examinador}
+        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}} \\ Examinador}
+    \end{multicols}
+
+    {%
+    \MakeUppercase{\ValorDaCidade{}}
+    \par
+    \MakeUppercase{\ValorDoMes{}},
+    \ValorDoAno{}\\
+    }
 \end{folhadeaprovacao}
 
 % -----
