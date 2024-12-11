@@ -55,12 +55,12 @@
 \def\estado#1{\gdef\ValorDoEstado{#1} \DefinidoEstadotrue}
 \def\pais#1{\gdef\ValorDoPais{#1}}
 
-\gdef\ValorDoLocal{
+\gdef\ValorDoLocal{%
     \ValorDaCidade{},
     \ifDefinidoEstado%
         \ValorDoEstado{},
     \fi
-    \ValorDoPais{}
+    \ValorDoPais{}%
 }
 
 \renewcommand{\imprimirlocal}{\ValorDoLocal}
@@ -75,15 +75,15 @@
 
 \def\tipoInterno#1{\gdef\ValorDoTipo{#1}}
 
-\def\defineBacharelado{\grau{BACHAREL} \tipoInterno{Monografia} \diploma{Bacharelado} }
+\def\defineBacharelado{\grau{bacharel} \tipoInterno{Monografia} \diploma{Bacharelado} }
 
-\def\defineLicenciatura{\grau{LICENCIADO} \tipoInterno{Monografia} \diploma{Licenciatura} }
+\def\defineLicenciatura{\grau{licenciado} \tipoInterno{Monografia} \diploma{Licenciatura} }
 
-\def\defineEspecializacao{\grau{ESPECIALISTA} \tipoInterno{Monografia} \diploma{Especializa\c{c}\~ao} \DefinidoEspecializacaotrue}
+\def\defineEspecializacao{\grau{especialista} \tipoInterno{Monografia} \diploma{Especializa\c{c}\~ao} \DefinidoEspecializacaotrue}
 
-\def\defineMestrado{\grau{MESTRE} \tipoInterno{Disserta\c{c}\~{a}o} \diploma{Mestrado} \DefinidoMestradotrue}
+\def\defineMestrado{\grau{mestre} \tipoInterno{Disserta\c{c}\~{a}o} \diploma{Mestrado} \DefinidoMestradotrue}
 
-\def\defineDoutorado{\grau{DOUTOR} \tipoInterno{Tese} \diploma{Doutorado} \DefinidoDoutoradotrue}
+\def\defineDoutorado{\grau{doutor} \tipoInterno{Tese} \diploma{Doutorado} \DefinidoDoutoradotrue}
 
 \ExplSyntaxOn%
 \NewDocumentCommand{\checkTipo}{m}{%
