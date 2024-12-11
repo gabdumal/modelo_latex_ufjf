@@ -149,8 +149,15 @@
 \renewcommand{\imprimirorientador}{\ValorDoNomeCompletoDoOrientador}
 \renewcommand{\imprimirorientadorRotulo}{\ValorDoTituloDoOrientador}
 
-\def\coorientador#1#2#3{\gdef\ValorDoTituloDoCoorientador{#1} \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2} \gdef\ValorDoRestanteDoNomeDoCoorientador{#3} \gdef\ValorDoNomeCompletoDoCoorientador{#3\ #2} \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1\ #3\ #2} \DefinidoCoorientadortrue}
-
+\def\coorientador#1#2#3#4{
+    \gdef\ValorDoTituloDoCoorientador{#1}
+    \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2}
+    \gdef\ValorDoRestanteDoNomeDoCoorientador{#3}
+    \gdef\ValorDoNomeCompletoDoCoorientador{#3\ #2}
+    \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1\ #3\ #2}
+    \gdef\ValorDaInstituicaoDoCoorientador{#4}
+    \DefinidoCoorientadortrue%
+}
 \renewcommand{\imprimircoorientador}{%
     \ifDefinidoCoorientador%
         \ValorDoNomeCompletoDoCoorientador{}%
@@ -164,13 +171,45 @@
     \fi%
 }
 
-\def\examinadorUm#1#2#3{\gdef\ValorDoTituloDoExaminadorUm{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3} \gdef\ValorDoNomeCompletoDoExaminadorUm{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1\ #3\ #2} \DefinidoExaminadorUmtrue}
+\def\examinadorUm#1#2#3#4{
+    \gdef\ValorDoTituloDoExaminadorUm{#1}
+    \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2}
+    \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3}
+    \gdef\ValorDoNomeCompletoDoExaminadorUm{#3\ #2}
+    \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1\ #3\ #2}
+    \gdef\ValorDaInstituicaoDoExaminadorUm{#4}
+    \DefinidoExaminadorUmtrue%
+}
 
-\def\examinadorDois#1#2#3{\gdef\ValorDoTituloDoExaminadorDois{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3} \gdef\ValorDoNomeCompletoDoExaminadorDois{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorDoisComTitulo{#1\ #3\ #2} \DefinidoExaminadorDoistrue}
+\def\examinadorDois#1#2#3#4{
+    \gdef\ValorDoTituloDoExaminadorDois{#1}
+    \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2}
+    \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3}
+    \gdef\ValorDoNomeCompletoDoExaminadorDois{#3\ #2}
+    \gdef\ValorDoNomeCompletoDoExaminadorDoisComTitulo{#1\ #3\ #2}
+    \gdef\ValorDaInstituicaoDoExaminadorDois{#4}
+    \DefinidoExaminadorDoistrue%
+}
 
-\def\examinadorTres#1#2#3{\gdef\ValorDoTituloDoExaminadorTres{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3} \gdef\ValorDoNomeCompletoDoExaminadorTres{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1\ #3\ #2} \DefinidoExaminadorTrestrue}
+\def\examinadorTres#1#2#3#4{
+    \gdef\ValorDoTituloDoExaminadorTres{#1}
+    \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2}
+    \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3}
+    \gdef\ValorDoNomeCompletoDoExaminadorTres{#3\ #2}
+    \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1\ #3\ #2}
+    \gdef\ValorDaInstituicaoDoExaminadorTres{#4}
+    \DefinidoExaminadorTrestrue%
+}
 
-\def\examinadorQuatro#1#2#3{\gdef\ValorDoTituloDoExaminadorQuatro{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3} \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1\ #3\ #2} \DefinidoExaminadorQuatrotrue}
+\def\examinadorQuatro#1#2#3#4{
+    \gdef\ValorDoTituloDoExaminadorQuatro{#1}
+    \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2}
+    \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3}
+    \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3\ #2}
+    \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1\ #3\ #2}
+    \gdef\ValorDaInstituicaoDoExaminadorQuatro{#4}
+    \DefinidoExaminadorQuatrotrue%
+}
 
 % --- Resumo ---
 \ExplSyntaxOn%

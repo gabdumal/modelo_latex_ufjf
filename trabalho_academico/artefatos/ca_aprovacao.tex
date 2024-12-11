@@ -43,22 +43,53 @@
 
     \begin{multicols}{2}
         \setlength{\ABNTEXsignwidth}{7cm}%
+
         \assinatura*{%
             \textbf\ValorDoNomeCompletoDoOrientadorComTitulo{}\\
             \ValorDaInstituicaoDoOrientador{}\\
             Orientador\\
         }
-        % \ifDefinidoCoorientador%
-        %     \assinatura*{%
-        %         \textbf\ValorDoNomeCompletoDoCoorientadorComTitulo{}\\
-        %         \ValorDaInstituicaoDoCoorientador{}\\
-        %         Coorientador
-        %     }
-        % \fi
-        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorUmComTitulo{}} \\ Examinador}
-        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorDoisComTitulo{}} \\ Examinador}
-        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorTresComTitulo{}} \\ Examinador}
-        % \assinatura*{\textbf{\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}} \\ Examinador}
+
+        \ifDefinidoCoorientador%
+            \assinatura*{%
+                \textbf\ValorDoNomeCompletoDoCoorientadorComTitulo{}\\
+                \ValorDaInstituicaoDoCoorientador{}\\
+                Coorientador
+            }
+        \fi
+
+        \ifDefinidoExaminadorUm%
+            \assinatura*{%
+                \textbf\ValorDoNomeCompletoDoExaminadorUmComTitulo{}\\
+                \ValorDaInstituicaoDoExaminadorUm{}\\
+                Examinador
+            }
+        \fi
+
+        \ifDefinidoExaminadorDois%
+            \assinatura*{%
+                \textbf\ValorDoNomeCompletoDoExaminadorDoisComTitulo{}\\
+                \ValorDaInstituicaoDoExaminadorDois{}\\
+                Examinador
+            }
+        \fi
+
+        \ifDefinidoExaminadorTres%
+            \assinatura*{%
+                \textbf\ValorDoNomeCompletoDoExaminadorTresComTitulo{}\\
+                \ValorDaInstituicaoDoExaminadorTres{}\\
+                Examinador
+            }
+        \fi
+
+        \ifDefinidoExaminadorQuatro%
+            \assinatura*{%
+                \textbf\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}\\
+                \ValorDaInstituicaoDoExaminadorQuatro{}\\
+                Examinador
+            }
+        \fi
+
     \end{multicols}
 
     {%
