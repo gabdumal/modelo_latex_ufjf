@@ -13,7 +13,16 @@
 
 \usepackage[brazilian,hyperpageref]{backref}    % Páginas com as citações na bibliografia.
 
-\usepackage[subentrycounter,seeautonumberlist,nonumberlist=true,acronym,nohypertypes={index}]{glossaries}   % Glossário. Permite definir termos, siglas e abreviações. Deve ser carregado depois de backref.
+\let\printindex\relax
+\usepackage[
+    abbreviations,
+    index,
+    symbols,
+    nohypertypes={index},
+    nonumberlist=true,
+    seeautonumberlist,
+    subentrycounter
+]{glossaries-extra}   % Glossário. Permite definir termos, siglas e abreviações. Deve ser carregado depois de backref.
 
 \usepackage[alf]{abntex2cite}       % Citações padrão ABNT. Deve ser carregado depois de glossaries.
 
@@ -35,11 +44,6 @@
 % -----
 
 % --- Glossaries ---
-\newglossary[ilg]{index}{ind}{idx}{\indexname}
-\newcommand*{\newterm}[2]{
-    \newglossaryentry{#1}
-    {type=index,name={#2},description={\nopostdesc}}
-}
 \makeglossaries{} % Habilite este comando para permitir a impressão dos glossários.
 \loadglsentries{c0_glossario.tex}
 \renewcommand*{\glsclearpage}{} % Evita quebra de página entre os glossários.
