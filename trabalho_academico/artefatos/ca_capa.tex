@@ -1,0 +1,43 @@
+% -----
+% Capa
+% -----
+
+\renewcommand{\imprimircapa}{%
+    \begin{capa}%
+        \center%
+        \ABNTEXchapterfont%
+
+        {%
+            \MakeUppercase{\ValorDaInstituicao{}}
+            \par
+            \MakeUppercase{\ValorDaUnidadeAcademica{}}
+            \par
+            \MakeUppercase{\ValorDoPrograma{}}
+            \par
+        }
+        \vspace{13em}
+
+        {%
+            \bfseries
+            \LARGE\ValorDoTitulo{}\\
+            \ifDefinidoSubtitulo%
+                \Large\ValorDoSubtitulo{}\\
+            \fi
+
+            \vspace*{4.3em}
+            \Large\ValorDoNomeCompletoDoAutor{}\\
+        }
+        \vfill
+
+        {%
+            \MakeUppercase{\ValorDaCidade{}}
+            \par
+            \MakeUppercase{\ValorDoMes{}},
+            \ValorDoAno{}\\
+        }
+    \end{capa}
+}
+
+\imprimircapa{}
+
+% -----

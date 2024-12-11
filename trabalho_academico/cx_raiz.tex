@@ -20,16 +20,16 @@
 ]{abntex2}
 
 % --- Pacotes ---
-\input{configuracoes/cx_pacotes.tex}
+\input{definicoes/cd_pacotes.tex}
 
 % --- Comandos ---
-\input{configuracoes/cx_comandos.tex}
+\input{definicoes/cd_comandos.tex}
 
 % --- Definições pre-textuais ---
 \input{c0_pretexto.tex}
 
 % --- Configurações da aparência do documento ---
-\input{configuracoes/cx_aparencia.tex}
+\input{definicoes/cd_aparencia.tex}
 
 % Inicia o documento.
 \begin{document}
@@ -50,7 +50,7 @@
 \pretextual{}
 
 % --- Capa ---
-\imprimircapa{}
+\input{artefatos/ca_capa.tex}
 
 % --- Folha de rosto ---
 % Imprime a folha de rosto com a ficha catalográfica no verso.
@@ -59,13 +59,13 @@
 % \imprimirfolhaderosto{}
 
 % --- Ficha catalográfica ---
-\input{c0_ficha.tex}
+\input{artefatos/ca_ficha.tex}
 
 % --- Errata ---
-\input{c0_errata.tex}
+\input{artefatos/ca_errata.tex}
 
 % --- Folha de aprovação ---
-\input{c0_aprovacao.tex}
+\input{artefatos/ca_aprovacao.tex}
 
 % --- Resumos ---
 \input{c0_resumo.tex}
