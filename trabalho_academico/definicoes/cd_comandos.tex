@@ -25,8 +25,8 @@
 \newif\ifDefinidoExaminadorQuatro{} \DefinidoExaminadorQuatrofalse{}
 
 % --- Resumo ---
-\newif\ifDefinidoPalavraChaveQuatro{} \DefinidoPalavraChaveQuatrofalse{}
-\newif\ifDefinidoPalavraChaveCinco{} \DefinidoPalavraChaveCincofalse{}
+\newif\ifDefinidaPalavraChaveQuatro{} \DefinidaPalavraChaveQuatrofalse{}
+\newif\ifDefinidaPalavraChaveCinco{} \DefinidaPalavraChaveCincofalse{}
 
 % -----
 
@@ -112,14 +112,27 @@
 }
 \tipotrabalho{\ValorDoTipo}
 
+\gdef\ValorDoPrograma{%
+    \ifDefinidoMestrado%
+        Pós-Graduação
+    \else
+        \ifDefinidoDoutorado%
+            Pós-Graduação
+        \else
+            \ValorDoDiploma{}
+        \fi
+    \fi
+    em \ValorDoCurso{}%
+}
+
 % --- Instituição ---
 
-\def\instituicao#1#2#3{\gdef\ValorDaInstituicao{#1} \gdef\ValorDaSiglaDaInstituicao{#2}\gdef\ValorDaCidadeDaInstituicao{#3}}
+\def\instituicao#1#2#3{\gdef\ValorDaInstituicao{#1}\gdef\ValorDaSiglaDaInstituicao{#2}\gdef\ValorDaCidadeDaInstituicao{#3}}
 \renewcommand{\imprimirinstituicao}{\ValorDaInstituicao}
 
 \def\unidadeAcademica#1#2{\gdef\ValorDaUnidadeAcademica{#1} \gdef\ValorDaSiglaDaUnidadeAcademica{#2}}
 
-\def\departamento#1#2{\gdef\ValorDoDepartamento{#1} \gdef\ValorDaSiglaDoDepartamento{#2}}
+\def\departamento#1#2{\gdef\ValorDoDepartamento{#1}\gdef\ValorDaSiglaDoDepartamento{#2}}
 
 % --- Pessoas ---
 
@@ -160,19 +173,19 @@
     \gdef\ValorDaPalavraChaveDois{#2}
     \gdef\ValorDaPalavraChaveTres{#3}
     \IfValueTF{#4}
-    {\gdef\ValorDaPalavraChaveQuatro{#4} \DefinidoPalavraChaveQuatrotrue}
-    {\gdef\ValorDaPalavraChaveQuatro{} \DefinidoPalavraChaveQuatrofalse}
+    {\gdef\ValorDaPalavraChaveQuatro{#4} \DefinidaPalavraChaveQuatrotrue}
+    {\gdef\ValorDaPalavraChaveQuatro{} \DefinidaPalavraChaveQuatrofalse}
     \IfValueTF{#5}
-    {\gdef\ValorDaPalavraChaveCinco{#5} \DefinidoPalavraChaveCincotrue}
-    {\gdef\ValorDaPalavraChaveCinco{} \DefinidoPalavraChaveCincofalse}
+    {\gdef\ValorDaPalavraChaveCinco{#5} \DefinidaPalavraChaveCincotrue}
+    {\gdef\ValorDaPalavraChaveCinco{} \DefinidaPalavraChaveCincofalse}
 }
 \ExplSyntaxOff%
 
 \def\ValorDasPalavrasChave{
     \ValorDaPalavraChaveUm,
     \ValorDaPalavraChaveDois,
-    \ValorDaPalavraChaveTres{}\ifDefinidoPalavraChaveQuatro,
-    \ValorDaPalavraChaveQuatro\fi\ifDefinidoPalavraChaveCinco{},
+    \ValorDaPalavraChaveTres{}\ifDefinidaPalavraChaveQuatro,
+    \ValorDaPalavraChaveQuatro\fi\ifDefinidaPalavraChaveCinco{},
     \ValorDaPalavraChaveCinco{}\fi
 }
 
