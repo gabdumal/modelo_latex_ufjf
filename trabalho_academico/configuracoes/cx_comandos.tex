@@ -12,6 +12,7 @@
 \newif\ifDefinidoSubtitulo{} \DefinidoSubtitulofalse{}
 
 % --- Trabalho ---
+\newif\ifDefinidoEstado{} \DefinidoEstadofalse{}
 \newif\ifDefinidoEspecializacao{} \DefinidoEspecializacaofalse{}
 \newif\ifDefinidoMestrado{} \DefinidoMestradofalse{}
 \newif\ifDefinidoDoutorado{} \DefinidoDoutoradofalse{}
@@ -38,6 +39,8 @@
 
 \def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
 
+\gdef\ValorDoTituloCompleto{\ValorDoTitulo{}\ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi}
+
 % --- Trabalho ---
 
 \def\curso#1{\gdef\ValorDoCurso{#1}}
@@ -48,7 +51,19 @@
 \gdef\ValorDaData{\ValorDoMes{}, \ValorDoAno{}}
 \data{\ValorDaData}
 
-\gdef\ValorDoLocal{\imprimirlocal}
+\def\cidade#1{\gdef\ValorDaCidade{#1}}
+\def\estado#1{\gdef\ValorDoEstado{#1} \DefinidoEstadotrue}
+\def\pais#1{\gdef\ValorDoPais{#1}}
+
+\gdef\ValorDoLocal{
+    \ValorDaCidade{},
+    \ifDefinidoEstado%
+        \ValorDoEstado{},
+    \fi
+    \ValorDoPais{}
+}
+
+\renewcommand{\imprimirlocal}{\ValorDoLocal}
 
 % -- Tipo do trabalho --
 
@@ -99,7 +114,7 @@
 
 % --- Instituição ---
 
-\def\instituicao#1#2{\gdef\ValorDaInstituicao{#1} \gdef\ValorDaSiglaDaInstituicao{#2}}
+\def\instituicao#1#2#3{\gdef\ValorDaInstituicao{#1} \gdef\ValorDaSiglaDaInstituicao{#2}\gdef\ValorDaCidadeDaInstituicao{#3}}
 \renewcommand{\imprimirinstituicao}{\ValorDaInstituicao}
 
 \def\unidadeAcademica#1#2{\gdef\ValorDaUnidadeAcademica{#1} \gdef\ValorDaSiglaDaUnidadeAcademica{#2}}
@@ -114,17 +129,28 @@
 \renewcommand{\imprimirorientador}{\ValorDoNomeCompletoDoOrientador}
 \renewcommand{\imprimirorientadorRotulo}{\ValorDoTituloDoOrientador}
 
-\def\coorientador#1#2#3{\gdef\ValorDoTituloDoCoorientador{#1} \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2} \gdef\ValorDoRestanteDoNomeDoCoorientador{#3} \gdef\ValorDoNomeCompletoDoCoorientador{#3 #2} \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1 #3 #2} \DefinidoCoorientadortrue}
-\renewcommand{\imprimircoorientador}{\ValorDoNomeCompletoDoCoorientador}
-\renewcommand{\imprimircoorientadorRotulo}{\ValorDoTituloDoCoorientador}
+\def\coorientador#1#2#3{\gdef\ValorDoTituloDoCoorientador{#1} \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2} \gdef\ValorDoRestanteDoNomeDoCoorientador{#3} \gdef\ValorDoNomeCompletoDoCoorientador{#3\ #2} \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1\ #3\ #2} \DefinidoCoorientadortrue}
 
-\def\examinadorUm#1#2#3{\gdef\ValorDoTituloDoExaminadorUm{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3} \gdef\ValorDoNomeCompletoDoExaminadorUm{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1 #3 #2} \DefinidoExaminadorUmtrue}
+\renewcommand{\imprimircoorientador}{%
+    \ifDefinidoCoorientador%
+        \ValorDoNomeCompletoDoCoorientador{}%
+    \else%
+    \fi%
+}
+\renewcommand{\imprimircoorientadorRotulo}{%
+    \ifDefinidoCoorientador%
+        \ValorDoTituloDoCoorientador{}%
+    \else%
+    \fi%
+}
 
-\def\examinadorDois#1#2#3{\gdef\ValorDoTituloDoExaminadorDois{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3} \gdef\ValorDoNomeCompletoDoExaminadorDois{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorDoisComTitulo{#1 #3 #2} \DefinidoExaminadorDoistrue}
+\def\examinadorUm#1#2#3{\gdef\ValorDoTituloDoExaminadorUm{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3} \gdef\ValorDoNomeCompletoDoExaminadorUm{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorUmComTitulo{#1\ #3\ #2} \DefinidoExaminadorUmtrue}
 
-\def\examinadorTres#1#2#3{\gdef\ValorDoTituloDoExaminadorTres{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3} \gdef\ValorDoNomeCompletoDoExaminadorTres{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1 #3 #2} \DefinidoExaminadorTrestrue}
+\def\examinadorDois#1#2#3{\gdef\ValorDoTituloDoExaminadorDois{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3} \gdef\ValorDoNomeCompletoDoExaminadorDois{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorDoisComTitulo{#1\ #3\ #2} \DefinidoExaminadorDoistrue}
 
-\def\examinadorQuatro#1#2#3{\gdef\ValorDoTituloDoExaminadorQuatro{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3} \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3 #2} \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1 #3 #2} \DefinidoExaminadorQuatrotrue}
+\def\examinadorTres#1#2#3{\gdef\ValorDoTituloDoExaminadorTres{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3} \gdef\ValorDoNomeCompletoDoExaminadorTres{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorTresComTitulo{#1\ #3\ #2} \DefinidoExaminadorTrestrue}
+
+\def\examinadorQuatro#1#2#3{\gdef\ValorDoTituloDoExaminadorQuatro{#1} \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2} \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3} \gdef\ValorDoNomeCompletoDoExaminadorQuatro{#3\ #2} \gdef\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{#1\ #3\ #2} \DefinidoExaminadorQuatrotrue}
 
 % --- Resumo ---
 \ExplSyntaxOn%
