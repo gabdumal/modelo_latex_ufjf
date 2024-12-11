@@ -20,16 +20,16 @@
 ]{abntex2}
 
 % --- Pacotes ---
-\input{cx_pacotes.tex}
+\input{configuracoes/cx_pacotes.tex}
 
 % --- Comandos ---
-\input{cx_comandos.tex}
+\input{configuracoes/cx_comandos.tex}
 
 % --- Definições pre-textuais ---
 \input{c0_pretexto.tex}
 
 % --- Configurações da aparência do documento ---
-\input{cx_aparencia.tex}
+\input{configuracoes/cx_aparencia.tex}
 
 % Inicia o documento.
 \begin{document}
@@ -53,10 +53,13 @@
 \imprimircapa{}
 
 % --- Folha de rosto ---
-% Imprime a folha de rosto com a ficha catalográfica.
+% Imprime a folha de rosto com a ficha catalográfica no verso.
 \imprimirfolhaderosto*
-% Imprime a folha de rosto sem a ficha catalográfica.
+% Imprime a folha de rosto com a ficha catalográfica em outra página.
 % \imprimirfolhaderosto{}
+
+% --- Ficha catalográfica ---
+\input{c0_ficha.tex}
 
 % --- Resumos ---
 \input{c0_resumo.tex}
