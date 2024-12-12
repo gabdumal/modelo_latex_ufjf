@@ -12,91 +12,72 @@
 \begin{folhadeaprovacao}
     \ABNTEXchapterfont%
     \center%
+    \setlength{\ABNTEXsignwidth}{10cm}
 
-    {%
-        \large\ValorDoNomeCompletoDoAutor{}
+    \ComponenteAutor{}
+    \vspace{\fill}
+
+    \ComponenteTituloESubtitulo{}
+    \vspace{\fill}
+
+    \ComponenteNatureza{}
+    \vspace{\fill}
+
+    \begin{flushleft}
+        Aprovado em \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}
+    \end{flushleft}
+    \vspace{0.5cm}
+
+    {BANCA EXAMINADORA}
+
+    % Caso haja muitos membros na banca, e o espaço fique pequeno, habilite as linhas abaixo e a linha de fechamento do ambiente "multicols" no final deste arquivo. Isso fará com que a lista de membros da banca seja impressa em duas colunas.
+
+    % \begin{multicols}{2}
+    % \setlength{\ABNTEXsignwidth}{7cm}%
+
+    \assinatura*{%
+        \ValorDoNomeCompletoDoOrientadorComTitulo{}
+        --- Orientador\\
+        \ValorDoNomeDaInstituicaoDoOrientador{}\\
     }
-    \vspace*{\fill}
 
-    {%
-        \Large
-        \textbf{\MakeUppercase{\ValorDoTitulo{}}}%
-        \par
-        \ifDefinidoSubtitulo%
-            \ValorDoSubtitulo{}%
-            \par
-        \fi
-    }
-    \vspace*{\fill}
-
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \ValorDoTipo{}\ submetida ao corpo docente d\ValorDoArtigoGramaticalDaUnidadeAcademica{} \ValorDoNomeDaUnidadeAcademica{}\ d\ValorDoArtigoGramaticalDaInstituicao{} \ValorDoNomeDaInstituicao{}, como
-        parte integrante dos requisitos necess\'arios para a obten\c{c}\~ao do grau de \titlecap{\ValorDoGrau{}}\ em \ValorDoCurso{}.
-    \end{minipage}%
-    \vspace*{\fill}
-
-    {%
-        Trabalho aprovado. \ValorDaCidade{}, \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}:
-    }
-
-    \begin{multicols}{2}
-        \setlength{\ABNTEXsignwidth}{7cm}%
-
+    \ifDefinidoCoorientador%
         \assinatura*{%
-            \textbf\ValorDoNomeCompletoDoOrientadorComTitulo{}\\
-            \ValorDoNomeDaInstituicaoDoOrientador{}\\
-            Orientador\\
+            \ValorDoNomeCompletoDoCoorientadorComTitulo{}
+            --- Coorientador\\
+            \ValorDoNomeDaInstituicaoDoCoorientador{}\\
         }
+    \fi
 
-        \ifDefinidoCoorientador%
-            \assinatura*{%
-                \textbf\ValorDoNomeCompletoDoCoorientadorComTitulo{}\\
-                \ValorDoNomeDaInstituicaoDoCoorientador{}\\
-                Coorientador
-            }
-        \fi
+    \ifDefinidoExaminadorUm%
+        \assinatura*{%
+            \ValorDoNomeCompletoDoExaminadorUmComTitulo{}\\
+            \ValorDoNomeDaInstituicaoDoExaminadorUm{}\\
+        }
+    \fi
 
-        \ifDefinidoExaminadorUm%
-            \assinatura*{%
-                \textbf\ValorDoNomeCompletoDoExaminadorUmComTitulo{}\\
-                \ValorDoNomeDaInstituicaoDoExaminadorUm{}\\
-                Examinador
-            }
-        \fi
+    \ifDefinidoExaminadorDois%
+        \assinatura*{%
+            \ValorDoNomeCompletoDoExaminadorDoisComTitulo{}\\
+            \ValorDoNomeDaInstituicaoDoExaminadorDois{}\\
+        }
+    \fi
 
-        \ifDefinidoExaminadorDois%
-            \assinatura*{%
-                \textbf\ValorDoNomeCompletoDoExaminadorDoisComTitulo{}\\
-                \ValorDoNomeDaInstituicaoDoExaminadorDois{}\\
-                Examinador
-            }
-        \fi
+    \ifDefinidoExaminadorTres%
+        \assinatura*{%
+            \ValorDoNomeCompletoDoExaminadorTresComTitulo{}\\
+            \ValorDoNomeDaInstituicaoDoExaminadorTres{}\\
+        }
+    \fi
 
-        \ifDefinidoExaminadorTres%
-            \assinatura*{%
-                \textbf\ValorDoNomeCompletoDoExaminadorTresComTitulo{}\\
-                \ValorDoNomeDaInstituicaoDoExaminadorTres{}\\
-                Examinador
-            }
-        \fi
+    \ifDefinidoExaminadorQuatro%
+        \assinatura*{%
+            \ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}\\
+            \ValorDoNomeDaInstituicaoDoExaminadorQuatro{}\\
+        }
+    \fi
+    % \end{multicols}
 
-        \ifDefinidoExaminadorQuatro%
-            \assinatura*{%
-                \textbf\ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}\\
-                \ValorDoNomeDaInstituicaoDoExaminadorQuatro{}\\
-                Examinador
-            }
-        \fi
-
-    \end{multicols}
-
-    {%
-    \MakeUppercase{\ValorDaCidade{}}
-    \par
-    \MakeUppercase{\ValorDoMes{}},
-    \ValorDoAno{}\\
-    }
 \end{folhadeaprovacao}
 
 % -----

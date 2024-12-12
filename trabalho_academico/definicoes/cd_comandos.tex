@@ -52,7 +52,11 @@
 \data{\ValorDaData}
 
 \def\cidade#1{\gdef\ValorDaCidade{#1}}
-\def\estado#1{\gdef\ValorDoEstado{#1} \DefinidoEstadotrue}
+\def\estado#1#2{%
+    \gdef\ValorDoEstado{#1}
+    \gdef\ValorDaSiglaDoEstado{#2}
+    \DefinidoEstadotrue%
+}
 \def\pais#1{\gdef\ValorDoPais{#1}}
 
 \gdef\ValorDoLocal{%
@@ -240,12 +244,59 @@
 \ExplSyntaxOff%
 
 \def\ValorDasPalavrasChave{
-    \ValorDaPalavraChaveUm,
-    \ValorDaPalavraChaveDois,
-    \ValorDaPalavraChaveTres{}\ifDefinidaPalavraChaveQuatro,
-    \ValorDaPalavraChaveQuatro\fi\ifDefinidaPalavraChaveCinco{},
+    \ValorDaPalavraChaveUm;
+    \ValorDaPalavraChaveDois;
+    \ValorDaPalavraChaveTres{}\ifDefinidaPalavraChaveQuatro;
+    \ValorDaPalavraChaveQuatro\fi\ifDefinidaPalavraChaveCinco{};
     \ValorDaPalavraChaveCinco{}\fi
 }
+
+% -----
+
+% -----
+% Componentes
+% -----
+
+\gdef\ComponenteAutor{{%
+            \center%
+            \ABNTEXchapterfont%
+            \textbf{\ValorDoNomeCompletoDoAutor{}}
+            \par
+        }}
+
+\gdef\ComponenteTituloESubtitulo{{%
+            \center%
+            \ABNTEXchapterfont%
+            \textbf{\ValorDoTitulo{}}%
+            \ifDefinidoSubtitulo%
+                {\textbf{:} \ValorDoSubtitulo{}}%
+            \fi
+            \par
+        }}
+
+\gdef\ComponenteLocalEData{{%
+            \center%
+            \ABNTEXchapterfont%
+            \ValorDaCidade{}%
+            \ifDefinidoEstado%
+                {,~\ValorDaSiglaDoEstado{}}%
+            \fi
+            \par
+            \ValorDoAno{}
+            \\
+        }}
+
+\gdef\ComponenteNatureza{{%
+            \ABNTEXchapterfont%
+            \hspace{.45\textwidth}
+            \begin{minipage}{.5\textwidth}
+                \ValorDoTipo{}\ submetida ao corpo docente
+                d\ValorDoArtigoGramaticalDaUnidadeAcademica{} \ValorDoNomeDaUnidadeAcademica{}
+                d\ValorDoArtigoGramaticalDaInstituicao{} \ValorDoNomeDaInstituicao{},
+                como parte integrante dos requisitos necessários para a obtenção do grau de
+                \titlecap{\ValorDoGrau{}}\ em \ValorDoCurso{}.
+            \end{minipage}%
+        }}
 
 % -----
 
