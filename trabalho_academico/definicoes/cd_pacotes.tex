@@ -13,10 +13,8 @@
 
 \usepackage[brazilian,hyperpageref]{backref}    % Páginas com as citações na bibliografia.
 
-\let\printindex\relax
 \usepackage[
     abbreviations,
-    index,
     symbols,
     nohypertypes={index},
     % nonumberlist=true,
@@ -44,8 +42,28 @@
 % Configurações dos pacotes
 % -----
 
-% --- Glossaries ---
-\makeglossaries{} % Habilite este comando para permitir a impressão dos glossários.
+% --- Glossaries-extra ---
+% O pacote "glossaries-extra" provê a opção de criar um glossário chamado "index" nas opções do pacote. Entretanto, isso cria um comando chamado "\printindex", que conflita com o homônimo do pacote "memoir", utilizado para imprimir o índice remissivo. Para resolver, não habilitamos a opção "index" e criamos um novo glossário chamado "index" manualmente.
+\newglossary[ilg]{index}{ind}{idx}{\indexname}
+% Define o comando "\newterm" para facilitar a criação de novos termos no glossário "index".
+\DeclareDocumentCommand\newterm{m m g}{%
+    \IfValueTF{#3}{%
+        \newglossaryentry{#1}{%
+            type=index,
+            name={#2},
+            description={\nopostdesc},
+            plural={#3}%
+        }
+    }{%
+        \newglossaryentry{#1}{%
+            type=index,
+            name={#2},
+            description={\nopostdesc}%
+        }
+    }
+}
+% Permite a impressão dos glossários.
+\makeglossaries{}
 \loadglsentries{c0_glossario.tex}
 \renewcommand*{\glsclearpage}{} % Evita quebra de página entre os glossários.
 
