@@ -94,10 +94,17 @@
 \cleardoublepage{}
 
 % --- Lista de abreviaturas e siglas ---
-\printglossary[type=abbreviations,style=altlist,title=Lista de Abreviaturas e Siglas]
+\printglossary[type=abbreviations,style=altlist,title=\listadesiglasname]
+\cleardoublepage{}
 
 % --- Lista de símbolos ---
-\printglossary[type=symbols,title=Lista de Símbolos]
+\printglossary[type=symbols,title=\listadesimbolosname]
+\cleardoublepage{}
+
+% --- Sumário ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage{}
 
 % =====
 
@@ -127,6 +134,7 @@
 
 % --- Glossário ---
 \printglossary[type=main,style=altlist,title=Glossário]
+\addcontentsline{toc}{chapter}{\glossaryname}
 % =====
 
 \end{document}
