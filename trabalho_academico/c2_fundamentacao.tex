@@ -1,11 +1,233 @@
 \chapter{Fundamentação Teórica}%
 \label{cap:fundamentacao}
 
-\begin{figure}[!ht]%
-    \centering
-    \includegraphics[scale=0.5]{imagens/black-square.png}
-    \caption{Quadrado preto. Fonte:~\cite{tortinhas:2024}.}%
-    \label{fig:f1}
-\end{figure}
+Apresentamos exemplos de uso de símbolos matemáticos e equações.
 
-\lipsum[1-20] % chktex-file 8
+\section{Dados}
+
+\subsection{Índices}
+
+O problema permite delimitar os seguintes índices:
+
+\begin{symbols}
+    \item[\( \gls{indice:receitas} \)]
+    \glsentrydesc{indice:receitas},
+    tal que \(  \gls{indice:receitas} \in [1, \gls{constante:pre-processada:quantidade-receitas}] \);
+
+    \item[\( \gls{indice:pacotes} \)]
+    \glsentrydesc{indice:pacotes},
+    tal que \(  \gls{indice:pacotes} \in [1, \gls{constante:pre-processada:quantidade-pacotes}] \);
+
+    \item[\( \gls{indice:pedidos} \)]
+    \glsentrydesc{indice:pedidos},
+    tal que \(  \gls{indice:pedidos} \in [1, \gls{constante:pre-processada:quantidade-pedidos}] \);
+\end{symbols}
+
+\subsection{Constantes}
+
+\subsubsection{Fixas}
+
+As seguinte constante é fixa e não pode ser alterada durante a execução do modelo.
+
+\begin{symbols}
+    \item[\( \gls{constante:fixa:tempo-turno} \) ]
+    \glsentrydesc{constante:fixa:tempo-turno},
+    tal que \(  \gls{constante:fixa:tempo-turno} \in \mathbb{N}^{+} \).
+\end{symbols}
+
+O valor da constante citada e sua unidade são exibidos no \autoref{qua:constantes-fixas}.
+
+\begin{quadro}
+    \caption{%
+        \label{qua:constantes-fixas}%
+        Constantes do problema.
+    }
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Constante                              &
+        Valor                                  &
+        Unidade
+        \\
+        \hline
+        \( \gls{constante:fixa:tempo-turno} \) &
+        420                                    &
+        minutos
+        \\
+        \hline
+    \end{tabular}
+
+    \ComponenteFontePropria{}
+\end{quadro}
+
+\subsubsection{Pré-processadas}
+
+Alguns dados preenchidos na aplicação web, apesar de serem dinâmicos, podem ser calculados antes da execução do modelo, permanecendo inalterados durante a execução do algoritmo de otimização.
+
+Na matriz de dados, essas constantes são representados na forma de restrições de igualdade calculadas a partir de outras variáveis.
+Do lado esquerdo da equação, tem-se o número constante pré-calculado e, do lado direito, a soma de variáveis multiplicadas por coeficientes.
+
+Segue-se a lista de constantes pré-processadas:
+
+\begin{symbols}
+    \item[\( \gls{constante:pre-processada:quantidade-receitas} \)]
+    \glsentrydesc{constante:pre-processada:quantidade-receitas},
+    tal que \( \glsentryname{constante:pre-processada:quantidade-receitas} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:pre-processada:quantidade-pacotes} \)]
+    \glsentrydesc{constante:pre-processada:quantidade-pacotes},
+    tal que \( \glsentryname{constante:pre-processada:quantidade-pacotes} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:pre-processada:quantidade-pedidos} \)]
+    \glsentrydesc{constante:pre-processada:quantidade-pedidos},
+    tal que \( \glsentryname{constante:pre-processada:quantidade-pedidos} \in \mathbb{N}^{+} \).
+\end{symbols}
+
+\subsubsection{Dados}
+
+\begin{symbols}
+    \item[\( \gls{constante:dado:receita:rendimento} \)]
+    \glsentrydesc{constante:dado:receita:rendimento},
+    tal que \( \glsentryname{constante:dado:receita:rendimento} \in \mathbb{R}^{+} \);
+
+    \item[\( \gls{constante:dado:receita:rendimento-total} \)]
+    \glsentrydesc{constante:dado:receita:rendimento-total},
+    tal que \( \glsentryname{constante:dado:receita:rendimento-total} \in \mathbb{R}^{+} \);
+
+    \item[\( \gls{constante:dado:receita:tempo-mistura} \)]
+    \glsentrydesc{constante:dado:receita:tempo-mistura},
+    tal que \( \glsentryname{constante:dado:receita:tempo-mistura} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:dado:receita:tempo-modelagem} \)]
+    \glsentrydesc{constante:dado:receita:tempo-modelagem},
+    tal que \( \glsentryname{constante:dado:receita:tempo-modelagem} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:dado:receita:tempo-assamento} \)]
+    \glsentrydesc{constante:dado:receita:tempo-assamento},
+    tal que \( \glsentryname{constante:dado:receita:tempo-assamento} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:dado:pacote:gramatura} \)]
+    \glsentrydesc{constante:dado:pacote:gramatura},
+    tal que \( \glsentryname{constante:dado:pacote:gramatura} \in \mathbb{N}^{+} \);
+
+    \item[\( \gls{constante:dado:pedido:quantidade-pacotes} \)]
+    \glsentrydesc{constante:dado:pedido:quantidade-pacotes},
+    tal que \( \glsentryname{constante:dado:pedido:quantidade-pacotes} \in \mathbb{N}^{+} \).
+
+    \item[\( \gls{constante:dado:pedido:peso} \)]
+    \glsentrydesc{constante:dado:pedido:peso},
+    tal que \( \glsentryname{constante:dado:pedido:peso} \in \mathbb{R}^{+} \).
+\end{symbols}
+
+\subsection{Variáveis}
+
+\subsubsection{Auxiliares}
+
+Todas as variáveis auxiliares acrescentam uma coluna à matriz de dados, sendo calculadas a partir de outras variáveis.
+
+Isso ocorre pois, na forma padrão de um problema de \gls{pl}, toda restrição tem, no membro esquerdo, uma soma de variáveis multiplicadas por coeficientes e, no membro direito, um valor constante.
+
+Assim, na restrição de igualdade que define uma variável auxiliar, se move a variável para o membro direito da equação e inverte o sinal do coeficiente.
+
+As variáveis auxiliares calculadas a partir do problema são:
+
+\begin{symbols}
+    \item[\( \gls{variavel:auxiliar:peso-total-pedidos-atendidos} \)]
+    \glsentrydesc{variavel:auxiliar:peso-total-pedidos-atendidos},
+    tal que \( \glsentryname{variavel:auxiliar:peso-total-pedidos-atendidos} \in \mathbb{R} \);
+
+    \item[\( \gls{variavel:auxiliar:peso-total-produzido} \)]
+    \glsentrydesc{variavel:auxiliar:peso-total-produzido},
+    tal que \( \glsentryname{variavel:auxiliar:peso-total-produzido} \in \mathbb{R} \);
+
+    \item[\( \gls{variavel:auxiliar:peso-total-em-sobra} \)]
+    \glsentrydesc{variavel:auxiliar:peso-total-em-sobra},
+    tal que \( \glsentryname{variavel:auxiliar:peso-total-em-sobra} \in \mathbb{R} \);
+\end{symbols}
+
+\subsubsection{Principais}
+
+\begin{symbols}
+    \item[\( \gls{variavel:principal:deve-atender-pedido} \)]
+    \glsentrydesc{variavel:principal:deve-atender-pedido},
+    tal que \(  \glsentryname{variavel:principal:deve-atender-pedido} \in \{0, 1\} \).
+
+    \item[\( \gls{variavel:principal:quantidade-porcoes-receita-a-produzir} \)]
+    \glsentrydesc{variavel:principal:quantidade-porcoes-receita-a-produzir},
+    tal que \(  \glsentryname{variavel:principal:quantidade-porcoes-receita-a-produzir} \in \mathbb{N} \).
+\end{symbols}
+
+\section{Restrições}
+
+\subsection{Constantes pré-processadas}
+
+As constantes pré-processadas, que se definem intrinsecamente por sua relação com variáveis, são:
+
+\begin{align}
+    \gls{constante:pre-processada:quantidade-receitas} &
+    = \sum_{\gls{indice:receitas} = 1}^{\gls{constante:pre-processada:quantidade-receitas}} 1,
+    \\
+    \gls{constante:pre-processada:quantidade-pacotes}  &
+    = \sum_{\gls{indice:pacotes} = 1}^{\gls{constante:pre-processada:quantidade-pacotes}} 1,
+    \\
+    \gls{constante:pre-processada:quantidade-pedidos}  &
+    = \sum_{\gls{indice:pedidos} = 1}^{\gls{constante:pre-processada:quantidade-pedidos}} 1.
+\end{align}
+
+\subsection{Auxiliares}
+
+Todas as variáveis auxiliares incorrem em restrições de igualdade, uma vez que são calculadas segundo colunas da matriz de dados.
+
+As restrições de igualdade que definem as variáveis auxiliares são:
+
+\begin{align}
+    \gls{variavel:auxiliar:peso-total-pedidos-atendidos} &
+    = \frac{\sum_{\gls{indice:pedidos} = 1}^{\gls{constante:pre-processada:quantidade-pedidos}} (\gls{constante:dado:pedido:quantidade-pacotes} \times \gls{constante:dado:pacote:gramatura})}
+    {1000}.
+    \\
+    \gls{variavel:auxiliar:peso-total-produzido}         &
+    = \gls{variavel:principal:quantidade-porcoes-receita-a-produzir} \times \gls{constante:dado:receita:rendimento}.
+    \\
+    \gls{variavel:auxiliar:peso-total-em-sobra}          &
+    = \gls{variavel:auxiliar:peso-total-produzido} - \gls{variavel:auxiliar:peso-total-pedidos-atendidos}.
+    \\
+    \sum \gls{constante:dado:rendimento-total}           &
+    \geq
+    \sum \gls{constante:dado:pedido:peso}
+    \\
+    \gls{constante:dado:receita:tempo-mistura}           &
+    \leq 420
+    \\
+    \gls{constante:dado:receita:tempo-modelagem}         &
+    \leq 420
+    \\
+    \gls{constante:dado:receita:tempo-assamento}         &
+    \leq 405
+\end{align}
+
+\subsection{Demais restrições}
+
+Toda a demanda deve ser atendida:
+
+\begin{align}
+    \gls{variavel:auxiliar:peso-total-produzido} &
+    \geq \sum_{\gls{indice:pedidos} = 1}
+    ^{\gls{constante:pre-processada:quantidade-pedidos}} \gls
+    {constante:dado:pedido:quantidade-pacotes}.
+\end{align}
+
+Tempo máximo de mistura por expediente:
+
+\begin{align}
+    \gls{variavel:principal:quantidade-porcoes-receita-a-produzir}
+    \times \gls{constante:dado:receita:tempo-mistura}
+    \leq \gls{constante:fixa:tempo-turno}.
+\end{align}
+
+\section{Função-Objetivo}
+
+A função objetivo deste problema é minimizar o peso total em sobra das receitas, conforme mostrado abaixo:
+
+\begin{align}
+    \min \sum \gls{variavel:auxiliar:peso-total-em-sobra}_{\gls{indice:pedidos}}
+\end{align}
