@@ -4,6 +4,7 @@
     "abntex",
     "abnteX2",
     "bookmarksdepth",
+    "chktex",
     "citecolor",
     "filecolor",
     "hyperpageref",
@@ -21,6 +22,7 @@
     "subentrycounter",
     "Titlecaps",
     "todonotes",
+    "ufjf",
     "urlcolor",
     "xindy"
   ],

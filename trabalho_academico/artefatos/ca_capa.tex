@@ -6,8 +6,10 @@
     \begin{capa}%
         \center%
         \ABNTEXchapterfont%
+        \large
 
         {%
+            \bfseries
             \MakeUppercase{\ValorDoNomeDaInstituicao{}}
             \par
             \MakeUppercase{\ValorDoNomeDaUnidadeAcademica{}}
@@ -15,25 +17,22 @@
             \MakeUppercase{\ValorDoPrograma{}}
             \par
         }
-        \vspace{13em}
+
+        \vspace{4cm}
+        \textbf{\ValorDoNomeCompletoDoAutor{}}\\
+        \vspace{4cm}
+
+        \textbf{\ValorDoTitulo{}}%
+        \ifDefinidoSubtitulo%
+        {\textbf{:} \ValorDoSubtitulo{}}\\
+        \fi
+        \vspace{\fill}
 
         {%
-            \bfseries
-            \LARGE\ValorDoTitulo{}\\
-            \ifDefinidoSubtitulo%
-                \Large\ValorDoSubtitulo{}\\
-            \fi
-            \vspace*{4.3em}
-
-            \Large\ValorDoNomeCompletoDoAutor{}\\
-        }
-        \vfill
-
-        {%
-            \MakeUppercase{\ValorDaCidade{}}
+            \ValorDaCidade{}
             \par
-            \MakeUppercase{\ValorDoMes{}},
-            \ValorDoAno{}\\
+            \ValorDoAno{}
+            \\
         }
     \end{capa}
 }
