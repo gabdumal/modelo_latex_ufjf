@@ -6,7 +6,6 @@
     \begin{capa}%
         \center%
         \ABNTEXchapterfont%
-        \large
 
         {%
             \bfseries
@@ -17,23 +16,15 @@
             \MakeUppercase{\ValorDoPrograma{}}
             \par
         }
-
-        \vspace{4cm}
-        \textbf{\ValorDoNomeCompletoDoAutor{}}\\
         \vspace{4cm}
 
-        \textbf{\ValorDoTitulo{}}%
-        \ifDefinidoSubtitulo%
-        {\textbf{:} \ValorDoSubtitulo{}}\\
-        \fi
+        \ComponenteAutor{}
+        \vspace{4cm}
+
+        \ComponenteTituloESubtitulo{}
         \vspace{\fill}
 
-        {%
-            \ValorDaCidade{}
-            \par
-            \ValorDoAno{}
-            \\
-        }
+        \ComponenteLocalEData{}
     \end{capa}
 }
 

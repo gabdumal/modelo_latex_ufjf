@@ -7,34 +7,17 @@
     \ABNTEXchapterfont%
     \center%
 
-    {%
-        \bfseries
-        \LARGE\ValorDoTitulo{}\\
-        \ifDefinidoSubtitulo%
-            \Large\ValorDoSubtitulo{}\\
-        \fi
-    }
-    \vspace{1.5em}%
+    \ComponenteAutor{}
+    \vspace{4cm}
 
-    {%
-        \Large%
-        \MakeUppercase{\ValorDoNomeCompletoDoAutor{}}
-        \par
-    }
-    \vspace{12.0em}
+    \ComponenteTituloESubtitulo{}
+    \vspace{4cm}
+
+    \ComponenteNatureza{}
+    \vspace{2cm}
 
     \begin{flushright}
-        \ValorDoNomeDaInstituicao{}
-        \par
-        \ValorDoNomeDaUnidadeAcademica{}
-        \par
-        \ValorDoNomeDoDepartamento{}
-        \par
-        \ValorDoDiploma{} em \ValorDoCurso{}
-        \par
-    \end{flushright}
-
-    \begin{flushright}
+        \large
         Orientador: \ValorDoNomeCompletoDoOrientadorComTitulo{}
         \par
         \ifDefinidoCoorientador%
@@ -44,12 +27,7 @@
     \end{flushright}
     \vfill
 
-    {%
-        \MakeUppercase{\ValorDaCidade{}}
-        \par
-        \MakeUppercase{\ValorDoMes{}},
-        \ValorDoAno{}\\
-    }
+    \ComponenteLocalEData{}
 }
 \makeatother
 
