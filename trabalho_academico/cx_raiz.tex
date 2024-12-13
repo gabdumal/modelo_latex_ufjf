@@ -19,20 +19,8 @@
     brazil,				% O último idioma é definido como o principal do documento.
 ]{abntex2}
 
-% --- Pacotes ---
-\input{definicoes/cd_pacotes.tex}
-
-% --- Comandos ---
-\input{definicoes/cd_comandos.tex}
-
-% --- Hifenização ---
-\input{c0_hifenizacao.tex}
-
-% --- Definições pre-textuais ---
-\input{c0_pretexto.tex}
-
-% --- Configurações da aparência do documento ---
-\input{definicoes/cd_aparencia.tex}
+% --- Modelo ---
+\input{modelo/modelo.tex}
 
 % Inicia o documento.
 \begin{document}
@@ -53,35 +41,35 @@
 \pretextual{}
 
 % --- Capa ---
-\input{artefatos/ca_capa.tex}
+\input{modelo/artefatos/capa.tex}
 
 % --- Folha de rosto ---
-\input{artefatos/ca_rosto.tex}
+\input{modelo/artefatos/rosto.tex}
 % Imprime a folha de rosto com a ficha catalográfica no verso.
 \imprimirfolhaderosto*
 % Imprime a folha de rosto com a ficha catalográfica em outra página.
 % \imprimirfolhaderosto{}
 
 % --- Ficha catalográfica ---
-\input{artefatos/ca_ficha.tex}
+\input{modelo/artefatos/ficha.tex}
 
 % --- Errata ---
-\input{artefatos/ca_errata.tex}
+\input{modelo/artefatos/errata.tex}
 
 % --- Folha de aprovação ---
-\input{artefatos/ca_aprovacao.tex}
+\input{modelo/artefatos/aprovacao.tex}
 
 % --- Dedicatória ---
-\input{artefatos/ca_dedicatoria.tex}
+\input{modelo/artefatos/dedicatoria.tex}
 
 % --- Agradecimentos ---
-\input{artefatos/ca_agradecimentos.tex}
+\input{modelo/artefatos/agradecimentos.tex}
 
 % --- Epígrafe ---
-\input{artefatos/ca_epigrafe.tex}
+\input{modelo/artefatos/epigrafe.tex}
 
 % --- Resumos ---
-\input{artefatos/ca_resumo.tex}
+\input{modelo/artefatos/resumo.tex}
 
 % --- Lista de ilustrações ---
 \pdfbookmark[0]{\listfigurename}{lof}

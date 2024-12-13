@@ -5,7 +5,7 @@ Este projeto apresenta um modelo no ecossistema **LaTeX** para elaboração de t
 ## Licença
 
 `Modelos LaTeX UFJF v2.0 GM`\
-`Copyright 2024 Gabriel Malosto (UFJF-ICE)`
+`Copyright 2024 Gabriel Malosto (ICE-UFJF)`
 
 Este projeto é distribuído pela licença LaTeX Project Public License versão 1.3.\
 Ela pode ser encontrada em <http://www.latex-project.org/lppl.txt>.
