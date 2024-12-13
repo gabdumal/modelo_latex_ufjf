@@ -8,8 +8,30 @@
 
 % --- Língua vernácula ---
 
-% Palavras chave. Parâmetros: palavra-chave um; palavra-chave dois; palavra-chave três; palavra-chave quatro (opcional); palavra-chave cinco (opcional). Os parâmetros opcionais devem ser envolvidos por colchetes. Todas as palavras devem estar em letras minúsculas, salvo para siglas.
-\palavrasChave{palavra um}{palavra dois}{palavra três}[palavra quatro]
+% Palavras chave. Parâmetros: palavra-chave um; palavra-chave dois; palavra-chave três; palavra-chave quatro (opcional); palavra-chave cinco (opcional). Deixe em branco os campos opcionais que não deseja preencher.
+\palavrasChave{palavra um}{palavra dois}{palavra três}{palavra quatro}{}
+
+\conteudoDoResumo{%
+    \lipsum[1-3]
+}
+
+% --- Língua estrangeira ---
+
+% Parâmetros: língua (english, french, spanish, italian, german, dutch); palavras-chave; conteúdo.
+
+\insereResumoEmLinguaEstrangeira%
+{english}
+{\formataPalavrasChave{word one}{word two}{word three}{word four}{}}
+{%
+    \lipsum[4-6]
+}
+
+\insereResumoEmLinguaEstrangeira%
+{french}
+{\formataPalavrasChave{word one}{word two}{word three}{word four}{}}
+{%
+    \lipsum[30-32]
+}
 
 % -----
 

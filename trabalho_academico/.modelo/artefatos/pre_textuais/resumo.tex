@@ -2,54 +2,81 @@
 % Resumo
 % =====
 
-% --- Português ---
-\begin{resumoumacoluna}
+% -----
+% Português
+% -----
 
-    % Escreva aqui o resumo em português.
-    \lipsum[1-3] % chktex-file 8
-
+\NewDocumentEnvironment{AmbienteResumo}{}
+{%
+    \resumo%
+}
+{%
+    \par
     \vspace{\onelineskip}
     \noindent
     \textbf{Palavras-chave}:
     % As palavras-chave em português devem ser definidas no arquivo de pretexto. Elas serão separadas pelo caractere ponto e vírgula.
     \ValorDasPalavrasChave{}.
-\end{resumoumacoluna}
+    \endresumo%
+}
 
-% --- Língua estrangeira ---
-\renewcommand{\resumoname}{Abstract}
-\begin{resumoumacoluna}
-    \begin{otherlanguage*}{english}
+\def\conteudoDoResumo#1{
+    \gdef\ValorDoConteudoDoResumo{#1}
+}
 
-        % Escreva aqui o resumo em língua estrangeira.
-        \lipsum[4-6]
+% -----
+% Língua estrangeira
+% -----
 
-        \vspace{\onelineskip}
-        \noindent
-        \textbf{Keywords}:
-        % Escreva aqui as palavras-chave em língua estrangeira.
-        word one; word two; word three; word four; word five.
-    \end{otherlanguage*}
-\end{resumoumacoluna}
+\def\ValorDosResumosEmLinguasEstrangeiras{}
 
-% \begin{resumoumacoluna}[Résumé]
-%     \begin{otherlanguage*}{french}
-%         Il s'agit d'un résumé en français.
+\NewDocumentCommand{\obtemTermoPalavrasChaveTraduzido}{m}{%
+    \IfStrEqCase{#1}{%
+        {english}{Keywords}%
+            {french}{Mots-clés}%
+            {spanish}{Palabras clave}%
+            {italian}{Parole chiave}%
+            {german}{Schlüsselwörter}%
+            {dutch}{Trefwoorden}%
+    }[Palavras-chave]%
+}
 
-%         \vspace{\onelineskip}
-%         \noindent
-%         \textbf{Mots-clés}:
-%         latex; abntex; publication de textes.
-%     \end{otherlanguage*}
-% \end{resumoumacoluna}
+\NewDocumentCommand{\obtemTermoResumoTraduzido}{m}{%
+    \IfStrEqCase{#1}{%
+        {english}{Abstract}%
+            {french}{Résumé}%
+            {spanish}{Resumen}%
+            {italian}{Riassunto}%
+            {german}{Zusammenfassung}%
+            {dutch}{Samenvatting}%
+    }[Resumo]%
+}
 
-% \begin{resumoumacoluna}[Resumen]
-%     \begin{otherlanguage*}{spanish}
-%         Este es el resumen en español.
+% Parâmetros: língua; palavras-chave.
+\NewDocumentEnvironment{AmbienteResumoEmLinguaEstrangeira}{mm}
+{%
+    \otherlanguage{#1}
+    \resumo[\obtemTermoResumoTraduzido{#1}]
+}
+{%
+    \par
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{\obtemTermoPalavrasChaveTraduzido{#1}}:
+    % As palavras-chave serão separadas pelo caractere ponto e vírgula.
+    #2.
+    \endresumo%
+    \endotherlanguage%
+}
 
-%         \vspace{\onelineskip}
-%         \noindent
-%         \textbf{Palabras clave}: latex; abntex; publicación de textos.
-%     \end{otherlanguage*}
-% \end{resumoumacoluna}
+\NewDocumentCommand{\insereResumoEmLinguaEstrangeira}{mmm}{%
+    \expandafter\def\expandafter\ValorDosResumosEmLinguasEstrangeiras\expandafter{\ValorDosResumosEmLinguasEstrangeiras% chkTeX 41
+        \begin{AmbienteResumoEmLinguaEstrangeira}{#1}{#2}
+            #3
+        \end{AmbienteResumoEmLinguaEstrangeira}%
+    }
+}
+
+% -----
 
 % =====
