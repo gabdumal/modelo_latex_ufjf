@@ -20,7 +20,7 @@
 ]{abntex2}
 
 % --- Modelo ---
-\input{modelo/modelo.tex}
+\input{.modelo/modelo.tex}
 
 % Inicia o documento.
 \begin{document}
@@ -30,7 +30,6 @@
 % -----
 % Seleciona o idioma do documento.
 \selectlanguage{brazil}
-
 % Define a mesma largura para os espaços entre palavras de uma mesma sentença e entre sentenças diferentes. 
 \frenchspacing{}
 % -----
@@ -38,62 +37,7 @@
 % =====
 % ELEMENTOS PRÉ-TEXTUAIS
 % =====
-\pretextual{}
-
-% --- Capa ---
-\input{modelo/artefatos/capa.tex}
-
-% --- Folha de rosto ---
-\input{modelo/artefatos/rosto.tex}
-% Imprime a folha de rosto com a ficha catalográfica no verso.
-\imprimirfolhaderosto*
-% Imprime a folha de rosto com a ficha catalográfica em outra página.
-% \imprimirfolhaderosto{}
-
-% --- Ficha catalográfica ---
-\input{modelo/artefatos/ficha.tex}
-
-% --- Errata ---
-\input{modelo/artefatos/errata.tex}
-
-% --- Folha de aprovação ---
-\input{modelo/artefatos/aprovacao.tex}
-
-% --- Dedicatória ---
-\input{modelo/artefatos/dedicatoria.tex}
-
-% --- Agradecimentos ---
-\input{modelo/artefatos/agradecimentos.tex}
-
-% --- Epígrafe ---
-\input{modelo/artefatos/epigrafe.tex}
-
-% --- Resumos ---
-\input{modelo/artefatos/resumo.tex}
-
-% --- Lista de ilustrações ---
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage{}
-
-% --- Lista de tabelas ---
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage{}
-
-% --- Lista de abreviaturas e siglas ---
-\printglossary[type=abbreviations,style=altlist,title=\listadesiglasname]
-\cleardoublepage{}
-
-% --- Lista de símbolos ---
-\printglossary[type=symbols,title=\listadesimbolosname]
-\cleardoublepage{}
-
-% --- Sumário ---
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage{}
-
+\input{.modelo/artefatos/pre_textuais/pre_textuais.tex}
 % =====
 
 % =====
@@ -115,24 +59,7 @@
 % =====
 % ELEMENTOS PÓS-TEXTUAIS
 % =====
-\postextual{}
-
-% --- Referências ---
-\bibliography{cx_bibliografia}
-
-% --- Glossário ---
-\printglossary[type=main,style=altlist,title=Glossário]
-\addcontentsline{toc}{chapter}{\glossaryname}
-
-% --- Apêndices ---
-\input{apendices/cx_apendices.tex}
-
-% --- Anexos ---
-\input{anexos/cx_anexos.tex}
-
-% --- Índice remissivo ---
-\phantompart{}
-\printindex{}
+\input{.modelo/artefatos/pos_textuais/pos_textuais.tex}
 % =====
 
 \end{document}

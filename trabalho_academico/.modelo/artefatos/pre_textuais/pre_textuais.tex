@@ -1,0 +1,61 @@
+% =====
+% Artefatos pré-textuais
+% =====
+
+\pretextual{}
+
+% --- Capa ---
+\input{.modelo/artefatos/pre_textuais/capa.tex}
+
+% --- Folha de rosto ---
+\input{.modelo/artefatos/pre_textuais/rosto.tex}
+% Imprime a folha de rosto com a ficha catalográfica no verso.
+\imprimirfolhaderosto*
+% Imprime a folha de rosto com a ficha catalográfica em outra página.
+% \imprimirfolhaderosto{}
+
+% --- Ficha catalográfica ---
+\input{.modelo/artefatos/pre_textuais/ficha.tex}
+
+% --- Errata ---
+\input{.modelo/artefatos/pre_textuais/errata.tex}
+
+% --- Folha de aprovação ---
+\input{.modelo/artefatos/pre_textuais/aprovacao.tex}
+
+% --- Dedicatória ---
+\input{.modelo/artefatos/pre_textuais/dedicatoria.tex}
+
+% --- Agradecimentos ---
+\input{.modelo/artefatos/pre_textuais/agradecimentos.tex}
+
+% --- Epígrafe ---
+\input{.modelo/artefatos/pre_textuais/epigrafe.tex}
+
+% --- Resumos ---
+\input{.modelo/artefatos/pre_textuais/resumo.tex}
+
+% --- Lista de ilustrações ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage{}
+
+% --- Lista de tabelas ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage{}
+
+% --- Lista de abreviaturas e siglas ---
+\printglossary[type=abbreviations,style=altlist,title=\listadesiglasname]
+\cleardoublepage{}
+
+% --- Lista de símbolos ---
+\printglossary[type=symbols,title=\listadesimbolosname]
+\cleardoublepage{}
+
+% --- Sumário ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage{}
+
+% =====
