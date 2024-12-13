@@ -46,15 +46,15 @@
                     \\
 
                     \hspace{0.5cm}
-                    1.~\titlecap{\ValorDaPalavraChaveUm{}}.
-                    2.~\titlecap{\ValorDaPalavraChaveDois{}}.
-                    3.~\titlecap{\ValorDaPalavraChaveTres{}}.
-                    \ifDefinidaPalavraChaveQuatro%
-                        4.~\titlecap{\ValorDaPalavraChaveQuatro{}}.
-                    \fi
-                    \ifDefinidaPalavraChaveCinco%
-                        5.~\titlecap{\ValorDaPalavraChaveCinco{}}.
-                    \fi
+                    1.~\titlecap{\ValorDaPalavraChaveUm}.
+                    2.~\titlecap{\ValorDaPalavraChaveDois}.
+                    3.~\titlecap{\ValorDaPalavraChaveTres}.
+                    \ifdefempty{\ValorDaPalavraChaveQuatro}{}{%
+                        4.~\titlecap{\ValorDaPalavraChaveQuatro}.
+                        \ifdefempty{\ValorDaPalavraChaveCinco}{}{%
+                            5.~\titlecap{\ValorDaPalavraChaveCinco}.
+                        }
+                    }
                     I.~\ValorDoUltimoSobrenomeDoOrientador{}, \ValorDoRestanteDoNomeDoOrientador{}.
                     \ifDefinidoCoorientador%
                         II.~\ValorDoUltimoSobrenomeDoCoorientador{}, \ValorDoRestanteDoNomeDoCoorientador{}.

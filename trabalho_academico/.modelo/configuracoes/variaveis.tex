@@ -22,10 +22,6 @@
 \newif\ifDefinidoExaminadorTres{} \DefinidoExaminadorTresfalse{}
 \newif\ifDefinidoExaminadorQuatro{} \DefinidoExaminadorQuatrofalse{}
 
-% --- Resumo ---
-\newif\ifDefinidaPalavraChaveQuatro{} \DefinidaPalavraChaveQuatrofalse{}
-\newif\ifDefinidaPalavraChaveCinco{} \DefinidaPalavraChaveCincofalse{}
-
 % -----
 
 % -----
@@ -95,13 +91,13 @@
             {mestrado} {\defineMestrado{}}
             {doutorado} {\defineDoutorado{}}
             {default} {%
-                \msg_error:nnn {custom} {invalid-option} {#1}
+                \msg_error:nnn {custom} {opcaoInvalidaParaCheckTipo} {#1}
             }
     }
 }
 
 % Custom error message
-\msg_new:nnn {custom} {invalid-option}
+\msg_new:nnn {custom} {opcaoInvalidaParaCheckTipo}
 {%
     A~opção~``#1''~é~inválida.
     Opções~válidas~são:~bacharelado,~licenciatura,~especializacao,~mestrado,~doutorado.
@@ -225,28 +221,35 @@
     \DefinidoExaminadorQuatrotrue%
 }
 
-% --- Resumo ---
-\ExplSyntaxOn%
-\NewDocumentCommand{\palavrasChave}{m m m o o}
+\newcommand\emptystring{}
+
+% --- Palavras-chave ---
+\def\palavrasChave#1#2#3#4#5
 {%
     \gdef\ValorDaPalavraChaveUm{#1}
     \gdef\ValorDaPalavraChaveDois{#2}
     \gdef\ValorDaPalavraChaveTres{#3}
-    \IfValueTF{#4}
-    {\gdef\ValorDaPalavraChaveQuatro{#4} \DefinidaPalavraChaveQuatrotrue}
-    {\gdef\ValorDaPalavraChaveQuatro{} \DefinidaPalavraChaveQuatrofalse}
-    \IfValueTF{#5}
-    {\gdef\ValorDaPalavraChaveCinco{#5} \DefinidaPalavraChaveCincotrue}
-    {\gdef\ValorDaPalavraChaveCinco{} \DefinidaPalavraChaveCincofalse}
+    \gdef\ValorDaPalavraChaveQuatro{#4}
+    \gdef\ValorDaPalavraChaveCinco{#5}
 }
-\ExplSyntaxOff%
+
+\NewDocumentCommand{\formataPalavrasChave}{m m m m m}
+{%
+    #1;
+    #2;
+    #3%
+    \ifstrempty{#4}{}{; #4%
+        \ifstrempty{#5}{}{; #5}%
+    }%
+}
 
 \def\ValorDasPalavrasChave{
     \ValorDaPalavraChaveUm;
     \ValorDaPalavraChaveDois;
-    \ValorDaPalavraChaveTres{}\ifDefinidaPalavraChaveQuatro;
-    \ValorDaPalavraChaveQuatro\fi\ifDefinidaPalavraChaveCinco{};
-    \ValorDaPalavraChaveCinco{}\fi
+    \ValorDaPalavraChaveTres%
+    \ifdefempty{\ValorDaPalavraChaveQuatro}{}{; \ValorDaPalavraChaveQuatro%
+        \ifdefempty{\ValorDaPalavraChaveCinco}{}{; \ValorDaPalavraChaveCinco}%
+    }%
 }
 
 % -----
@@ -373,13 +376,17 @@
         \fi
     }
 
-    \ValorDaPalavraChaveUm{}
-    \ValorDaPalavraChaveDois{}
-    \ValorDaPalavraChaveTres{}
-    \ValorDaPalavraChaveQuatro{}
-    \ValorDaPalavraChaveCinco{}
+    [\ValorDaPalavraChaveUm]
+    [\ValorDaPalavraChaveDois]
+    [\ValorDaPalavraChaveTres]
+    [\ValorDaPalavraChaveQuatro]
+    [\ValorDaPalavraChaveCinco]
 
-    \ValorDasPalavrasChave{}
+    \ValorDasPalavrasChave.
+
+    % \ifdefempty{\ValorDaPalavraChaveQuatro}{Quarta palavra-chave vazia.}{Quarta palavra-chave não vazia.}
+
+    % \ifdefempty{\ValorDaPalavraChaveCinco}{Quinta palavra-chave vazia.}{Quinta palavra-chave não vazia.}
 
 }
 
