@@ -97,29 +97,6 @@
                 \textcolor{brown}{ \boldsymbol{T_{T}} }
             }}}
 
-% -- Pré-processadas --
-
-\glsxtrnewsymbol[
-    description={Quantidade total de receitas disponíveis}
-]
-{constante:pre-processada:quantidade-receitas}{\ensuremath{{
-                \textcolor{brown}{ \boldsymbol{Q_{R}} }
-            }}}
-
-\glsxtrnewsymbol[
-    description={Quantidade total de pacotes disponíveis}
-]
-{constante:pre-processada:quantidade-pacotes}{\ensuremath{{
-                \textcolor{brown}{ \boldsymbol{Q_{E}} }
-            }}}
-
-\glsxtrnewsymbol[
-    description={Quantidade total de pedidos realizados}
-]
-{constante:pre-processada:quantidade-pedidos}{\ensuremath{{
-                \textcolor{brown}{ \boldsymbol{Q_{P}} }
-            }}}
-
 % -- Dados --
 
 % - Básicos -
@@ -139,13 +116,6 @@
             }}}
 
 \glsxtrnewsymbol[
-    description={Quantidade de pacotes}
-]
-{constante:dado:quantidade-pacotes}{\ensuremath{{
-                \textcolor{brown}{ \boldsymbol{P} }
-            }}}
-
-\glsxtrnewsymbol[
     description={Peso (em quilogramas)}
 ]
 {constante:dado:peso}{\ensuremath{{
@@ -162,32 +132,18 @@
 % - Derivados -
 
 \glsxtrnewsymbol[
-description={Tempo de mistura (batedeira) (em minutos)}
-]
-{constante:dado:tempo-mistura}{\ensuremath{{
-\glsentryname{constante:dado:tempo}_{\textcolor{brown}{ \boldsymbol{B} }}
-}}}
-
-\glsxtrnewsymbol[
-description={Tempo de modelagem (em minutos)}
-]
-{constante:dado:tempo-modelagem}{\ensuremath{{
-\glsentryname{constante:dado:tempo}_{\textcolor{brown}{ \boldsymbol{M} }}
-}}}
-
-\glsxtrnewsymbol[
-description={Tempo de assamento (em minutos)}
-]
-{constante:dado:tempo-assamento}{\ensuremath{{
-\glsentryname{constante:dado:tempo}_{\textcolor{brown}{ \boldsymbol{F} }}
-}}}
-
-\glsxtrnewsymbol[
     description={Rendimento total (em quilogramas)}
 ]
 {constante:dado:rendimento-total}{\ensuremath{{
                 \textcolor{brown}{ \boldsymbol{R_{T}} }
             }}}
+
+\glsxtrnewsymbol[
+description={Tempo de mistura (batedeira) (em minutos)}
+]
+{constante:dado:tempo-mistura}{\ensuremath{{
+\glsentryname{constante:dado:tempo}_{\textcolor{brown}{ \boldsymbol{B} }}
+}}}
 
 % - Indexados -
 
@@ -213,31 +169,10 @@ description={Tempo de mistura (batedeira) da receita \( \glsentryname{indice:rec
 }}}
 
 \glsxtrnewsymbol[
-description={Tempo de modelagem da receita \( \glsentryname{indice:receitas} \) (em minutos)}
-]
-{constante:dado:receita:tempo-modelagem}{\ensuremath{{
-\glsentryname{constante:dado:tempo-modelagem}_{\glsentryname{indice:receitas}}
-}}}
-
-\glsxtrnewsymbol[
-description={Tempo de assamento da receita \( \glsentryname{indice:receitas} \) (em minutos)}
-]
-{constante:dado:receita:tempo-assamento}{\ensuremath{{
-\glsentryname{constante:dado:tempo-assamento}_{\glsentryname{indice:receitas}}
-}}}
-
-\glsxtrnewsymbol[
 description={Quantidade (gramatura) necessária de uma receita para preencher um pacote \( \glsentryname{indice:pacotes} \) (em gramas)}
 ]
 {constante:dado:pacote:gramatura}{\ensuremath{{
 \glsentryname{constante:dado:gramatura}_{\glsentryname{indice:pacotes}}
-}}}
-
-\glsxtrnewsymbol[
-description={Quantidade de pacotes necessários para atender um pedido \( \glsentryname{indice:pedidos} \)}
-]
-{constante:dado:pedido:quantidade-pacotes}{\ensuremath{{
-\glsentryname{constante:dado:quantidade-pacotes}_{\glsentryname{indice:pedidos}}
 }}}
 
 \glsxtrnewsymbol[
@@ -274,13 +209,6 @@ description={Peso total de um pedido \( \glsentryname{indice:pedidos} \) (em qui
             }}}
 
 % -- Principais --
-
-\glsxtrnewsymbol[
-    description={Indicação de se um pedido \( \glsentryname{indice:pedidos} \) deve ser atendido no período}
-]
-{variavel:principal:deve-atender-pedido}{\ensuremath{{
-                \textcolor{blue}{ \boldsymbol{D} }_{\glsentryname{indice:pedidos}}
-            }}}
 
 \glsxtrnewsymbol[
     description={Quantidade de porções (fornadas) de uma receita \( \glsentryname{indice:receitas} \) a serem produzidas}
