@@ -15,7 +15,9 @@
 % \imprimirfolhaderosto{}
 
 % --- Ficha catalográfica ---
-\input{.modelo/artefatos/pre_textuais/ficha.tex}
+\ifDeveGerarFichaCatalografica%
+    \gerarFichaCatalografica%
+\fi
 
 % --- Errata ---
 \input{.modelo/artefatos/pre_textuais/errata.tex}
