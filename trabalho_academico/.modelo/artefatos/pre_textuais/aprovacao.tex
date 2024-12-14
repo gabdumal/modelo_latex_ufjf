@@ -2,82 +2,102 @@
 % Folha de aprovação
 % =====
 
-% Para a versão final do trabalho, sua instituição pode lhe fornecer um PDF com a versão definitiva da ficha catalográfica.
-% Se for este o caso, salve o PDF no diretório do seu projeto e substitua todo o conteúdo deste arquivo por:
+\newif\ifDeveGerarFolhaDeAprovacao{} \DeveGerarFolhaDeAprovacaofalse%
+\newif\ifDefinidoFolhaDeAprovacaoEmDuasColunas{} \DefinidoFolhaDeAprovacaoEmDuasColunasfalse%
 
-% \begin{folhadeaprovacao}
-% \includepdf{folhadeaprovacao_final.pdf}
-% \end{folhadeaprovacao}
+\NewDocumentCommand{\insereFolhaDeAprovacao}{!o}{%
+    \DeveGerarFolhaDeAprovacaotrue%
+    \IfNoValueF{#1}{\def\ValorDoConteudoDaFolhaDeAprovacao{#1}}
+}
 
-\begin{folhadeaprovacao}
-    \ABNTEXchapterfont%
-    \center%
-    \setlength{\ABNTEXsignwidth}{10cm}
+\NewDocumentCommand{\insereFolhaDeAprovacaoEmDuasColunas}{}{%
+    \DeveGerarFolhaDeAprovacaotrue%
+    \DefinidoFolhaDeAprovacaoEmDuasColunastrue%
+}
 
-    \ComponenteAutor{}
-    \vspace{\fill}
+\NewDocumentCommand{\geraFolhaDeAprovacao}{}
+{%
+    \begin{folhadeaprovacao}
 
-    \ComponenteTituloESubtitulo{}
-    \vspace{\fill}
+        \ifdefined\ValorDoConteudoDaFolhaDeAprovacao%
+            \ValorDoConteudoDaFolhaDeAprovacao%
+        \else%
 
-    \ComponenteNatureza{}
-    \vspace{\fill}
+            \ABNTEXchapterfont%
+            \center%
+            \setlength{\ABNTEXsignwidth}{10cm}
 
-    \begin{flushleft}
-        Aprovado em \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}
-    \end{flushleft}
-    \vspace{0.5cm}
+            \ComponenteAutor{}
+            \vspace{\fill}
 
-    {BANCA EXAMINADORA}
+            \ComponenteTituloESubtitulo{}
+            \vspace{\fill}
 
-    % Caso haja muitos membros na banca, e o espaço fique pequeno, habilite as linhas abaixo e a linha de fechamento do ambiente "multicols" no final deste arquivo. Isso fará com que a lista de membros da banca seja impressa em duas colunas.
+            \ComponenteNatureza{}
+            \vspace{\fill}
 
-    % \begin{multicols}{2}
-    % \setlength{\ABNTEXsignwidth}{7cm}%
+            \begin{flushleft}
+                Aprovado em \ValorDoDia{} de \ValorDoMes{} de \ValorDoAno{}
+            \end{flushleft}
+            \vspace{0.5cm}
 
-    \assinatura*{%
-        \ValorDoNomeCompletoDoOrientadorComTitulo{}
-        --- Orientador\\
-        \ValorDoNomeDaInstituicaoDoOrientador{}\\
-    }
+            {BANCA EXAMINADORA}
 
-    \ifDefinidoCoorientador%
-        \assinatura*{%
-            \ValorDoNomeCompletoDoCoorientadorComTitulo{}
-            --- Coorientador\\
-            \ValorDoNomeDaInstituicaoDoCoorientador{}\\
-        }
-    \fi
+            \ifDefinidoFolhaDeAprovacaoEmDuasColunas%
+                \begin{multicols}{2}
+                    \setlength{\ABNTEXsignwidth}{7cm}%
+                    \fi
 
-    \ifDefinidoExaminadorUm%
-        \assinatura*{%
-            \ValorDoNomeCompletoDoExaminadorUmComTitulo{}\\
-            \ValorDoNomeDaInstituicaoDoExaminadorUm{}\\
-        }
-    \fi
+                    \assinatura*{%
+                        \ValorDoNomeCompletoDoOrientadorComTitulo{}
+                        --- Orientador\\
+                        \ValorDoNomeDaInstituicaoDoOrientador{}\\
+                    }
 
-    \ifDefinidoExaminadorDois%
-        \assinatura*{%
-            \ValorDoNomeCompletoDoExaminadorDoisComTitulo{}\\
-            \ValorDoNomeDaInstituicaoDoExaminadorDois{}\\
-        }
-    \fi
+                    \ifDefinidoCoorientador%
+                        \assinatura*{%
+                            \ValorDoNomeCompletoDoCoorientadorComTitulo{}
+                            --- Coorientador\\
+                            \ValorDoNomeDaInstituicaoDoCoorientador{}\\
+                        }
+                    \fi
 
-    \ifDefinidoExaminadorTres%
-        \assinatura*{%
-            \ValorDoNomeCompletoDoExaminadorTresComTitulo{}\\
-            \ValorDoNomeDaInstituicaoDoExaminadorTres{}\\
-        }
-    \fi
+                    \ifDefinidoExaminadorUm%
+                        \assinatura*{%
+                            \ValorDoNomeCompletoDoExaminadorUmComTitulo{}\\
+                            \ValorDoNomeDaInstituicaoDoExaminadorUm{}\\
+                        }
+                    \fi
 
-    \ifDefinidoExaminadorQuatro%
-        \assinatura*{%
-            \ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}\\
-            \ValorDoNomeDaInstituicaoDoExaminadorQuatro{}\\
-        }
-    \fi
-    % \end{multicols}
+                    \ifDefinidoExaminadorDois%
+                        \assinatura*{%
+                            \ValorDoNomeCompletoDoExaminadorDoisComTitulo{}\\
+                            \ValorDoNomeDaInstituicaoDoExaminadorDois{}\\
+                        }
+                    \fi
 
-\end{folhadeaprovacao}
+                    \ifDefinidoExaminadorTres%
+                        \assinatura*{%
+                            \ValorDoNomeCompletoDoExaminadorTresComTitulo{}\\
+                            \ValorDoNomeDaInstituicaoDoExaminadorTres{}\\
+                        }
+                    \fi
+
+                    \ifDefinidoExaminadorQuatro%
+                        \assinatura*{%
+                            \ValorDoNomeCompletoDoExaminadorQuatroComTitulo{}\\
+                            \ValorDoNomeDaInstituicaoDoExaminadorQuatro{}\\
+                        }
+                    \fi
+
+                    \ifDefinidoFolhaDeAprovacaoEmDuasColunas%
+                \end{multicols}%
+            \fi
+
+        \fi
+
+    \end{folhadeaprovacao}
+    \newpage%
+}
 
 % =====

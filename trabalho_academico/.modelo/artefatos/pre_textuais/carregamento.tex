@@ -13,7 +13,7 @@
     % Imprime a folha de rosto com a ficha catalográfica no verso.
     \imprimirfolhaderosto*
     \par
-    \gerarFichaCatalografica%
+    \geraFichaCatalografica%
 \else%
     % Imprime a folha de rosto com a ficha catalográfica em outra página.
     \imprimirfolhaderosto%
@@ -27,7 +27,9 @@
 \fi
 
 % --- Folha de aprovação ---
-\input{.modelo/artefatos/pre_textuais/aprovacao.tex}
+\ifDeveGerarFolhaDeAprovacao%
+    \geraFolhaDeAprovacao%
+\fi
 
 % --- Dedicatória ---
 \input{.modelo/artefatos/pre_textuais/dedicatoria.tex}
