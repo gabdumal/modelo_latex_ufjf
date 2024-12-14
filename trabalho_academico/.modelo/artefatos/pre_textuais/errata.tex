@@ -4,7 +4,7 @@
 
 \newif\ifDefinidoConteudoDaErrata{} \DefinidoConteudoDaErratafalse%
 
-\NewDocumentCommand{\insereErrata}{m}{%
+\NewDocumentCommand{\insereErrata}{+m}{%
     \def\ValorDoConteudoDaErrata{#1}
     \DefinidoConteudoDaErratatrue%
 }

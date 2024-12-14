@@ -39,7 +39,11 @@
 \fi
 
 % --- Agradecimentos ---
-\input{.modelo/artefatos/pre_textuais/agradecimentos.tex}
+\ifDefinidoConteudoDosAgradecimentos%
+    \begin{AmbienteAgradecimentos}
+        \ValorDoConteudoDosAgradecimentos{}
+    \end{AmbienteAgradecimentos}
+\fi
 
 % --- Epígrafe ---
 \input{.modelo/artefatos/pre_textuais/epigrafe.tex}
