@@ -4,17 +4,17 @@
 
 \newif\ifDeveGerarFichaCatalografica{} \DeveGerarFichaCatalograficafalse%
 
-\NewDocumentCommand{\inserirFichaCatalografica}{!o}{%
+\NewDocumentCommand{\insereFichaCatalografica}{!o}{%
     \DeveGerarFichaCatalograficatrue%
-    \IfNoValueF{#1}{\gdef\ConteudoDaFichaCatalografica{#1}}
+    \IfNoValueF{#1}{\def\ValorDoConteudoDaFichaCatalografica{#1}}
 }
 
 \NewDocumentCommand{\gerarFichaCatalografica}{}
 {%
     \begin{fichacatalografica}
 
-        \ifdefined\ConteudoDaFichaCatalografica%
-            \ConteudoDaFichaCatalografica%
+        \ifdefined\ValorDoConteudoDaFichaCatalografica%
+            \ValorDoConteudoDaFichaCatalografica%
         \else%
 
             \sffamily
