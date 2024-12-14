@@ -2,16 +2,25 @@
 % Dedicatória
 % =====
 
-\begin{dedicatoria}
+\newif\ifDefinidoConteudoDaDedicatoria{} \DefinidoConteudoDaDedicatoriafalse%
+
+\NewDocumentEnvironment{AmbienteDedicatoria}{}
+{%
+    \dedicatoria%
     \vspace*{\fill}
-    \begin{flushright}
-        \hspace{.45\textwidth}
-        \begin{minipage}{.5\textwidth}
+    \flushright%
+    \hspace{.45\textwidth}
+    \minipage{.5\textwidth}
+}
+{%
+    \endminipage%
+    \endflushright%
+    \enddedicatoria%
+}
 
-            Este trabalho é dedicado às crianças adultas que, quando pequenas, sonharam em se tornar cientistas.
-
-        \end{minipage}%
-    \end{flushright}
-\end{dedicatoria}
+\NewDocumentCommand{\insereDedicatoria}{m}{%
+    \def\ValorDoConteudoDaDedicatoria{#1}
+    \DefinidoConteudoDaDedicatoriatrue%
+}
 
 % =====
