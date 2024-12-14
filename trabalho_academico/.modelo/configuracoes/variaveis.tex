@@ -22,6 +22,9 @@
 \newif\ifDefinidoExaminadorTres{} \DefinidoExaminadorTresfalse{}
 \newif\ifDefinidoExaminadorQuatro{} \DefinidoExaminadorQuatrofalse{}
 
+\newif\ifGeneroDoOrientadorFeminino{} \GeneroDoOrientadorFemininofalse{}
+\newif\ifGeneroDoCoorientadorFeminino{} \GeneroDoCoorientadorFemininofalse{}
+
 % -----
 
 % -----
@@ -72,9 +75,9 @@
 
 \def\tipoInterno#1{\gdef\ValorDoTipo{#1}}
 
-\def\defineBacharelado{\grau{bacharel} \tipoInterno{Monografia} \diploma{Bacharelado} }
+\def\defineBacharelado{\grau{bacharel} \tipoInterno{Monografia} \diploma{Bacharelado}}
 
-\def\defineLicenciatura{\grau{licenciado} \tipoInterno{Monografia} \diploma{Licenciatura} }
+\def\defineLicenciatura{\grau{licenciado} \tipoInterno{Monografia} \diploma{Licenciatura}}
 
 \def\defineEspecializacao{\grau{especialista} \tipoInterno{Monografia} \diploma{Especializa\c{c}\~ao} \DefinidoEspecializacaotrue}
 
@@ -83,21 +86,19 @@
 \def\defineDoutorado{\grau{doutor} \tipoInterno{Tese} \diploma{Doutorado} \DefinidoDoutoradotrue}
 
 \ExplSyntaxOn%
-\NewDocumentCommand{\checkTipo}{m}{%
+\NewDocumentCommand{\verificaTipo}{m}{%
     \str_case:nn {#1} {%
-        {bacharelado} {\defineBacharelado{}}
-            {licenciatura} {\defineLicenciatura{}}
-            {especializacao} {\defineEspecializacao{}}
-            {mestrado} {\defineMestrado{}}
-            {doutorado} {\defineDoutorado{}}
+        {bacharelado} {\defineBacharelado}
+            {licenciatura} {\defineLicenciatura}
+            {especializacao} {\defineEspecializacao}
+            {mestrado} {\defineMestrado}
+            {doutorado} {\defineDoutorado}
             {default} {%
-                \msg_error:nnn {custom} {opcaoInvalidaParaCheckTipo} {#1}
+                \msg_error:nnn {custom} {opcaoInvalidaParaVerificaTipo} {#1}
             }
     }
 }
-
-% Custom error message
-\msg_new:nnn {custom} {opcaoInvalidaParaCheckTipo}
+\msg_new:nnn {custom} {opcaoInvalidaParaVerificaTipo}
 {%
     A~opção~``#1''~é~inválida.
     Opções~válidas~são:~bacharelado,~licenciatura,~especializacao,~mestrado,~doutorado.
@@ -105,22 +106,9 @@
 \ExplSyntaxOff%
 
 \def\tipo#1{%
-    \checkTipo{#1}%
+    \verificaTipo{#1}%
 }
 \tipotrabalho{\ValorDoTipo}
-
-\gdef\ValorDoPrograma{%
-    \ifDefinidoMestrado%
-        Pós-Graduação
-    \else
-        \ifDefinidoDoutorado%
-            Pós-Graduação
-        \else
-            \ValorDoDiploma{}
-        \fi
-    \fi
-    em \ValorDoCurso{}%
-}
 
 % --- Instituição ---
 
@@ -138,36 +126,89 @@
     \gdef\ValorDaSiglaDaUnidadeAcademica{#3}
 }
 
-\def\departamento#1#2#3{
-    \gdef\ValorDoArtigoGramaticalDoDepartamento{#1}
-    \gdef\ValorDoNomeDoDepartamento{#2}
-    \gdef\ValorDaSiglaDoDepartamento{#3}
+\def\programa#1#2#3{
+    \gdef\ValorDoArtigoGramaticalDoPrograma{#1}
+    \gdef\ValorDoNomeDoPrograma{#2}
+    \gdef\ValorDaSiglaDoPrograma{#3}
+}
+
+\def\ValorDoNomeDoSubmetendo{%
+    \ifDefinidoMestrado%
+        \ValorDoNomeDoPrograma%
+    \else
+        \ifDefinidoDoutorado%
+            \ValorDoNomeDoPrograma%
+        \else
+            \ValorDoNomeDaUnidadeAcademica%
+        \fi
+    \fi
+}
+
+\def\ValorDoArtigoGramaticalDoSubmetendo{%
+    \ifDefinidoMestrado%
+        \ValorDoArtigoGramaticalDoPrograma%
+    \else
+        \ifDefinidoDoutorado%
+            \ValorDoArtigoGramaticalDoPrograma%
+        \else
+            \ValorDoArtigoGramaticalDaUnidadeAcademica%
+        \fi
+    \fi
 }
 
 % --- Pessoas ---
 
 \def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
 
-\def\orientador#1#2#3#4{%
-    \gdef\ValorDoTituloDoOrientador{#1}
-    \gdef\ValorDoUltimoSobrenomeDoOrientador{#2}
-    \gdef\ValorDoRestanteDoNomeDoOrientador{#3}
-    \gdef\ValorDoNomeCompletoDoOrientador{#3 #2}
-    \gdef\ValorDoNomeCompletoDoOrientadorComTitulo{#1 #3 #2}
-    \gdef\ValorDoNomeDaInstituicaoDoOrientador{#4}
+\ExplSyntaxOn%
+\RenewDocumentCommand{\orientador}{mmmmm}{%
+    \str_case:nn {#1} {%
+        {feminino} {\GeneroDoOrientadorFemininotrue}
+            {masculino} {\GeneroDoOrientadorFemininofalse}
+            {default} {%
+                \msg_error:nnn{custom}{opcaoInvalidaParaOrientador}{#1}
+            }
+    }
+    \gdef\ValorDoTituloDoOrientador{#2}
+    \gdef\ValorDoUltimoSobrenomeDoOrientador{#3}
+    \gdef\ValorDoRestanteDoNomeDoOrientador{#4}
+    \gdef\ValorDoNomeCompletoDoOrientador{#4\ #3}
+    \gdef\ValorDoNomeCompletoDoOrientadorComTitulo{#2\ #4\ #3}
+    \gdef\ValorDoNomeDaInstituicaoDoOrientador{#5}
 }
+\msg_new:nnn {custom} {opcaoInvalidaParaOrientador}
+{%
+    A~opção~``#1''~é~inválida.
+    Opções~válidas~são:~feminino,~masculino.
+}
+\ExplSyntaxOff%
+
 \renewcommand{\imprimirorientador}{\ValorDoNomeCompletoDoOrientador}
 \renewcommand{\imprimirorientadorRotulo}{\ValorDoTituloDoOrientador}
 
-\def\coorientador#1#2#3#4{
-    \gdef\ValorDoTituloDoCoorientador{#1}
-    \gdef\ValorDoUltimoSobrenomeDoCoorientador{#2}
-    \gdef\ValorDoRestanteDoNomeDoCoorientador{#3}
-    \gdef\ValorDoNomeCompletoDoCoorientador{#3\ #2}
-    \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#1\ #3\ #2}
-    \gdef\ValorDoNomeDaInstituicaoDoCoorientador{#4}
+\ExplSyntaxOn%
+\RenewDocumentCommand{\coorientador}{mmmmm}{%
+    \str_case:nn {#1} {%
+        {feminino} {\GeneroDoCoorientadorFemininotrue}
+            {masculino} {\GeneroDoCoorientadorFemininofalse}
+            {default} {%
+                \msg_error:nnn{custom}{opcaoInvalidaParaCoorientador}{#1}
+            }
+    }    \gdef\ValorDoTituloDoCoorientador{#2}
+    \gdef\ValorDoUltimoSobrenomeDoCoorientador{#3}
+    \gdef\ValorDoRestanteDoNomeDoCoorientador{#4}
+    \gdef\ValorDoNomeCompletoDoCoorientador{#4\ #3}
+    \gdef\ValorDoNomeCompletoDoCoorientadorComTitulo{#2\ #4\ #3}
+    \gdef\ValorDoNomeDaInstituicaoDoCoorientador{#5}
     \DefinidoCoorientadortrue%
 }
+\msg_new:nnn {custom} {opcaoInvalidaParaCoorientador}
+{%
+    A~opção~``#1''~é~inválida.
+    Opções~válidas~são:~feminino,~masculino.
+}
+\ExplSyntaxOff%
+
 \renewcommand{\imprimircoorientador}{%
     \ifDefinidoCoorientador%
         \ValorDoNomeCompletoDoCoorientador{}%
@@ -287,14 +328,14 @@
     \ValorDoNomeDaUnidadeAcademica{}
     \ValorDaSiglaDaUnidadeAcademica{}
 
-    \ValorDoArtigoGramaticalDoDepartamento{}
-    \ValorDoNomeDoDepartamento{}
-    \ValorDaSiglaDoDepartamento{}
+    \ValorDoArtigoGramaticalDoSubmetendo{}
+    \ValorDoNomeDoSubmetendo{}
 
     \ValorDoUltimoSobrenomeDoAutor{} ---
     \ValorDoRestanteDoNomeDoAutor{} ---
     \ValorDoNomeCompletoDoAutor{}
 
+    \ifGeneroDoOrientadorFeminino{}Feminino\else Masculino\fi~---
     \ValorDoTituloDoOrientador{} ---
     \ValorDoUltimoSobrenomeDoOrientador{} ---
     \ValorDoRestanteDoNomeDoOrientador{} ---
@@ -304,6 +345,7 @@
     {%
         \ifDefinidoCoorientador{%
             Coorientador está definido:\\
+            \ifGeneroDoCoorientadorFeminino{}Feminino\else Masculino\fi~---
             \ValorDoTituloDoCoorientador{} ---
             \ValorDoUltimoSobrenomeDoCoorientador{} ---
             \ValorDoRestanteDoNomeDoCoorientador{} ---

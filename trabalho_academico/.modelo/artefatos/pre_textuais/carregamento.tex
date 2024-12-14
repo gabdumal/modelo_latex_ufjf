@@ -5,18 +5,18 @@
 \pretextual{}
 
 % --- Capa ---
-\input{.modelo/artefatos/pre_textuais/capa.tex}
+\imprimircapa{}
 
 % --- Folha de rosto ---
-\input{.modelo/artefatos/pre_textuais/rosto.tex}
-% Imprime a folha de rosto com a ficha catalográfica no verso.
-\imprimirfolhaderosto*
-% Imprime a folha de rosto com a ficha catalográfica em outra página.
-% \imprimirfolhaderosto{}
-
 % --- Ficha catalográfica ---
 \ifDeveGerarFichaCatalografica%
+    % Imprime a folha de rosto com a ficha catalográfica no verso.
+    \imprimirfolhaderosto*
+    \par
     \gerarFichaCatalografica%
+\else%
+    % Imprime a folha de rosto com a ficha catalográfica em outra página.
+    \imprimirfolhaderosto%
 \fi
 
 % --- Errata ---

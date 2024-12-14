@@ -2,7 +2,12 @@
 % Folha de rosto
 % =====
 
-\makeatletter
+% \def\DesinenciaDeGeneroDoOrientador{% 
+%     \ifGeneroOrientadorFeminino%
+%         a%
+%     \fi%
+% }
+
 \renewcommand{\folhaderostocontent}{%
     \ABNTEXchapterfont%
     \center%
@@ -17,17 +22,17 @@
     \vspace{2cm}
 
     \begin{flushright}
-        Orientador: \ValorDoNomeCompletoDoOrientadorComTitulo{}
+        Orientador\ifGeneroDoOrientadorFeminino{a}\fi:
+        \ValorDoNomeCompletoDoOrientadorComTitulo{}
         \par
         \ifDefinidoCoorientador%
-            Coorientador: \ValorDoNomeCompletoDoCoorientadorComTitulo{}
-            \par
+            Coorientador\ifGeneroDoCoorientadorFeminino{a}\fi: \ValorDoNomeCompletoDoCoorientadorComTitulo{}
+        \par
         \fi
     \end{flushright}
     \vfill
 
     \ComponenteLocalEData{}
 }
-\makeatother
 
 % =====
