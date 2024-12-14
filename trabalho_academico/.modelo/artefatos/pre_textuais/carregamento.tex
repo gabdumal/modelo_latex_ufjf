@@ -20,7 +20,11 @@
 \fi
 
 % --- Errata ---
-\input{.modelo/artefatos/pre_textuais/errata.tex}
+\ifDefinidoConteudoDaErrata%
+    \begin{errata}
+        \ValorDoConteudoDaErrata{}
+    \end{errata}
+\fi
 
 % --- Folha de aprovação ---
 \input{.modelo/artefatos/pre_textuais/aprovacao.tex}
@@ -35,11 +39,9 @@
 \input{.modelo/artefatos/pre_textuais/epigrafe.tex}
 
 % --- Resumos ---
-
 \begin{AmbienteResumo}
     \ValorDoConteudoDoResumo{}
 \end{AmbienteResumo}
-
 \ValorDosResumosEmLinguasEstrangeiras{}
 
 % --- Lista de ilustrações ---
