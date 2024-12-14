@@ -46,7 +46,11 @@
 \fi
 
 % --- Epígrafe ---
-\input{.modelo/artefatos/pre_textuais/epigrafe.tex}
+\ifDefinidoConteudoDaEpigrafe%
+    \begin{AmbienteEpigrafe}
+        \ValorDoConteudoDaEpigrafe{}
+    \end{AmbienteEpigrafe}
+\fi
 
 % --- Resumos ---
 \begin{AmbienteResumo}
