@@ -2,13 +2,20 @@
 % Epígrafe
 % =====
 
-\begin{epigrafe}
+\newif\ifDefinidoConteudoDaEpigrafe{} \DefinidoConteudoDaEpigrafefalse%
+
+\NewDocumentEnvironment{AmbienteEpigrafe}{}
+{%
+    \epigrafe%
     \vspace*{\fill}
-    \begin{citacao}
+}
+{%
+    \endepigrafe%
+}
 
-        ``Mathematical reasoning may be regarded rather schematically as the exercise of a combination of two facilities, which we may call intuition and ingenuity''~\cite{turing:1939}.
-
-    \end{citacao}
-\end{epigrafe}
+\NewDocumentCommand{\insereEpigrafe}{+m}{%
+    \def\ValorDoConteudoDaEpigrafe{#1}
+    \DefinidoConteudoDaEpigrafetrue%
+}
 
 % =====
