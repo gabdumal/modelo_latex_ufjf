@@ -20,9 +20,10 @@
     \endresumo%
 }
 
-\def\conteudoDoResumo#1{
+\NewDocumentCommand{\insereResumo}{+m}{%
     \def\ValorDoConteudoDoResumo{#1}
 }
+
 
 % -----
 % Língua estrangeira
@@ -69,7 +70,7 @@
     \endotherlanguage%
 }
 
-\NewDocumentCommand{\insereResumoEmLinguaEstrangeira}{mmm}{%
+\NewDocumentCommand{\insereResumoEmLinguaEstrangeira}{mm+m}{%
     \expandafter\def\expandafter\ValorDosResumosEmLinguasEstrangeiras\expandafter{\ValorDosResumosEmLinguasEstrangeiras% chkTeX 41
         \begin{AmbienteResumoEmLinguaEstrangeira}{#1}{#2}
             #3
