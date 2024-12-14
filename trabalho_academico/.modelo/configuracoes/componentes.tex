@@ -31,15 +31,27 @@
             \\
         }}
 
+\gdef\ComponenteGrauECurso{%
+    \ifDefinidoMestrado%
+        título
+    \else
+        \ifDefinidoDoutorado%
+            título de
+        \else
+            grau
+        \fi
+    \fi
+    de \titlecap{\ValorDoGrau{}} em \ValorDoCurso{}%
+}
+
 \gdef\ComponenteNatureza{{%
             \ABNTEXchapterfont%
             \hspace{.45\textwidth}
             \begin{minipage}{.5\textwidth}
                 \ValorDoTipo{}\ submetida ao corpo docente
-                d\ValorDoArtigoGramaticalDaUnidadeAcademica{} \ValorDoNomeDaUnidadeAcademica{}
-                d\ValorDoArtigoGramaticalDaInstituicao{} \ValorDoNomeDaInstituicao{},
-                como parte integrante dos requisitos necessários para a obtenção do grau de
-                \titlecap{\ValorDoGrau{}}\ em \ValorDoCurso{}.
+                d\ValorDoArtigoGramaticalDoSubmetendo{} \ValorDoNomeDoSubmetendo{}
+                d\ValorDoArtigoGramaticalDaInstituicao{} \ValorDoNomeDaInstituicao{}
+                como requisito parcial à obtenção do \ComponenteGrauECurso.
             \end{minipage}%
         }}
 
