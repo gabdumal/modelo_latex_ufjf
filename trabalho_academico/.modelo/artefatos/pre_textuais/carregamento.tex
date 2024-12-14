@@ -32,7 +32,11 @@
 \fi
 
 % --- Dedicatória ---
-\input{.modelo/artefatos/pre_textuais/dedicatoria.tex}
+\ifDefinidoConteudoDaDedicatoria%
+    \begin{AmbienteDedicatoria}
+        \ValorDoConteudoDaDedicatoria{}
+    \end{AmbienteDedicatoria}
+\fi
 
 % --- Agradecimentos ---
 \input{.modelo/artefatos/pre_textuais/agradecimentos.tex}
