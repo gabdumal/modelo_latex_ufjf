@@ -2,16 +2,16 @@
 % Componentes
 % =====
 
-\gdef\ComponenteAutor{{%
-            \center%
-            \ABNTEXsectionfont%
-            \textbf{\ValorDoNomeCompletoDoAutor{}}
+\gdef\ComponenteAutores{{%
+            \flushright%
+            \ABNTEXchapterfont%
+            {\ValorDoNomeCompletoDoAutor{}}
             \par
         }}
 
 \gdef\ComponenteTituloESubtitulo{{%
-            \center%
-            \ABNTEXsectionfont%
+            \centering%
+            \ABNTEXchapterfont%
             \textbf{\ValorDoTitulo{}}%
             \ifDefinidoSubtitulo%
                 {\textbf{:} \ValorDoSubtitulo{}}%
@@ -19,9 +19,21 @@
             \par
         }}
 
+\gdef\ComponenteTituloESubtituloEstrangeiros{{%
+            \centering%
+            \ABNTEXchapterfont%
+            \textit{
+                \textbf{\ValorDoTituloEstrangeiro{}}%
+                \ifDefinidoSubtituloEstrangeiro%
+                    {\textbf{:} \ValorDoSubtituloEstrangeiro{}}%
+                \fi
+            }%
+            \par
+        }}
+
 \gdef\ComponenteLocalEData{{%
             \center%
-            \ABNTEXsectionfont%
+            \ABNTEXchapterfont%
             \ValorDaCidade{}%
             \ifDefinidoEstado%
                 {,~\ValorDaSiglaDoEstado{}}%

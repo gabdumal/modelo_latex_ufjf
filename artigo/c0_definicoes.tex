@@ -7,10 +7,16 @@
 % -----
 
 % Título principal do trabalho. Parâmetros: título.
-\titulo{Título do meu trabalho}
+\DefineTitulo{Título do meu trabalho}
 
 % Subtítulo do trabalho. Parâmetros: subtítulo (opcional).
-\subtitulo{O subtítulo do meu trabalho}
+\DefineSubtitulo{O subtítulo do meu trabalho}
+
+% Título principal do trabalho em língua estrangeira. Parâmetros: título.
+\DefineTituloEstrangeiro{My work title}
+
+% Subtítulo do trabalho em língua estrangeira. Parâmetros: subtítulo (opcional).
+\DefineSubtituloEstrangeiro{The subtitle of my work}
 
 % -----
 
@@ -18,19 +24,11 @@
 % Trabalho
 % -----
 
+% Data de submissão. Parâmetros: dia; mês por extenso, em letras minúsculas; ano no formato 1000.
+\DefineDataDeSubmissao{01}{janeiro}{2025}
+
 % Data de aprovação. Parâmetros: dia; mês por extenso, em letras minúsculas; ano no formato 1000.
-\dataDeSubmissao{01}{janeiro}{2025}
-
-% --- Local de publicação ---
-
-% Cidade. Parâmetros: nome da cidade.
-\cidade{Juiz de Fora}
-
-% Estado (Opcional). Parâmetros: nome do estado; sigla do estado.
-% \estado{Minas Gerais}{MG}
-
-% País. Parâmetros: nome do país.
-\pais{Brasil}
+\DefineDataDeAprovacao{01}{março}{2025}
 
 % -----
 
@@ -41,7 +39,7 @@
 % -----
 
 % Autor. Parâmetros: Último sobrenome; restante do nome.
-\autor{Alves}{Alice Carvalho de}
+\DefineAutor{Alves}{Alice Carvalho de}
 
 % -----
 

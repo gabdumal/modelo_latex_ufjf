@@ -8,9 +8,8 @@
 
 % --- Título ---
 \newif\ifDefinidoSubtitulo{} \DefinidoSubtitulofalse{}
-
-% --- Trabalho ---
-\newif\ifDefinidoEstado{} \DefinidoEstadofalse{}
+\newif\ifDefinidoTituloEstrangeiro{} \DefinidoTituloEstrangeirofalse{}
+\newif\ifDefinidoSubtituloEstrangeiro{} \DefinidoSubtituloEstrangeirofalse{}
 
 % -----
 
@@ -19,15 +18,30 @@
 % -----
 
 % --- Título ---
-\gdef\ValorDoTitulo{\imprimirtitulo}
+\gdef\ValorDoTitulo{}
+\def\DefineTitulo#1{\gdef\ValorDoTitulo{#1}}
 
-\def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
+\gdef\ValorDoSubtitulo{}
+\def\DefineSubtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
 
-\gdef\ValorDoTituloCompleto{\ValorDoTitulo{}\ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi}
+\gdef\ValorDoTituloCompleto{%
+    \ValorDoTitulo{}%
+    \ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi%
+}
+
+\title{\ValorDoTituloCompleto}
+
+\def\DefineTituloEstrangeiro#1{\gdef\ValorDoTituloEstrangeiro{#1}\DefinidoTituloEstrangeirotrue}
+
+\def\DefineSubtituloEstrangeiro#1{\gdef\ValorDoSubtituloEstrangeiro{#1}\DefinidoSubtituloEstrangeirotrue}
+
+\gdef\ValorDoTituloEstrangeiroCompleto{\ifDefinidoTituloEstrangeiro{}\ValorDoTituloEstrangeiro{}\ifDefinidoSubtituloEstrangeiro{}: \ValorDoSubtituloEstrangeiro{}\fi\fi}
+
+\newcommand{\theforeigntitle}{\ValorDoTituloEstrangeiroCompleto}
 
 % --- Trabalho ---
 
-\def\dataDeSubmissao#1#2#3{%
+\def\DefineDataDeSubmissao#1#2#3{%
     \gdef\ValorDoDiaDeSubmissao{#1}
     \gdef\ValorDoMesDeSubmissao{#2}
     \gdef\ValorDoAnoDeSubmissao{#3}
@@ -35,29 +49,20 @@
 \gdef\ValorDaDataDeSubmissao{\ValorDoMesDeSubmissao{}, \ValorDoAnoDeSubmissao{}}
 \data{\ValorDaDataDeSubmissao}
 
-\def\cidade#1{\gdef\ValorDaCidade{#1}}
-\def\estado#1#2{%
-    \gdef\ValorDoEstado{#1}
-    \gdef\ValorDaSiglaDoEstado{#2}
-    \DefinidoEstadotrue%
+\def\DefineDataDeAprovacao#1#2#3{%
+    \gdef\ValorDoDiaDeAprovacao{#1}
+    \gdef\ValorDoMesDeAprovacao{#2}
+    \gdef\ValorDoAnoDeAprovacao{#3}
 }
-\def\pais#1{\gdef\ValorDoPais{#1}}
-
-\gdef\ValorDoLocal{%
-    \ValorDaCidade{},
-    \ifDefinidoEstado%
-        \ValorDoEstado{},
-    \fi
-    \ValorDoPais{}%
-}
-\renewcommand{\imprimirlocal}{\ValorDoLocal}
+\gdef\ValorDaDataDeAprovacao{\ValorDoMesDeAprovacao{}, \ValorDoAnoDeAprovacao{}}
+\data{\ValorDaDataDeAprovacao}
 
 % --- Pessoas ---
 
-\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
+\def\DefineAutor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
 
 % --- Palavras-chave ---
-\def\palavrasChave#1#2#3#4#5
+\def\DefinePalavrasChave#1#2#3#4#5
 {%
     \gdef\ValorDaPalavraChaveUm{#1}
     \gdef\ValorDaPalavraChaveDois{#2}
@@ -101,9 +106,33 @@
         \fi
     }
 
-    \ValorDaDataDeSubmissao{}
+    {%
 
-    \ValorDoLocal{}
+        \ifDefinidoTituloEstrangeiro{%
+            Título estrangeiro está definido:
+            \ValorDoTituloEstrangeiro{}
+
+            {%
+                \ifDefinidoSubtituloEstrangeiro{%
+                    Subtítulo estrangeiro está definido:
+                    \ValorDoSubtituloEstrangeiro{}
+                }
+                \else{%
+                    Subtítulo estrangeiro não está definido.
+                }
+                \fi
+            }
+
+        }
+        \else{%
+            Título estrangeiro não está definido.
+        }
+        \fi
+    }
+
+    Data de submissão: \ValorDaDataDeSubmissao{}
+
+    Data de aprovação: \ValorDaDataDeAprovacao{}
 
     \ValorDoUltimoSobrenomeDoAutor{} ---
     \ValorDoRestanteDoNomeDoAutor{} ---
