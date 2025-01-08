@@ -32,17 +32,20 @@
 % -----
 
 % --- Título ---
-\gdef\ValorDoTitulo{\imprimirtitulo}
+\def\DefineTitulo#1{\gdef\ValorDoTitulo{#1}}
 
-\def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
+\def\DefineSubtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
 
-\gdef\ValorDoTituloCompleto{\ValorDoTitulo{}\ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi}
+\gdef\ValorDoTituloCompleto{%
+    \ValorDoTitulo{}%
+    \ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi%
+}
 
 % --- Trabalho ---
 
-\def\curso#1{\gdef\ValorDoCurso{#1}}
+\def\DefineCurso#1{\gdef\ValorDoCurso{#1}}
 
-\def\dataDeAprovacao#1#2#3{%
+\def\DefineDataDeAprovacao#1#2#3{%
     \gdef\ValorDoDiaDeAprovacao{#1}
     \gdef\ValorDoMesDeAprovacao{#2}
     \gdef\ValorDoAnoDeAprovacao{#3}
@@ -50,13 +53,13 @@
 \gdef\ValorDaDataDeAprovacao{\ValorDoMesDeAprovacao{}, \ValorDoAnoDeAprovacao{}}
 \data{\ValorDaDataDeAprovacao}
 
-\def\cidade#1{\gdef\ValorDaCidade{#1}}
-\def\estado#1#2{%
+\def\DefineCidade#1{\gdef\ValorDaCidade{#1}}
+\def\DefineEstado#1#2{%
     \gdef\ValorDoEstado{#1}
     \gdef\ValorDaSiglaDoEstado{#2}
     \DefinidoEstadotrue%
 }
-\def\pais#1{\gdef\ValorDoPais{#1}}
+\def\DefinePais#1{\gdef\ValorDoPais{#1}}
 
 \gdef\ValorDoLocal{%
     \ValorDaCidade{},
@@ -65,36 +68,36 @@
     \fi
     \ValorDoPais{}%
 }
-\renewcommand{\imprimirlocal}{\ValorDoLocal}
+\local{\ValorDoLocal}
 
 % -- Tipo do trabalho --
 
-\def\grau#1{\gdef\ValorDoGrau{#1}}
+\def\DefineGrau#1{\gdef\ValorDoGrau{#1}}
 
-\def\diploma#1{\gdef\ValorDoDiploma{#1}}
+\def\DefineDiploma#1{\gdef\ValorDoDiploma{#1}}
 
-\def\departamento#1{\gdef\ValorDoNomeDoDepartamento{#1}}
+\def\DefineDepartamento#1{\gdef\ValorDoNomeDoDepartamento{#1}}
 
-\def\tipoInterno#1{\gdef\ValorDoTipo{#1}}
+\def\DefineTipoInterno#1{\gdef\ValorDoTipo{#1}}
 
-\def\defineBacharelado{\grau{bacharel} \tipoInterno{Monografia} \diploma{Bacharelado}}
+\def\DefineBacharelado{\DefineGrau{bacharel} \DefineTipoInterno{Monografia} \DefineDiploma{Bacharelado}}
 
-\def\defineLicenciatura{\grau{licenciado} \tipoInterno{Monografia} \diploma{Licenciatura}}
+\def\DefineLicenciatura{\DefineGrau{licenciado} \DefineTipoInterno{Monografia} \DefineDiploma{Licenciatura}}
 
-\def\defineEspecializacao{\grau{especialista} \tipoInterno{Monografia} \diploma{Especializa\c{c}\~ao} \DefinidoEspecializacaotrue}
+\def\DefineEspecializacao{\DefineGrau{especialista} \DefineTipoInterno{Monografia} \DefineDiploma{Especializa\c{c}\~ao} \DefinidoEspecializacaotrue}
 
-\def\defineMestrado{\grau{mestre} \tipoInterno{Disserta\c{c}\~{a}o} \diploma{Mestrado} \DefinidoMestradotrue}
+\def\DefineMestrado{\DefineGrau{mestre} \DefineTipoInterno{Disserta\c{c}\~{a}o} \DefineDiploma{Mestrado} \DefinidoMestradotrue}
 
-\def\defineDoutorado{\grau{doutor} \tipoInterno{Tese} \diploma{Doutorado} \DefinidoDoutoradotrue}
+\def\defineDoutorado{\DefineGrau{doutor} \DefineTipoInterno{Tese} \DefineDiploma{Doutorado} \DefinidoDoutoradotrue}
 
 \ExplSyntaxOn%
 \NewDocumentCommand{\verificaTipo}{m}{%
     \str_case:nn {#1} {%
-        {bacharelado} {\defineBacharelado}
-            {licenciatura} {\defineLicenciatura}
-            {especializacao} {\defineEspecializacao}
-            {mestrado} {\defineMestrado}
-            {doutorado} {\defineDoutorado}
+        {bacharelado} {\DefineBacharelado}
+            {licenciatura} {\DefineLicenciatura}
+            {especializacao} {\DefineEspecializacao}
+            {mestrado} {\DefineMestrado}
+            {doutorado} {\DefineDoutorado}
             {default} {%
                 \msg_error:nnn {custom} {opcaoInvalidaParaVerificaTipo} {#1}
             }
@@ -107,28 +110,28 @@
 }
 \ExplSyntaxOff%
 
-\def\tipo#1{%
+\def\DefineTipo#1{%
     \verificaTipo{#1}%
 }
 \tipotrabalho{\ValorDoTipo}
 
 % --- Instituição ---
 
-\def\instituicao#1#2#3#4{
+\def\DefineInstituicao#1#2#3#4{
     \gdef\ValorDoArtigoGramaticalDaInstituicao{#1}
     \gdef\ValorDoNomeDaInstituicao{#2}
     \gdef\ValorDaSiglaDaInstituicao{#3}
     \gdef\ValorDaCidadeDaInstituicao{#4}
 }
-\renewcommand{\imprimirinstituicao}{\ValorDoNomeDaInstituicao}
+\instituicao{\ValorDoNomeDaInstituicao}
 
-\def\unidadeAcademica#1#2#3{
+\def\DefineUnidadeAcademica#1#2#3{
     \gdef\ValorDoArtigoGramaticalDaUnidadeAcademica{#1}
     \gdef\ValorDoNomeDaUnidadeAcademica{#2}
     \gdef\ValorDaSiglaDaUnidadeAcademica{#3}
 }
 
-\def\programa#1#2#3{
+\def\DefinePrograma#1#2#3{
     \gdef\ValorDoArtigoGramaticalDoPrograma{#1}
     \gdef\ValorDoNomeDoPrograma{#2}
     \gdef\ValorDaSiglaDoPrograma{#3}
@@ -160,10 +163,10 @@
 
 % --- Pessoas ---
 
-\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
+\def\DefineAutor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
 
 \ExplSyntaxOn%
-\RenewDocumentCommand{\orientador}{mmmmm}{%
+\NewDocumentCommand{\DefineOrientador}{mmmmm}{%
     \str_case:nn {#1} {%
         {feminino} {\GeneroDoOrientadorFemininotrue}
             {masculino} {\GeneroDoOrientadorFemininofalse}
@@ -185,11 +188,8 @@
 }
 \ExplSyntaxOff%
 
-\renewcommand{\imprimirorientador}{\ValorDoNomeCompletoDoOrientador}
-\renewcommand{\imprimirorientadorRotulo}{\ValorDoTituloDoOrientador}
-
 \ExplSyntaxOn%
-\RenewDocumentCommand{\coorientador}{mmmmm}{%
+\NewDocumentCommand{\DefineCoorientador}{mmmmm}{%
     \str_case:nn {#1} {%
         {feminino} {\GeneroDoCoorientadorFemininotrue}
             {masculino} {\GeneroDoCoorientadorFemininofalse}
@@ -211,20 +211,20 @@
 }
 \ExplSyntaxOff%
 
-\renewcommand{\imprimircoorientador}{%
-    \ifDefinidoCoorientador%
-        \ValorDoNomeCompletoDoCoorientador{}%
-    \else%
-    \fi%
-}
-\renewcommand{\imprimircoorientadorRotulo}{%
-    \ifDefinidoCoorientador%
-        \ValorDoTituloDoCoorientador{}%
-    \else%
-    \fi%
-}
+% \renewcommand{\imprimircoorientador}{%
+%     \ifDefinidoCoorientador%
+%         \ValorDoNomeCompletoDoCoorientador{}%
+%     \else%
+%     \fi%
+% }
+% \renewcommand{\imprimircoorientadorRotulo}{%
+%     \ifDefinidoCoorientador%
+%         \ValorDoTituloDoCoorientador{}%
+%     \else%
+%     \fi%
+% }
 
-\def\examinadorUm#1#2#3#4{
+\def\DefineExaminadorUm#1#2#3#4{
     \gdef\ValorDoTituloDoExaminadorUm{#1}
     \gdef\ValorDoUltimoSobrenomeDoExaminadorUm{#2}
     \gdef\ValorDoRestanteDoNomeDoExaminadorUm{#3}
@@ -234,7 +234,7 @@
     \DefinidoExaminadorUmtrue%
 }
 
-\def\examinadorDois#1#2#3#4{
+\def\DefineExaminadorDois#1#2#3#4{
     \gdef\ValorDoTituloDoExaminadorDois{#1}
     \gdef\ValorDoUltimoSobrenomeDoExaminadorDois{#2}
     \gdef\ValorDoRestanteDoNomeDoExaminadorDois{#3}
@@ -244,7 +244,7 @@
     \DefinidoExaminadorDoistrue%
 }
 
-\def\examinadorTres#1#2#3#4{
+\def\DefineExaminadorTres#1#2#3#4{
     \gdef\ValorDoTituloDoExaminadorTres{#1}
     \gdef\ValorDoUltimoSobrenomeDoExaminadorTres{#2}
     \gdef\ValorDoRestanteDoNomeDoExaminadorTres{#3}
@@ -254,7 +254,7 @@
     \DefinidoExaminadorTrestrue%
 }
 
-\def\examinadorQuatro#1#2#3#4{
+\def\DefineExaminadorQuatro#1#2#3#4{
     \gdef\ValorDoTituloDoExaminadorQuatro{#1}
     \gdef\ValorDoUltimoSobrenomeDoExaminadorQuatro{#2}
     \gdef\ValorDoRestanteDoNomeDoExaminadorQuatro{#3}
@@ -265,7 +265,7 @@
 }
 
 % --- Palavras-chave ---
-\def\palavrasChave#1#2#3#4#5
+\def\DefinePalavrasChave#1#2#3#4#5
 {%
     \gdef\ValorDaPalavraChaveUm{#1}
     \gdef\ValorDaPalavraChaveDois{#2}
