@@ -1,0 +1,83 @@
+% =====
+% Resumo
+% =====
+
+% -----
+% Português
+% -----
+
+\NewDocumentEnvironment{AmbienteResumo}{}
+{%
+    \resumo%
+}
+{%
+    \par
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{Palavras-chave}:
+    % As palavras-chave em português devem ser definidas no arquivo de pretexto. Elas serão separadas pelo caractere ponto e vírgula.
+    \ValorDasPalavrasChave{}.
+    \endresumo%
+}
+
+\NewDocumentCommand{\insereResumo}{+m}{%
+    \def\ValorDoConteudoDoResumo{#1}
+}
+
+
+% -----
+% Língua estrangeira
+% -----
+
+\def\ValorDosResumosEmLinguasEstrangeiras{}
+
+\NewDocumentCommand{\obtemTermoPalavrasChaveTraduzido}{m}{%
+    \IfStrEqCase{#1}{%
+        {english}{Keywords}%
+            {french}{Mots-clés}%
+            {spanish}{Palabras clave}%
+            {italian}{Parole chiave}%
+            {german}{Schlüsselwörter}%
+            {dutch}{Trefwoorden}%
+    }[Palavras-chave]%
+}
+
+\NewDocumentCommand{\obtemTermoResumoTraduzido}{m}{%
+    \IfStrEqCase{#1}{%
+        {english}{Abstract}%
+            {french}{Résumé}%
+            {spanish}{Resumen}%
+            {italian}{Riassunto}%
+            {german}{Zusammenfassung}%
+            {dutch}{Samenvatting}%
+    }[Resumo]%
+}
+
+% Parâmetros: língua; palavras-chave.
+\NewDocumentEnvironment{AmbienteResumoEmLinguaEstrangeira}{mm}
+{%
+    \otherlanguage{#1}
+    \resumo[\obtemTermoResumoTraduzido{#1}]
+}
+{%
+    \par
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{\obtemTermoPalavrasChaveTraduzido{#1}}:
+    % As palavras-chave serão separadas pelo caractere ponto e vírgula.
+    #2.
+    \endresumo%
+    \endotherlanguage%
+}
+
+\NewDocumentCommand{\insereResumoEmLinguaEstrangeira}{mm+m}{%
+    \expandafter\def\expandafter\ValorDosResumosEmLinguasEstrangeiras\expandafter{\ValorDosResumosEmLinguasEstrangeiras% chkTeX 41
+        \begin{AmbienteResumoEmLinguaEstrangeira}{#1}{#2}
+            #3
+        \end{AmbienteResumoEmLinguaEstrangeira}%
+    }
+}
+
+% -----
+
+% =====

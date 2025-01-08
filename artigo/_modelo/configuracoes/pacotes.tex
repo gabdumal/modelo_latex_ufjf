@@ -1,0 +1,156 @@
+% =====
+% Pacotes 
+% =====
+
+\usepackage{lmodern}        % Usa a fonte Latin Modern.
+\usepackage[T1]{fontenc}    % Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc} % Codificação do documento (conversão automática dos acentos).
+\usepackage{indentfirst}    % Identa o primeiro parágrafo de cada seção.
+\usepackage{microtype}      % Para melhorias de justificação.
+
+\usepackage{color}      % Controle das cores.
+\usepackage{graphicx}   % Inclusão de gráficos.
+\usepackage{amssymb}    % Símbolos matemáticos.
+\usepackage{amsmath}    % Equações matemáticas.
+\usepackage{amsfonts}   % Fontes e símbolos matemáticos.
+
+\usepackage[brazilian,hyperpageref]{backref}    % Páginas com as citações na bibliografia.
+\usepackage{pdfpages}   % Inclusão de documentos PDF.
+
+\usepackage[
+    abbreviations,
+    symbols,
+    nohypertypes={index},
+    % nonumberlist=true,
+    seeautonumberlist,
+    subentrycounter,
+    toc=false
+]{glossaries-extra}   % Glossário. Permite definir termos, siglas e abreviações. Deve ser carregado depois de backref.
+
+\usepackage[alf]{abntex2cite}       % Citações padrão ABNT. Deve ser carregado depois de glossaries.
+
+\usepackage{multicol}   % Permite incluir ambientes que exibem texto em múltiplas colunas.
+\usepackage{multirow}   % Permite mesclar células em tabelas.
+\usepackage{longtable}  % Permite criar tabelas com mais de uma página.
+
+\usepackage{xparse}     % Permite a definição de comandos com argumentos opcionais.
+\usepackage{xstring}    % Fornece ferramentas para manipulação de strings.
+\usepackage{titlecaps}  % Fornece ferramentas para capitalização de palavras.
+
+\usepackage[portuguese]{todonotes}  % Adiciona notas e afazeres no documento.
+\usepackage{lipsum}     % Gera texto de preenchimento.
+
+% =====
+
+% =====
+% Configurações dos pacotes
+% =====
+
+% -----
+% abnTeX2 
+% -----
+
+% Possibilita criação de Quadros e os insere na lista de ilustrações.
+% Ver https://github.com/abntex/abntex2/issues/176
+
+% Define o nome do tipo de ilustração.
+\newcommand{\quadroname}{Quadro}
+
+% Insere o quadro na lista de ilustrações.
+\newfloat[section]{quadro}{lof}{\quadroname}
+\newlistentry{quadro}{lof}{0}
+
+% Define a formatação do quadro.
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{section}
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+\setfloatlocations{quadro}{hbtp}
+
+% -----
+
+% -----
+% Glossaries-extra
+% -----
+
+% O pacote "glossaries-extra" provê a opção de criar um glossário chamado "index" nas opções do pacote.
+% Entretanto, isso cria um comando chamado "\printindex", que conflita com o homônimo do pacote "memoir", utilizado para imprimir o índice remissivo.
+% Para resolver, não habilitamos a opção "index" e criamos um novo glossário chamado "index" manualmente.
+
+\newglossary[ilg]{index}{ind}{idx}{\indexname}
+
+% Define o comando "\newterm" para facilitar a criação de novos termos no glossário "index".
+\DeclareDocumentCommand\newterm{m m g}{%
+    \IfValueTF{#3}{%
+        \newglossaryentry{#1}{%
+            type=index,
+            name={#2},
+            description={\nopostdesc},
+            plural={#3}%
+        }
+    }{%
+        \newglossaryentry{#1}{%
+            type=index,
+            name={#2},
+            description={\nopostdesc}%
+        }
+    }
+}
+
+% Permite a impressão dos glossários.
+\makeglossaries{}
+\loadglsentries{c0_glossario.tex}
+
+% Evita quebra de página entre os glossários.
+\renewcommand*{\glsclearpage}{}
+
+% -----
+
+% -----
+% Backref
+% -----
+
+% Usado sem a opção hyperpageref de backref.
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~} % chktex-file 36
+
+% Texto padrão antes do número das páginas.
+\renewcommand{\backref}{}
+
+% Define os textos da citação.
+\renewcommand*{\backrefalt}[4]{%
+    \ifcase #1% chktex-file 1
+        Nenhuma citação no texto.%
+    \or%
+        Citado na página #2.%
+    \else%
+        Citado #1 vezes nas páginas #2.%
+    \fi}%
+
+% -----
+
+% -----
+% Todonotes
+% -----
+
+% Define a largura da caixa de notas.
+\setlength{\marginparwidth}{2cm}
+
+% Define a cor e o estilo da caixa de notas.
+\presetkeys{todonotes}{%
+    inline,
+    backgroundcolor=yellow,
+    disable=false % Defina como "true" para desabilitar as notas.
+}{}
+
+% -----
+
+% -----
+% Titlecaps
+% -----
+
+% Define as palavras que não devem ser capitalizadas. Elas ainda serão capitalizadas se estiverem no início de uma frase.
+\Addlcwords{a o e um uma uns umas em de da do das dos no na nos nas num numa nuns numas por para com pelo pela pelos pelas}
+
+% -----
+
+% =====

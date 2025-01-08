@@ -1,0 +1,226 @@
+% =====
+% Glossário
+% =====
+
+% -----
+% Termos simples
+% -----
+
+\newterm{disciplina}{DCC067 Computação Evolucionista}
+\newterm{pl}{Programação Linear}
+\newterm{fn}{função}{funções}
+% \newglossaryentry{fn}{
+%     name={função},
+%     plural={funções},
+%     % Essa opção define que a entrada não apresenta descrição.
+%     description={\nopostdesc},
+%     % Essa opção categoriza a entrada no glossário de termos simples.
+%     type=index
+% }
+
+% -----
+
+% -----
+% Acrônimos, siglas e abreviações
+% -----
+
+\newabbreviation{dcc}{DCC}{Departamento de Ciência da Computação}
+
+\newabbreviation{ice}{ICE}{Instituto de Ciências Exatas}
+
+\newabbreviation{ufjf}{UFJF}{Universidade Federal de Juiz de Fora}
+
+\newabbreviation[
+    description={Algoritmo Genético, do inglês \textit{Genetic Algorithm}, é uma técnica de otimização baseada em evolução biológica},
+    plural={GAs},
+    longplural={Algoritmos Genéticos}
+]{ga}{GA}{Algoritmo Genético}
+
+% -----
+
+% -----
+% Definições
+% -----
+
+\newglossaryentry{crossover}{
+    name={Crossover},
+    text={\textit{crossover}},
+    description={Operador genético que combina dois indivíduos para gerar um ou mais descendentes}
+}
+
+\newglossaryentry{fitness}{
+    name={Fitness},
+    text={\textit{fitness}},
+    description={Medida de qualidade de um indivíduo em um algoritmo evolutivo}
+}
+
+% -----
+
+% -----
+% Símbolos
+% -----
+
+\glsxtrnewsymbol[
+    description={Conjunto vazio, que não contém elementos}
+]
+{conjunto_vazio}{\ensuremath{
+        \emptyset
+    }}
+
+% --- Índices ---
+
+\glsxtrnewsymbol[
+    description={Índice das receitas disponíveis no catálogo}
+]
+{indice:receitas}{\ensuremath{{
+                \textcolor{teal}{ \boldsymbol{r}}
+            }}}
+
+\glsxtrnewsymbol[
+    description={Índice dos pacotes disponíveis para acondicionamento de produtos, categorizados pela sua gramatura}
+]
+{indice:pacotes}{\ensuremath{{
+                \textcolor{teal}{ \boldsymbol{e} }
+            }}}
+
+\glsxtrnewsymbol[
+    description={Índice dos pedidos realizados por clientes no período analisado}
+]
+{indice:pedidos}{\ensuremath{{
+                \textcolor{teal}{ \boldsymbol{p} }
+            }}}
+
+% --- Constantes ---
+
+% -- Fixas --
+
+\glsxtrnewsymbol[
+    description={Tempo total de disponibilidade do maquinário em expediente}
+]
+{constante:fixa:tempo-turno}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{T_{T}} }
+            }}}
+
+% -- Dados --
+
+% - Básicos -
+
+\glsxtrnewsymbol[
+    description={Rendimento (em quilogramas)}
+]
+{constante:dado:rendimento}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{R} }
+            }}}
+
+\glsxtrnewsymbol[
+    description={Tempo (em minutos)}
+]
+{constante:dado:tempo}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{T} }
+            }}}
+
+\glsxtrnewsymbol[
+    description={Peso (em quilogramas)}
+]
+{constante:dado:peso}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{M} }
+            }}}
+
+\glsxtrnewsymbol[
+    description={Categorização de pacotes por gramatura (em gramas)}
+]
+{constante:dado:gramatura}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{E} }
+            }}}
+
+% - Derivados -
+
+\glsxtrnewsymbol[
+    description={Rendimento total (em quilogramas)}
+]
+{constante:dado:rendimento-total}{\ensuremath{{
+                \textcolor{brown}{ \boldsymbol{R_{T}} }
+            }}}
+
+\glsxtrnewsymbol[
+description={Tempo de mistura (batedeira) (em minutos)}
+]
+{constante:dado:tempo-mistura}{\ensuremath{{
+\glsentryname{constante:dado:tempo}_{\textcolor{brown}{ \boldsymbol{B} }}
+}}}
+
+% - Indexados -
+
+\glsxtrnewsymbol[
+description={Rendimento de uma porção fabricada da receita \( \glsentryname{indice:receitas} \) (em quilogramas)}
+]
+{constante:dado:receita:rendimento}{\ensuremath{{
+\glsentryname{constante:dado:rendimento}_{\glsentryname{indice:receitas}}
+}}}
+
+\glsxtrnewsymbol[
+description={Rendimento total das porções fabricadas da receita \( \glsentryname{indice:receitas} \) (em quilogramas)}
+]
+{constante:dado:receita:rendimento-total}{\ensuremath{{
+\glsentryname{constante:dado:rendimento-total}_{\glsentryname{indice:receitas}}
+}}}
+
+\glsxtrnewsymbol[
+description={Tempo de mistura (batedeira) da receita \( \glsentryname{indice:receitas} \) (em minutos)}
+]
+{constante:dado:receita:tempo-mistura}{\ensuremath{{
+\glsentryname{constante:dado:tempo-mistura}_{\glsentryname{indice:receitas}}
+}}}
+
+\glsxtrnewsymbol[
+description={Quantidade (gramatura) necessária de uma receita para preencher um pacote \( \glsentryname{indice:pacotes} \) (em gramas)}
+]
+{constante:dado:pacote:gramatura}{\ensuremath{{
+\glsentryname{constante:dado:gramatura}_{\glsentryname{indice:pacotes}}
+}}}
+
+\glsxtrnewsymbol[
+description={Peso total de um pedido \( \glsentryname{indice:pedidos} \) (em quilogramas)}
+]
+{constante:dado:pedido:peso}{\ensuremath{{
+\glsentryname{constante:dado:peso}_{\glsentryname{indice:pedidos}}
+}}}
+
+% --- Variáveis ---
+
+% -- Auxiliares --
+
+\glsxtrnewsymbol[
+    description={Peso somado (demanda) dos pedidos de uma receita \( \glsentryname{indice:receitas} \) selecionados
+            para serem atendidos (em quilogramas)}
+]
+{variavel:auxiliar:peso-total-pedidos-atendidos}{\ensuremath{{
+                {\textcolor{purple}{ \boldsymbol{M_{A}} }}_{\glsentryname{indice:receitas}}
+            }}}
+
+\glsxtrnewsymbol[
+    description={Peso total produzido de uma receita \( \glsentryname{indice:receitas} \) (em quilogramas)}
+]
+{variavel:auxiliar:peso-total-produzido}{\ensuremath{{
+                {\textcolor{purple}{ \boldsymbol{M_{P}} }}_{\glsentryname{indice:receitas}}
+            }}}
+
+\glsxtrnewsymbol[
+    description={Peso total de uma receita \( \glsentryname{indice:receitas} \) que sobrou para o estoque (em quilogramas)}
+]
+{variavel:auxiliar:peso-total-em-sobra}{\ensuremath{{
+                {\textcolor{purple}{ \boldsymbol{M_{E}} }}_{\glsentryname{indice:receitas}}
+            }}}
+
+% -- Principais --
+
+\glsxtrnewsymbol[
+    description={Quantidade de porções (fornadas) de uma receita \( \glsentryname{indice:receitas} \) a serem produzidas}
+]
+{variavel:principal:quantidade-porcoes-receita-a-produzir}{\ensuremath{{
+                \textcolor{blue}{ \boldsymbol{F} }_{\glsentryname{indice:receitas}}
+            }}}
+
+% -----
+
+% =====

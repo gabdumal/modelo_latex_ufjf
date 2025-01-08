@@ -1,0 +1,20 @@
+% =====
+% Agradecimentos
+% =====
+
+\newif\ifDefinidoConteudoDosAgradecimentos{} \DefinidoConteudoDosAgradecimentosfalse%
+
+\NewDocumentEnvironment{AmbienteAgradecimentos}{}
+{%
+    \agradecimentos%
+}
+{%
+    \endagradecimentos%
+}
+
+\NewDocumentCommand{\insereAgradecimentos}{+m}{%
+    \newcommand\ValorDoConteudoDosAgradecimentos{#1}
+    \DefinidoConteudoDosAgradecimentostrue%
+}
+
+% =====

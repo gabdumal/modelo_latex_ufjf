@@ -1,0 +1,38 @@
+% =====
+% Componentes
+% =====
+
+\gdef\ComponenteAutor{{%
+            \center%
+            \ABNTEXsectionfont%
+            \textbf{\ValorDoNomeCompletoDoAutor{}}
+            \par
+        }}
+
+\gdef\ComponenteTituloESubtitulo{{%
+            \center%
+            \ABNTEXsectionfont%
+            \textbf{\ValorDoTitulo{}}%
+            \ifDefinidoSubtitulo%
+                {\textbf{:} \ValorDoSubtitulo{}}%
+            \fi
+            \par
+        }}
+
+\gdef\ComponenteLocalEData{{%
+            \center%
+            \ABNTEXsectionfont%
+            \ValorDaCidade{}%
+            \ifDefinidoEstado%
+                {,~\ValorDaSiglaDoEstado{}}%
+            \fi
+            \par
+            \ValorDoAnoDeSubmissao{}
+            \\
+        }}
+
+\gdef\ComponenteFontePropria{
+    \fonte{Elaborado pelos autores (\ValorDoAnoDeSubmissao{}).}
+}
+
+% =====

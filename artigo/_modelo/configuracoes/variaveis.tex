@@ -1,0 +1,126 @@
+% =====
+% Variáveis
+% =====
+
+% -----
+% Flags e outras variáveis de decisão
+% -----
+
+% --- Título ---
+\newif\ifDefinidoSubtitulo{} \DefinidoSubtitulofalse{}
+
+% --- Trabalho ---
+\newif\ifDefinidoEstado{} \DefinidoEstadofalse{}
+
+% -----
+
+% -----
+% Variáveis de texto
+% -----
+
+% --- Título ---
+\gdef\ValorDoTitulo{\imprimirtitulo}
+
+\def\subtitulo#1{\gdef\ValorDoSubtitulo{#1}\DefinidoSubtitulotrue}
+
+\gdef\ValorDoTituloCompleto{\ValorDoTitulo{}\ifDefinidoSubtitulo{}: \ValorDoSubtitulo{}\fi}
+
+% --- Trabalho ---
+
+\def\dataDeSubmissao#1#2#3{%
+    \gdef\ValorDoDiaDeSubmissao{#1}
+    \gdef\ValorDoMesDeSubmissao{#2}
+    \gdef\ValorDoAnoDeSubmissao{#3}
+}
+\gdef\ValorDaDataDeSubmissao{\ValorDoMesDeSubmissao{}, \ValorDoAnoDeSubmissao{}}
+\data{\ValorDaDataDeSubmissao}
+
+\def\cidade#1{\gdef\ValorDaCidade{#1}}
+\def\estado#1#2{%
+    \gdef\ValorDoEstado{#1}
+    \gdef\ValorDaSiglaDoEstado{#2}
+    \DefinidoEstadotrue%
+}
+\def\pais#1{\gdef\ValorDoPais{#1}}
+
+\gdef\ValorDoLocal{%
+    \ValorDaCidade{},
+    \ifDefinidoEstado%
+        \ValorDoEstado{},
+    \fi
+    \ValorDoPais{}%
+}
+\renewcommand{\imprimirlocal}{\ValorDoLocal}
+
+% --- Pessoas ---
+
+\def\autor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
+
+% --- Palavras-chave ---
+\def\palavrasChave#1#2#3#4#5
+{%
+    \gdef\ValorDaPalavraChaveUm{#1}
+    \gdef\ValorDaPalavraChaveDois{#2}
+    \gdef\ValorDaPalavraChaveTres{#3}
+    \gdef\ValorDaPalavraChaveQuatro{#4}
+    \gdef\ValorDaPalavraChaveCinco{#5}
+}
+
+\NewDocumentCommand{\formataPalavrasChave}{m m m m m}
+{%
+    #1;
+    #2;
+    #3%
+    \ifstrempty{#4}{}{; #4%
+        \ifstrempty{#5}{}{; #5}%
+    }%
+}
+
+\def\ValorDasPalavrasChave{
+    \ValorDaPalavraChaveUm;
+    \ValorDaPalavraChaveDois;
+    \ValorDaPalavraChaveTres%
+    \ifdefempty{\ValorDaPalavraChaveQuatro}{}{; \ValorDaPalavraChaveQuatro%
+        \ifdefempty{\ValorDaPalavraChaveCinco}{}{; \ValorDaPalavraChaveCinco}%
+    }%
+}
+
+% -----
+
+\def\testaVariaveis{
+    \ValorDoTitulo{}
+
+    {%
+        \ifDefinidoSubtitulo{%
+            Subtítulo está definido:
+            \ValorDoSubtitulo{}
+        }
+        \else{%
+            Subtítulo não está definido.
+        }
+        \fi
+    }
+
+    \ValorDaDataDeSubmissao{}
+
+    \ValorDoLocal{}
+
+    \ValorDoUltimoSobrenomeDoAutor{} ---
+    \ValorDoRestanteDoNomeDoAutor{} ---
+    \ValorDoNomeCompletoDoAutor{}
+
+    [\ValorDaPalavraChaveUm]
+    [\ValorDaPalavraChaveDois]
+    [\ValorDaPalavraChaveTres]
+    [\ValorDaPalavraChaveQuatro]
+    [\ValorDaPalavraChaveCinco]
+
+    \ValorDasPalavrasChave.
+
+    % \ifdefempty{\ValorDaPalavraChaveQuatro}{Quarta palavra-chave vazia.}{Quarta palavra-chave não vazia.}
+
+    % \ifdefempty{\ValorDaPalavraChaveCinco}{Quinta palavra-chave vazia.}{Quinta palavra-chave não vazia.}
+
+}
+
+% =====

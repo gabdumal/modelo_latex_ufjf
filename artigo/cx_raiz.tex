@@ -1,57 +1,49 @@
 \documentclass[
-    % -- opções da classe memoir --
-    article,			% indica que é um artigo acadêmico
-    11pt,				% tamanho da fonte
-    oneside,			% para impressão apenas no recto. Oposto a twoside
-    a4paper,			% tamanho do papel. 
-    % -- opções da classe abntex2 --
-    %chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-    %section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-    %subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-    %subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
-    % -- opções do pacote babel --
-    english,			% idioma adicional para hifenização
-    brazil,				% o último idioma é o principal do documento
-    sumario=tradicional
+    % --- Opções da classe memoir ---
+	article             % Indica que o documento é um artigo acadêmico.
+    11pt,				% Tamanho da fonte.
+    oneside,			% Para impressão apenas no anverso. Oposto a twoside.
+    a4paper,			% Tamanho do papel.
+    % twocolumn,        % Texto em duas colunas.
+    % -----
+    % --- Opções da classe abntex2 ---
+    %chapter=TITLE,		% Títulos de capítulos são convertidos para letras maiúsculas.
+    %section=TITLE,		% Títulos de seções são convertidos para letras maiúsculas.
+    %subsection=TITLE,	% Títulos de subseções são convertidos para letras maiúsculas.
+    %subsubsection=TITLE, % Títulos de subsubseções são convertidos para letras maiúsculas.
+    % -----
+    % --- Opções do pacote babel ---
+    english,			% Define idioma adicional para hifenização
+    french,			    % Define idioma adicional para hifenização
+    spanish,			% Define idioma adicional para hifenização
+    brazil,				% O último idioma é definido como o principal do documento.
+    sumario=tradicional % Define o tipo de sumário.
 ]{abntex2}
 
-% Pacotes
-\input{cx_pacotes.tex}
+% --- Modelo ---
+\input{_modelo/modelo.tex}
 
-% Definições da Capa
-\input{c0_capa.tex}
-
-% Configurações do documento
-\input{cx_configuracoes.tex}
-
-% Início do documento
+% Inicia o documento.
 \begin{document}
 
 % -----
 % Configurações do texto
 % -----
-% Seleciona o idioma do documento
+% Seleciona o idioma do documento.
 \selectlanguage{brazil}
-
-% Retira espaço extra obsoleto entre as frases
+% Define a mesma largura para os espaços entre palavras de uma mesma sentença e entre sentenças diferentes. 
 \frenchspacing{}
 % -----
 
 % =====
 % ELEMENTOS PRÉ-TEXTUAIS
 % =====
-\pretextual{}
-
-% Página de titulo principal (obrigatório)
-\maketitle{}
-
-% Resumos
-\input{c0_resumo.tex}
-
-\begin{center}\smaller{}
-    \textbf{Data de submissão e aprovação}: [INSIRA A DATA AQUI].
-\end{center}
+\input{_modelo/artefatos/pre_textuais/carregamento.tex}
 % =====
+
+% \begin{center}\smaller{}
+%     \textbf{Data de submissão e aprovação}: [INSIRA A DATA AQUI].
+% \end{center}
 
 % =====
 % ELEMENTOS TEXTUAIS
@@ -62,22 +54,17 @@
 
 \input{c2_fundamentacao.tex}
 
-\input{c3_resultados.tex}
+\input{c3_relacionados.tex}
 
-\input{c4_conclusao.tex}
+\input{c4_resultados.tex}
+
+\input{c5_conclusao.tex}
 % =====
 
 % =====
 % ELEMENTOS PÓS-TEXTUAIS
 % =====
-\postextual{}
-
-% --- Referências ---
-\bibliography{cx_bibliografia}
-
-% --- Glossário ---
-\printglossary[type=main,style=altlist,title=Glossário]
-\printglossary[type=acronym,style=altlist,title=Lista de Abreviaturas e Siglas]
+\input{_modelo/artefatos/pos_textuais/carregamento.tex}
 % =====
 
 \end{document}

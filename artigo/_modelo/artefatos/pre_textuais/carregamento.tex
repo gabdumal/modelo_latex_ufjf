@@ -1,0 +1,39 @@
+% =====
+% Artefatos pré-textuais
+% =====
+
+\pretextual{}
+
+% --- Capa ---
+\imprimircapa{}
+
+% --- Resumos ---
+\begin{AmbienteResumo}
+    \ValorDoConteudoDoResumo{}
+\end{AmbienteResumo}
+\ValorDosResumosEmLinguasEstrangeiras{}
+
+% --- Lista de ilustrações ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage{}
+
+% --- Lista de tabelas ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage{}
+
+% --- Lista de abreviaturas e siglas ---
+\printglossary[type=abbreviations,style=altlist,title=\listadesiglasname]
+\cleardoublepage{}
+
+% --- Lista de símbolos ---
+\printglossary[type=symbols,title=\listadesimbolosname]
+\cleardoublepage{}
+
+% --- Sumário ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage{}
+
+% =====

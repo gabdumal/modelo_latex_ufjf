@@ -1,0 +1,52 @@
+% =====
+% Conteúdo dos artefatos
+% =====
+
+% -----
+% Resumo (Obrigatório)
+% -----
+
+% --- Língua vernácula ---
+
+% Palavras chave. Parâmetros: palavra-chave um; palavra-chave dois; palavra-chave três; palavra-chave quatro (opcional); palavra-chave cinco (opcional). Deixe em branco os campos opcionais que não deseja preencher.
+\palavrasChave{palavra um}{palavra dois}{palavra três}{palavra quatro}{}
+
+\insereResumo{%
+    \lipsum[1-3]
+}
+
+% --- Língua estrangeira ---
+
+% Parâmetros: língua (english, french, spanish, italian, german, dutch); palavras-chave; conteúdo.
+
+\insereResumoEmLinguaEstrangeira%
+{english}
+{\formataPalavrasChave{word one}{word two}{word three}{word four}{}}
+{%
+    \lipsum[4-6]
+}
+
+\insereResumoEmLinguaEstrangeira%
+{french}
+{\formataPalavrasChave{word one}{word two}{word three}{word four}{}}
+{%
+    \lipsum[30-32]
+}
+
+% -----
+
+% -----
+% Agradecimentos (Opcional)
+% -----
+
+\insereAgradecimentos{%
+    Agradecemos ao projeto \abnTeX\footnote{%
+        Acesso em:~\url{http://www.abntex.net.br/}.%
+    }, que disponibiliza o modelo \LaTeX\ que foi customizado para a elaboração de trabalhos acadêmicos conforme as normas da ABNT.
+
+    Agradecemos também ao professor Dr.\ Jairo Souza, que desenvolveu o modelo \LaTeX\ para o \gls{dcc} da \gls{ufjf}, o qual baseou partes deste modelo.
+}
+
+% -----
+
+% =====
