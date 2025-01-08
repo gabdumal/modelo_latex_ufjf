@@ -3,9 +3,9 @@
 
 Apresentamos exemplos de uso de símbolos matemáticos e equações.
 
-\section{Dados}
+\subsection{Dados}
 
-\subsection{Índices}
+\subsubsection{Índices}
 
 O problema permite delimitar os seguintes índices:
 
@@ -23,9 +23,9 @@ O problema permite delimitar os seguintes índices:
     tal que \(  \gls{indice:pedidos} \in [1, N] \);
 \end{symbols}
 
-\subsection{Constantes}
+\subsubsection{Constantes}
 
-\subsubsection{Fixas}
+\subsubsubsection{Fixas}
 
 As seguinte constante é fixa e não pode ser alterada durante a execução do modelo.
 
@@ -60,7 +60,7 @@ O valor da constante citada e sua unidade são exibidos no \autoref{qua:constant
     \ComponenteFontePropria{}
 \end{quadro}
 
-\subsubsection{Dados}
+\subsubsubsection{Dados}
 
 \begin{symbols}
     \item[\( \gls{constante:dado:receita:rendimento} \)]
@@ -84,9 +84,9 @@ O valor da constante citada e sua unidade são exibidos no \autoref{qua:constant
     tal que \( \glsentryname{constante:dado:pedido:peso} \in \mathbb{R}^{+} \).
 \end{symbols}
 
-\subsection{Variáveis}
+\subsubsection{Variáveis}
 
-\subsubsection{Auxiliares}
+\subsubsubsection{Auxiliares}
 
 Todas as variáveis auxiliares acrescentam uma coluna à matriz de dados, sendo calculadas a partir de outras variáveis.
 
@@ -106,7 +106,7 @@ As variáveis auxiliares calculadas a partir do problema são:
     tal que \( \glsentryname{variavel:auxiliar:peso-total-em-sobra} \in \mathbb{R} \);
 \end{symbols}
 
-\subsubsection{Principais}
+\subsubsubsection{Principais}
 
 \begin{symbols}
     \item[\( \gls{variavel:principal:quantidade-porcoes-receita-a-produzir} \)]
@@ -114,9 +114,9 @@ As variáveis auxiliares calculadas a partir do problema são:
     tal que \( \glsentryname{variavel:principal:quantidade-porcoes-receita-a-produzir} \in \mathbb{N} \).
 \end{symbols}
 
-\section{Restrições}
+\subsection{Restrições}
 
-\subsection{Auxiliares}
+\subsubsection{Auxiliares}
 
 Todas as variáveis auxiliares incorrem em restrições de igualdade, uma vez que são calculadas segundo colunas da matriz de dados.
 
@@ -145,7 +145,7 @@ Tempo máximo de mistura por expediente:
     \leq \gls{constante:fixa:tempo-turno}.
 \end{align}
 
-\section{Função-Objetivo}
+\subsection{Função-Objetivo}
 
 A função objetivo deste problema é minimizar o peso total em sobra das receitas, conforme mostrado abaixo:
 

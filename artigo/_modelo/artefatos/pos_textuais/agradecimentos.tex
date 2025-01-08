@@ -2,6 +2,11 @@
 % Agradecimentos
 % =====
 
+\renewenvironment{agradecimentos}[1]{%
+    \chapter*[\agradecimentosname]{\agradecimentosname}
+    #1
+}{\PRIVATEclearpageifneeded}
+
 \newif\ifDefinidoConteudoDosAgradecimentos{} \DefinidoConteudoDosAgradecimentosfalse%
 
 \NewDocumentEnvironment{AmbienteAgradecimentos}{}

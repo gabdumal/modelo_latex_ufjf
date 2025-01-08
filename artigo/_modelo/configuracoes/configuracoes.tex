@@ -2,17 +2,20 @@
 % Demais configurações
 % =====
 
-% Compila o índice.
+% --- Compila o índice ---
 \makeindex
 
-% Altera as margens padrões.
+% --- Altera as margens padrões ---
 \setlrmarginsandblock{3cm}{3cm}{*}
 \setulmarginsandblock{3cm}{3cm}{*}
 \checkandfixthelayout{}
 
-% Espaçamento entre linhas e parágrafos.
+% --- Espaçamento entre linhas e parágrafos ---
 \setlength{\parindent}{1.3cm} % Tamanho do parágrafo.
 \setlength{\parskip}{0.2cm}  % Controle do espaçamento entre um parágrafo e outro.
 \SingleSpacing{} % Espaçamento simples.
+\setlength{\afterchapskip}{\baselineskip} % Espaçamento entre o título do capítulo e o texto.
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\vspace{\baselineskip}\oldchapter} % Espaçamento entre o texto de um capítulo e o título do próximo.
 
 % =====

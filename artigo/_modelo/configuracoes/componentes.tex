@@ -11,7 +11,7 @@
 
 \gdef\ComponenteTituloESubtitulo{{%
             \centering%
-            \ABNTEXchapterfont%
+            \large%
             \textbf{\ValorDoTitulo{}}%
             \ifDefinidoSubtitulo%
                 {\textbf{:} \ValorDoSubtitulo{}}%
@@ -21,7 +21,7 @@
 
 \gdef\ComponenteTituloESubtituloEstrangeiros{{%
             \centering%
-            \ABNTEXchapterfont%
+            \large%
             \textit{
                 \textbf{\ValorDoTituloEstrangeiro{}}%
                 \ifDefinidoSubtituloEstrangeiro%
@@ -31,16 +31,16 @@
             \par
         }}
 
-\gdef\ComponenteLocalEData{{%
-            \center%
+\gdef\ComponenteDataEAcesso{{%
+            \flushright%
             \ABNTEXchapterfont%
-            \ValorDaCidade{}%
-            \ifDefinidoEstado%
-                {,~\ValorDaSiglaDoEstado{}}%
+            Submetido em \ValorDaDataDeSubmissao{}.
+            Aprovado em \ValorDaDataDeAprovacao{}.
+            \\
+            \ifDefinidoInformacoesDeAcesso%
+                \ValorDasInformacoesDeAcesso{}
             \fi
             \par
-            \ValorDoAnoDeSubmissao{}
-            \\
         }}
 
 \gdef\ComponenteFontePropria{

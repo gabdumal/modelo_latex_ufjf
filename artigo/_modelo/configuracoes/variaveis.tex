@@ -11,6 +11,9 @@
 \newif\ifDefinidoTituloEstrangeiro{} \DefinidoTituloEstrangeirofalse{}
 \newif\ifDefinidoSubtituloEstrangeiro{} \DefinidoSubtituloEstrangeirofalse{}
 
+% --- Acesso ---
+\newif\ifDefinidoInformacoesDeAcesso{} \DefinidoInformacoesDeAcessofalse{}
+
 % -----
 
 % -----
@@ -39,23 +42,26 @@
 
 \newcommand{\theforeigntitle}{\ValorDoTituloEstrangeiroCompleto}
 
-% --- Trabalho ---
-
+% --- Datas ---
 \def\DefineDataDeSubmissao#1#2#3{%
     \gdef\ValorDoDiaDeSubmissao{#1}
     \gdef\ValorDoMesDeSubmissao{#2}
     \gdef\ValorDoAnoDeSubmissao{#3}
 }
-\gdef\ValorDaDataDeSubmissao{\ValorDoMesDeSubmissao{}, \ValorDoAnoDeSubmissao{}}
-\data{\ValorDaDataDeSubmissao}
+\gdef\ValorDaDataDeSubmissao{\ValorDoDiaDeSubmissao{} de \ValorDoMesDeSubmissao{} de \ValorDoAnoDeSubmissao{}}
 
 \def\DefineDataDeAprovacao#1#2#3{%
     \gdef\ValorDoDiaDeAprovacao{#1}
     \gdef\ValorDoMesDeAprovacao{#2}
     \gdef\ValorDoAnoDeAprovacao{#3}
 }
-\gdef\ValorDaDataDeAprovacao{\ValorDoMesDeAprovacao{}, \ValorDoAnoDeAprovacao{}}
-\data{\ValorDaDataDeAprovacao}
+\gdef\ValorDaDataDeAprovacao{\ValorDoDiaDeAprovacao{} de \ValorDoMesDeAprovacao{} de \ValorDoAnoDeAprovacao{}}
+
+% --- Acesso ---
+\def\DefineInformacoesDeAcesso#1{%
+    \gdef\ValorDasInformacoesDeAcesso{#1}%
+    \DefinidoInformacoesDeAcessotrue%
+}
 
 % --- Pessoas ---
 
