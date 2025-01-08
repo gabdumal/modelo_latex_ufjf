@@ -42,11 +42,13 @@
 
 \def\curso#1{\gdef\ValorDoCurso{#1}}
 
-\def\dia#1{\gdef\ValorDoDia{#1}}
-\def\mes#1{\gdef\ValorDoMes{#1}}
-\def\ano#1{\gdef\ValorDoAno{#1}}
-\gdef\ValorDaData{\ValorDoMes{}, \ValorDoAno{}}
-\data{\ValorDaData}
+\def\dataDeAprovacao#1#2#3{%
+    \gdef\ValorDoDiaDeAprovacao{#1}
+    \gdef\ValorDoMesDeAprovacao{#2}
+    \gdef\ValorDoAnoDeAprovacao{#3}
+}
+\gdef\ValorDaDataDeAprovacao{\ValorDoMesDeAprovacao{}, \ValorDoAnoDeAprovacao{}}
+\data{\ValorDaDataDeAprovacao}
 
 \def\cidade#1{\gdef\ValorDaCidade{#1}}
 \def\estado#1#2{%
@@ -311,7 +313,7 @@
 
     \ValorDoCurso{}
 
-    \ValorDaData{}
+    \ValorDaDataDeAprovacao{}
 
     \ValorDoLocal{}
 

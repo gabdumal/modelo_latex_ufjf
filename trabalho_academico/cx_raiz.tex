@@ -1,16 +1,16 @@
 \documentclass[
     % --- Opções da classe memoir ---
-	openright,			% Define que capítulos começam em página ímpar (insere página vazia caso preciso).
-    12pt,				% Tamanho da fonte.
-    %oneside,			% Para impressão apenas no anverso. Oposto a twoside.
-    twoside,             % Para impressão em verso e anverso. Caso necessário, páginas do verso ficarão em branco. Oposto a oneside.
-    a4paper,			% tamanho do papel.
+	openright,      % Define que capítulos começam em página ímpar (insere página vazia caso preciso).
+    12pt,           % Tamanho da fonte.
+    %oneside,       % Para impressão apenas no anverso. Oposto a twoside.
+    twoside,        % Para impressão em verso e anverso. Caso necessário, páginas do verso ficarão em branco. Oposto a oneside.
+    a4paper,        % Tamanho do papel.
     % -----
     % --- Opções da classe abntex2 ---
-    %chapter=TITLE,		% Títulos de capítulos são convertidos para letras maiúsculas.
-    %section=TITLE,		% Títulos de seções são convertidos para letras maiúsculas.
-    %subsection=TITLE,	% Títulos de subseções são convertidos para letras maiúsculas.
-    %subsubsection=TITLE, % Títulos de subsubseções são convertidos para letras maiúsculas.
+    %chapter=TITLE,         % Títulos de capítulos são convertidos para letras maiúsculas.
+    %section=TITLE,         % Títulos de seções são convertidos para letras maiúsculas.
+    %subsection=TITLE,      % Títulos de subseções são convertidos para letras maiúsculas.
+    %subsubsection=TITLE,   % Títulos de subsubseções são convertidos para letras maiúsculas.
     % -----
     % --- Opções do pacote babel ---
     english,			% Define idioma adicional para hifenização
@@ -20,7 +20,7 @@
 ]{abntex2}
 
 % --- Modelo ---
-\input{.modelo/modelo.tex}
+\input{_modelo/modelo.tex}
 
 % Inicia o documento.
 \begin{document}
@@ -37,8 +37,7 @@
 % =====
 % ELEMENTOS PRÉ-TEXTUAIS
 % =====
-\input{.modelo/artefatos/pre_textuais/carregamento.tex}
-
+\input{_modelo/artefatos/pre_textuais/carregamento.tex}
 % =====
 
 % =====
@@ -60,7 +59,7 @@
 % =====
 % ELEMENTOS PÓS-TEXTUAIS
 % =====
-\input{.modelo/artefatos/pos_textuais/carregamento.tex}
+\input{_modelo/artefatos/pos_textuais/carregamento.tex}
 % =====
 
 \end{document}
