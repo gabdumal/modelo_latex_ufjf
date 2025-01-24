@@ -8,7 +8,9 @@
 \bibliography{cx_bibliografia}
 
 % --- Glossário ---
-\printglossary[title=Glossário]
+\ifDefinidoInserirGlossario%
+    \printglossary[title=Glossário]
+\fi
 
 % --- Apêndices ---
 \input{apendices/apendices.tex}

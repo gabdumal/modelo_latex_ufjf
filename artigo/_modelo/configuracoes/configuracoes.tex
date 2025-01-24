@@ -15,7 +15,7 @@
 \setlength{\parskip}{0.2cm}  % Controle do espaçamento entre um parágrafo e outro.
 \SingleSpacing{} % Espaçamento simples.
 \setlength{\afterchapskip}{\baselineskip} % Espaçamento entre o título do capítulo e o texto.
-\let\oldchapter\chapter
+\let\oldchapter\chapter%
 \renewcommand{\chapter}{\vspace{\baselineskip}\oldchapter} % Espaçamento entre o texto de um capítulo e o título do próximo.
 
 % =====

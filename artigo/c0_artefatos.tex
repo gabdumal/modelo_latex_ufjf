@@ -19,6 +19,7 @@
 
 % Parâmetros: língua (english, french, spanish, italian, german, dutch); palavras-chave; conteúdo.
 
+% Comente para remover o resumo em língua estrangeira.
 \insereResumoEmLinguaEstrangeira%
 {english}
 {\formataPalavrasChave{word one}{word two}{word three}{word four}{}}
@@ -39,13 +40,23 @@
 % Agradecimentos (Opcional)
 % -----
 
+% Comente para remover os agradecimentos.
 \insereAgradecimentos{%
     Agradecemos ao projeto \abnTeX\footnote{%
         Acesso em:~\url{http://www.abntex.net.br/}.%
-    }, que disponibiliza o modelo \LaTeX\ que foi customizado para a elaboração de trabalhos acadêmicos conforme as normas da ABNT.
+    }, que disponibiliza o modelo \LaTeX\ que foi customizado para a elaboração de trabalhos acadêmicos conforme as normas da ABNT.\@
 
     Agradecemos também ao professor Dr.\ Jairo Souza, que desenvolveu o modelo \LaTeX\ para o \gls{dcc} da \gls{ufjf}, o qual baseou partes deste modelo.
 }
+
+% -----
+
+% -----
+% Glossário (Opcional)
+% -----
+
+% Comente para remover o glossário.
+\insereGlossario{}
 
 % -----
 

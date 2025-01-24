@@ -20,15 +20,17 @@
         }}
 
 \gdef\ComponenteTituloESubtituloEstrangeiros{{%
-            \centering%
-            \large%
-            \textit{
-                \textbf{\ValorDoTituloEstrangeiro{}}%
-                \ifDefinidoSubtituloEstrangeiro%
-                    {\textbf{:} \ValorDoSubtituloEstrangeiro{}}%
-                \fi
-            }%
-            \par
+            \ifDefinidoTituloEstrangeiro%
+                \centering%
+                \large%
+                \textit{
+                    \textbf{\ValorDoTituloEstrangeiro{}}%
+                    \ifDefinidoSubtituloEstrangeiro%
+                        {\textbf{:} \ValorDoSubtituloEstrangeiro{}}%
+                    \fi
+                }%
+                \par
+            \fi
         }}
 
 \gdef\ComponenteDataEAcesso{{%
@@ -44,7 +46,7 @@
         }}
 
 \gdef\ComponenteFontePropria{
-    \fonte{Elaborado pelos autores (\ValorDoAnoDeSubmissao{}).}
+    Elaborado pelos autores (\ValorDoAnoDeSubmissao{}).
 }
 
 % =====
