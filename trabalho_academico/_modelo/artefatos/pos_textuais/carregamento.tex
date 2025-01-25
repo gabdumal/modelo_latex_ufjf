@@ -8,8 +8,10 @@
 \bibliography{cx_bibliografia}
 
 % --- Glossário ---
-\printglossary[type=main,style=altlist,title=Glossário]
-\addcontentsline{toc}{chapter}{\glossaryname}
+\ifDefinidoInserirGlossario%
+    \printglossary[type=main,style=altlist,title=Glossário]
+    \addcontentsline{toc}{chapter}{\glossaryname}
+\fi
 
 % --- Apêndices ---
 \input{apendices/apendices.tex}
