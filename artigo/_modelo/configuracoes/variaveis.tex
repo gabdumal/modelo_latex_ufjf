@@ -65,7 +65,29 @@
 
 % --- Pessoas ---
 
-\def\DefineAutor#1#2{\gdef\ValorDoUltimoSobrenomeDoAutor{#1} \gdef\ValorDoRestanteDoNomeDoAutor{#2} \gdef\ValorDoNomeCompletoDoAutor{#2 #1} \author{#2 #1}}
+\def\DefineAutor#1#2#3{
+    \appenddata{autores}{{{#1}, {#2}, {#3}}}
+}
+
+\def\ValorDoUltimoSobrenomeDoAutor#1{%
+    \edef\temp{\noexpand\firstofthree\getdata[#1]{autores}\relax}%
+    \temp%
+}
+
+\def\ValorDoRestanteDoNomeDoAutor#1{%
+    \edef\temp{\noexpand\secondofthree\getdata[#1]{autores}\relax}%
+    \temp%
+}
+
+\def\ValorDoNomeCompletoDoAutor#1{%
+    \ValorDoRestanteDoNomeDoAutor{#1} %
+    \ValorDoUltimoSobrenomeDoAutor{#1}%
+}
+
+\def\ValorDaInformacaoDoNomeDoAutor#1{%
+    \edef\temp{\noexpand\thirdofthree\getdata[#1]{autores}\relax}%
+    \temp%
+}
 
 % --- Palavras-chave ---
 \def\DefinePalavrasChave#1#2#3#4#5
@@ -140,9 +162,9 @@
 
     Data de aprovação: \ValorDaDataDeAprovacao{}
 
-    \ValorDoUltimoSobrenomeDoAutor{} ---
-    \ValorDoRestanteDoNomeDoAutor{} ---
-    \ValorDoNomeCompletoDoAutor{}
+    \ValorDoUltimoSobrenomeDoAutor{1} ---
+    \ValorDoRestanteDoNomeDoAutor{1} ---
+    \ValorDoNomeCompletoDoAutor{1}
 
     [\ValorDaPalavraChaveUm]
     [\ValorDaPalavraChaveDois]

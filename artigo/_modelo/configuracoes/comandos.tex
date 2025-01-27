@@ -8,4 +8,131 @@
 % --- Componentes ---
 \input{_modelo/configuracoes/componentes.tex}
 
+% --- Vetores ---
+
+\def\firstofthree#1, #2, #3\relax{#1}
+
+\def\secondofthree#1, #2, #3\relax{#2}
+
+\def\thirdofthree#1, #2, #3\relax{#3}
+
+\ExplSyntaxOn%
+\NewDocumentCommand{\storedata}{mm}
+{%
+    \bcp_store_data:nn {#1} {#2}
+}
+
+\NewDocumentCommand{\appenddata}{mm}
+{%
+    \bcp_append_data:nn {#1} {#2}
+}
+
+\NewExpandableDocumentCommand{\getdata}{O{1}m}
+{%
+    \bcp_get_data:nn {#1} {#2}
+}
+
+\NewExpandableDocumentCommand{\getlength}{m}
+{%
+    \seq_count:c {l_bcp_data_#1_seq}
+}
+
+\NewDocumentCommand{\removelast}{om}
+{%
+    \IfNoValueTF{#1}
+    {%
+        \bcp_remove_last:Nn \l_tmpa_tl {#2}
+    }
+    {%
+        \bcp_remove_last:Nn#1{#2}
+    }
+}
+
+\NewDocumentCommand{\processdata}{O{,~}mo}
+{% #1 = separator, #2 = list name, #3 = template
+    \IfNoValueTF{#3}
+    {% no template, just use the list with the optional separator,
+        % default comma-space
+        \seq_use:cn {l_bcp_data_#2_seq} {#1}
+    }
+    {% template given
+        \seq_map_inline:cn {l_bcp_data_#2_seq} {#3}
+    }
+}
+
+\cs_new_protected:Npn \bcp_store_data:nn#1#2
+{%
+    % create the sequence if it doesn't exist or clear it if it exists
+    \seq_clear_new:c {l_bcp_data_#1_seq}
+    % append the items
+    \__bcp_append_data:nn {#1} {#2}
+}
+
+\cs_new_protected:Npn \bcp_append_data:nn#1#2
+{%
+    % create the sequence if it doesn't exist, do nothing if it exists
+    \seq_if_exist:cF {l_bcp_data_#1_seq}
+    {\seq_new:c {l_bcp_data_#1_seq}}
+    % append the items
+    \__bcp_append_data:nn {#1} {#2}
+}
+
+\cs_new_protected:Npn \__bcp_append_data:nn#1#2
+{%
+    % append items one at a time
+    \tl_map_inline:nn {#2}
+    {%
+        \seq_put_right:cn {l_bcp_data_#1_seq} {##1}
+    }
+}
+
+\cs_new:Npn \bcp_get_data:nn#1#2
+{%
+    % retrieve the requested item
+    \seq_item:cn {l_bcp_data_#2_seq} {#1}
+}
+
+\cs_new_protected:Nn \bcp_remove_last:Nn
+{%
+    \seq_pop_right:cN {l_bcp_data_#2_seq} #1
+}
+\ExplSyntaxOff%
+
+\ExplSyntaxOn%
+\NewDocumentCommand{\ImprimeAutores}{}
+{%
+    \int_zero_new:N \l_tmpa_int
+    \int_set:Nn \l_tmpa_int {\seq_count:N \l_bcp_data_autores_seq}
+    \seq_map_inline:Nn \l_bcp_data_autores_seq
+    {%
+        \seq_set_split:Nnn \l_tmpa_seq {, } {##1}
+        \seq_item:Nn \l_tmpa_seq {2}\space%
+        \seq_item:Nn \l_tmpa_seq {1}%
+        \int_decr:N \l_tmpa_int
+        \int_compare:nNnTF {\l_tmpa_int} > {0}
+            {,\space}
+            {}
+    }
+}
+\ExplSyntaxOff%
+
+\ExplSyntaxOn%
+\NewDocumentCommand{\ImprimeAutoresComInformacao}{}
+{%
+    \int_zero_new:N \l_tmpa_int
+    \int_set:Nn \l_tmpa_int {\seq_count:N \l_bcp_data_autores_seq}
+    \seq_map_inline:Nn \l_bcp_data_autores_seq
+    {%
+        \seq_set_split:Nnn \l_tmpa_seq {, } {##1}
+        \seq_item:Nn \l_tmpa_seq {2}\space%
+        \seq_item:Nn \l_tmpa_seq {1}%
+        \thanks{\seq_item:Nn \l_tmpa_seq {3}}%
+        \int_decr:N \l_tmpa_int
+        \int_compare:nNnTF {\l_tmpa_int} > {0}
+            {,\space}
+            {}
+    }
+}
+\ExplSyntaxOff%
+
 % =====

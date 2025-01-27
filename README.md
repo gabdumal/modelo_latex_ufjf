@@ -4,7 +4,7 @@ Este projeto apresenta um modelo no ecossistema **LaTeX** para elaboração de t
 
 ## Licença
 
-`Modelos LaTeX UFJF v2.0 GM`\
+`Modelos LaTeX UFJF v3.0 GM`\
 `Copyright 2024 Gabriel Malosto (ICE-UFJF)`
 
 Este projeto é distribuído pela licença LaTeX Project Public License versão 1.3.\

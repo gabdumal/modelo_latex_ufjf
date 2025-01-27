@@ -28,7 +28,7 @@
   ],
 
   "files.exclude": {
-    // "**/.build/": true
+    "**/.build/": true
   },
 
   "latex-workshop.bibtex-fields.sort.enabled": true,
