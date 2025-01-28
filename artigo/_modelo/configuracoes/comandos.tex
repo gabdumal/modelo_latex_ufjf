@@ -126,7 +126,7 @@
         \seq_set_split:Nnn \l_tmpa_seq {, } {##1}
         \seq_item:Nn \l_tmpa_seq {2}\space%
         \seq_item:Nn \l_tmpa_seq {1}%
-        \thanks{\seq_item:Nn \l_tmpa_seq {3}}%
+        \footnote{\seq_item:Nn \l_tmpa_seq {3}}%
         \int_decr:N \l_tmpa_int
         \int_compare:nNnTF {\l_tmpa_int} > {0}
             {,\space}
