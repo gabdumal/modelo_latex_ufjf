@@ -3,9 +3,66 @@
 
 \todo{Afazer}
 
-Este trabalho foi realizado no \glsxtrfull{dcc}, da unidade acadêmica \gls{ice}, da \gls{ufjf}.
+Este trabalho foi realizado no \gls{dcc}, da unidade acadêmica \gls{ice}, da \gls{ufjf}.
 Seu objetivo é tratar sobre \glspl{ga}, como introduzidos pela disciplina \gls{disciplina}.
 Abordamos os temas de \gls{fitness}, \gls{crossover}, \gls{conjunto_vazio}, \glspl{fn}.
+
+A \autoref{tab:classes_de_equivalencia_por_particionamento} apresenta as classes de equivalência obtidas por meio de particionamento das condições de entrada.
+
+\begin{table}[htb]
+    \IBGEtab{%
+        \caption{Classes de equivalência obtidas por meio de particionamento das condições de entrada}%
+        \label{tab:classes_de_equivalencia_por_particionamento}
+    }{%
+        \begin{tabular}{p{4.25cm}p{4.25cm}p{4.25cm}}
+            \toprule
+            \textbf{Condição de entrada}
+             &
+            \textbf{Classes de equivalência válidas}
+             &
+            \textbf{Classes de equivalência inválidas}
+            \\
+
+            \midrule
+
+            \multirow{2}{4.25cm}{Estado atual da célula (\textcolor{Blue}{E})}
+             &
+            O estado atual da célula é vivo (\textcolor{Green}{V1})
+             &
+            \
+            \\
+
+            \
+             &
+            O estado atual da célula é morto (\textcolor{Green}{V2})
+             &
+            \
+            \\
+
+            \midrule
+
+            \multirow{2}{4.25cm}{Quantidade de vizinhos vivos (\textcolor{Blue}{V})}
+             &
+            \multirow{2}{4.25cm}{Está no intervalo \( 0 \leq \mathcolor{Blue}{V} \leq 8 \) (\textcolor{Green}{V3})}
+             &
+            Abaixo do limite inferior: \( \mathcolor{Blue}{V} < 0 \) (\textcolor{Red}{I1})
+            \\
+
+            \
+             &
+            \
+             &
+            Acima do limite superior: \( \mathcolor{Blue}{V} > 8 \) (\textcolor{Red}{I2})
+            \\
+
+            \bottomrule
+        \end{tabular}%
+    }{%
+        \fonte{\ComponenteFontePropria}%
+        \nota{Este é um exemplo de nota.}%
+        \nota[Anotações]{Uma anotação adicional, seguida de várias outras.}%
+    }
+\end{table}
 
 \section{Teste das variáveis}%
 \label{sec:teste_variaveis}
