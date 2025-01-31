@@ -70,11 +70,11 @@
 
 % --- Lista de abreviaturas e siglas ---
 \printglossary[type=abbreviations,style=altlist,title=\listadesiglasname]
-\cleardoublepage{}
+\glsxtrifemptyglossary{abbreviations}{}{\cleardoublepage}
 
 % --- Lista de símbolos ---
 \printglossary[type=symbols,title=\listadesimbolosname]
-\cleardoublepage{}
+\glsxtrifemptyglossary{symbols}{}{\cleardoublepage}
 
 % --- Sumário ---
 \pdfbookmark[0]{\contentsname}{toc}
