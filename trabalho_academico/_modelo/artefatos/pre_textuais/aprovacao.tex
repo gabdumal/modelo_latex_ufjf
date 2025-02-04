@@ -50,14 +50,16 @@
 
                     \assinatura*{%
                         \ValorDoNomeCompletoDoOrientadorComTitulo{}
-                        --- Orientador\\
+                        --- Orientador\ifGeneroDoOrientadorFeminino{a}\fi%
+                        \\
                         \ValorDoNomeDaInstituicaoDoOrientador{}\\
                     }
 
                     \ifDefinidoCoorientador%
                         \assinatura*{%
                             \ValorDoNomeCompletoDoCoorientadorComTitulo{}
-                            --- Coorientador\\
+                            --- Coorientador\ifGeneroDoCoorientadorFeminino{a}\fi%
+                            \\
                             \ValorDoNomeDaInstituicaoDoCoorientador{}\\
                         }
                     \fi
